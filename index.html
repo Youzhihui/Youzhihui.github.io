@@ -192,7 +192,48 @@
 <p><code>print()</code>函数</p>
 </blockquote>
 </blockquote>
-<p><a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a></p>
+<hr>
+<pre><code>struct TreeNode {
+    int val;
+    struct TreeNode *left;
+    struct TreeNode *right;
+    TreeNode(int x) :
+            val(x), left(NULL), right(NULL) {
+    }
+};
+class Solution {
+public:
+    TreeNode* Convert(TreeNode* pRootOfTree)
+    {
+        非递归中序遍历
+        if(pRootOfTree==NULL) return NULL;
+        stack&lt;TreeNode*&gt; stackTree;
+        TreeNode* p = pRootOfTree;
+        TreeNode* pre = NULL;
+        bool isFirst = true;
+        while(p!=NULL||!stackTree.empty()){//p!==NULL只是当栈为空是让节点进栈
+            while(p!=NULL){
+                stackTree.push(p);
+                p = p-&gt;left;
+            }
+            p = stackTree.top();
+            stackTree.pop();//删除栈顶元素，但不返回栈顶元素    
+                            //error: assigning to &apos;TreeNode *&apos; from incompatible type &apos;void&apos;
+            if(isFirst){
+                pRootOfTree = p;
+                pre = pRootOfTree;
+                isFirst = false;
+            }else{
+                pre-&gt;right = p;
+                p-&gt;left = pre;
+                pre = p;
+            }
+            p = p-&gt;right;
+        }
+        return pRootOfTree;
+    }
+};</code></pre><hr>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a></p>
 
       
 
