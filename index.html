@@ -152,6 +152,215 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-2019安大综合面试" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/29/2019%E5%AE%89%E5%A4%A7%E7%BB%BC%E5%90%88%E9%9D%A2%E8%AF%95/">2019安大综合面试</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/29/2019%E5%AE%89%E5%A4%A7%E7%BB%BC%E5%90%88%E9%9D%A2%E8%AF%95/" class="archive-article-date">
+  	<time datetime="2020-04-29T10:14:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<h5 id="1-指针数组和数组指针的区别"><a href="#1-指针数组和数组指针的区别" class="headerlink" title="1.指针数组和数组指针的区别"></a>1.指针数组和数组指针的区别</h5><p>指针数组是一个数组，数组中的元素是指针类型；数组指针是一个二级指针，即指针的指针，指向数组的首地址。</p>
+</blockquote>
+<blockquote>
+<h5 id="2-指令和伪指的区别"><a href="#2-指令和伪指的区别" class="headerlink" title="2.指令和伪指的区别"></a>2.指令和伪指的区别</h5><p>指令是计算机系统中命令计算机做某种操作的二进制串；伪指是用人们易于理解的语言来解释做的操作，是不能执行的。</p>
+</blockquote>
+<blockquote>
+<h5 id="3三次握手和四次握手是什么，知道SYN洪泛攻击吗"><a href="#3三次握手和四次握手是什么，知道SYN洪泛攻击吗" class="headerlink" title="3三次握手和四次握手是什么，知道SYN洪泛攻击吗"></a>3三次握手和四次握手是什么，知道SYN洪泛攻击吗</h5><ul>
+<li>所谓三次握手是TCP连接建立的过程，首先客户端发送请求建立连接的报文段，该报文段没有携带数据，之后服务器收到客户端发来的链接请求报文段后为该链接分配缓存和变量，并返回一个收受链接的确认报文段给客户端，客户端收到回复后也为该链接分配缓存和变量，同时向服务器端返回确认的确认，此时TCP链接建立成功，之后可以发送数据，这就是三次握手。   </li>
+<li>而四次握手则是TCP链接释放的过程，首次是想释放链接的一方发送释放链接的报文段（这里假设客户端先请求链接释放），停止发送数据，主动关闭TCP链接，服务器段收到客户端发来的链接释放报文段后发送一个确认报文段，此时客户到服务器这个方向的连接就释放了。之后服务器端发完数据，就发出连接释放报文段主动关闭TCP连接，客户端回送一个确认报文段，再等到时间等待计时器设置的时间后，连接彻底关闭。  </li>
+<li>SYN洪泛攻击发生在传输层，它是利用TCP连接建立时的三次握手。攻击者发送TCP SYN，SYN就是TCP三次握手中的第一个数据包，即请求连接建立的数据包，而当服务器返回确认后，攻击者对服务器返回的确认不理睬那么这个TCP连接就处于挂起状态，也就是所谓的半连接状态，服务器收不到攻击者的确认的话就会一直重复发送确认包给攻击者，这样就浪费服务器资源。当攻击者对服务器发送大量的这种TCP连接，由于无法完成三次握手，服务器一直消耗内存和CPU，最后可能死机，这就是SYN洪泛攻击。</li>
+</ul>
+</blockquote>
+<blockquote>
+<h5 id="4-C语言和C-语言中关于赋值的操作有什么区别"><a href="#4-C语言和C-语言中关于赋值的操作有什么区别" class="headerlink" title="4.C语言和C++语言中关于赋值的操作有什么区别"></a>4.C语言和C++语言中关于赋值的操作有什么区别</h5><p>C++是兼容C语言的，所以C语言的赋值方式C++应该都有，而且C++支持表达式赋值【例如：（a=b）=10 或 （a!=b?a:b）=10】，C语言表达式赋值编译报错。</p>
+</blockquote>
+<blockquote>
+<h5 id="5-DNS到IP地址的步骤"><a href="#5-DNS到IP地址的步骤" class="headerlink" title="5.DNS到IP地址的步骤"></a>5.DNS到IP地址的步骤</h5><p>DNS是域名服务协议，即域名到IP地址的映射，它有两种方式，分别是递归方式和迭代方式。递归方式是在本地主机输入域名是，先在本网络号的域名解析服务器上寻找是否有改域名对应的IP地址，如果没有则去请求root根域名服务器中查找顶级域名，之后再再一级域名服务器中寻找，知道找到对应域名对应的IP地址，再保存到本网络的域名服务器上；迭代方式则是先再根域名服务器中找一级域名，找到后告知本地域名服务器，本低域名服务器再发给一级域名寻找，一直迭代到找到为止，保存到本地域名服务器。</p>
+</blockquote>
+<blockquote>
+<h5 id="6-离散数学中的欧拉图和哈密顿图是什么，他们有什么作用"><a href="#6-离散数学中的欧拉图和哈密顿图是什么，他们有什么作用" class="headerlink" title="6.离散数学中的欧拉图和哈密顿图是什么，他们有什么作用"></a>6.离散数学中的欧拉图和哈密顿图是什么，他们有什么作用</h5><p>欧拉图的定义是：经过图中所有的边的简单回路（简单就是每条边最多只能遍历一次）；哈密顿图的定义是：经过图中所有顶点的简单回路。欧拉图可以解决各种实际问题。<br>欧拉图有好的算法来判别，比如”避桥法“和”破圈发“，而哈密顿图没有好的算法。</p>
+</blockquote>
+<blockquote>
+<h5 id="7-计算机网络分为哪七层，各层有什么作用"><a href="#7-计算机网络分为哪七层，各层有什么作用" class="headerlink" title="7.计算机网络分为哪七层，各层有什么作用"></a>7.计算机网络分为哪七层，各层有什么作用</h5><p>计算机网络体系结构从上至下分为应用层、表示层、会话层、网络层、数据链路层和物理层。</p>
+</blockquote>
+<blockquote>
+<h5 id="8-什么是封锁"><a href="#8-什么是封锁" class="headerlink" title="8.什么是封锁"></a>8.什么是封锁</h5><p>封锁就是某个事务对数据库中的数据对象操作之前，先向系统发出请求，对其加锁。加锁后事务对数据对象有了一定的控制，在这个事务释放它的锁之前，其他事务不能更新次数据库。</p>
+</blockquote>
+<blockquote>
+<h5 id="9-什么事cookie和session-他们之间的区别有哪些"><a href="#9-什么事cookie和session-他们之间的区别有哪些" class="headerlink" title="9.什么事cookie和session,他们之间的区别有哪些"></a>9.什么事cookie和session,他们之间的区别有哪些</h5><ul>
+<li>cookie和session都是会话技术,是记录客户状态的机制。其中cookie是保存在浏览器一小段的文本信息，客户端请求服务器，如果服务器需要记录该用户状态，就使用response向浏览器发一个cookie，客户端就会把cookie保存起来，cookie是客户端浏览器保存客户的信息，方便下次登录</li>
+<li>session是保存在服务器上的，客户端浏览器访问故服务器时服务器把客户端信息以某种形式记录在服务器上，这就是session。</li>
+<li>cookie和session的区别：<blockquote>
+<p>1.数据存储位置不同，cookie是在浏览器端，session是在服务器端<br>2.安全性：cookie不是很安全，别人可以进行cookie欺骗，session更安全<br>3.数据大小不同</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<h5 id="10-密码学当中的对称加密和非对称加密"><a href="#10-密码学当中的对称加密和非对称加密" class="headerlink" title="10.密码学当中的对称加密和非对称加密"></a>10.密码学当中的对称加密和非对称加密</h5><p>对称加密中加密和解密的密钥是相同的，效率搞，算法加单，但管理复杂，不太安全；非对称加密中加密和解密的密钥是不同的，算法更加复杂，但安全性跟高。</p>
+</blockquote>
+<blockquote>
+<h5 id="11-说一说图的最短路径算法，并简述它们的区别"><a href="#11-说一说图的最短路径算法，并简述它们的区别" class="headerlink" title="11.说一说图的最短路径算法，并简述它们的区别"></a>11.说一说图的最短路径算法，并简述它们的区别</h5><p>图的最短路径的算法经典的有迪杰特斯拉算法和弗洛伊德算法。（具体细节请自己查阅<a href="https://blog.csdn.net/weixin_43271086/article/details/89854660" target="_blank" rel="noopener">https://blog.csdn.net/weixin_43271086/article/details/89854660</a><br>其中迪杰斯特拉算法不能处理负权边，而弗洛伊德算法可以处理负权边。</p>
+</blockquote>
+<blockquote>
+<h5 id="12-什么是全局变量，什么是局部变量"><a href="#12-什么是全局变量，什么是局部变量" class="headerlink" title="12.什么是全局变量，什么是局部变量"></a>12.什么是全局变量，什么是局部变量</h5></blockquote>
+<blockquote>
+<h5 id="13-什么是递归，说说其优缺点"><a href="#13-什么是递归，说说其优缺点" class="headerlink" title="13.什么是递归，说说其优缺点"></a>13.什么是递归，说说其优缺点</h5><p>递归是一种算法，也可以说是一种思想。当编程时遇到的问题分解成一步步相同的解题步骤时，可以考虑用递归，就是函数自己调用自己。<br>优点：简单方便，当遇到复杂的问题可以用递归的话就只需几行代码就能搞定。<br>缺点：递归的底层用到了栈，需要消耗大量的栈空间，可能会发生内存泄漏，并且递归的效率低下。</p>
+</blockquote>
+<blockquote>
+<h5 id="14-C-中函数参数传递时值传递、指针传递以及引用的区别"><a href="#14-C-中函数参数传递时值传递、指针传递以及引用的区别" class="headerlink" title="14.C++中函数参数传递时值传递、指针传递以及引用的区别"></a>14.C++中函数参数传递时值传递、指针传递以及引用的区别</h5><p>值传递时是在栈空间重新开辟了一块空间来存放参数的值，当函数执行完后相应栈空间的内存也会释放，不会改变实参的值；而如果是传递地址的话，在函数中如果是指针赋值操作的话和之前的值传递一样，只不过开辟的栈空间存地址，但如果是指针所指向的内容进行操作时则是修改的内容会反应到实参上面。引用则是给实参取的别名，操作引用变量时实际上就是在对实参进行操作。</p>
+</blockquote>
+<blockquote>
+<h5 id="15-图的最小生成树如何生成，算法是什么"><a href="#15-图的最小生成树如何生成，算法是什么" class="headerlink" title="15.图的最小生成树如何生成，算法是什么"></a>15.图的最小生成树如何生成，算法是什么</h5><p>图的最小生成树算法有普利姆算法和克鲁斯卡尔算法。普利姆算法是贪心算法，先找到局部最小，再更新全部，接着往下生成；克鲁斯卡尔算则是先把所有的边按从小到大的顺序排序，而所有的单个顶点看成只有一个顶点的树，然后按递增的顺序把边把树连接起来，如果是连接后出现了回路则把表丢弃，继续接下来的边，直到变成一棵树。</p>
+</blockquote>
+<blockquote>
+<h5 id="16-TCP四元组标识是什么"><a href="#16-TCP四元组标识是什么" class="headerlink" title="16.TCP四元组标识是什么"></a>16.TCP四元组标识是什么</h5><p>TCP四元组标识有源IP地址、目的IP地址、源端口号和目的端口号。</p>
+</blockquote>
+<blockquote>
+<h5 id="17-说说C-中的虚函数"><a href="#17-说说C-中的虚函数" class="headerlink" title="17.说说C++中的虚函数"></a>17.说说C++中的虚函数</h5><p>C++中虚函数是实现多态特征的一种方式，再基类中声明虚函数，它再基类中没有实现，但要求基类的派生类必须实现。</p>
+</blockquote>
+<blockquote>
+<h5 id="18-什么是广义表，广义表和线性表的区别"><a href="#18-什么是广义表，广义表和线性表的区别" class="headerlink" title="18.什么是广义表，广义表和线性表的区别"></a>18.什么是广义表，广义表和线性表的区别</h5><p>广义表是一种特殊的线性表，是线性表的扩展，是用递归来定义的。线性表要求元素必须是同一种数据类型，而广义表中没有这个要求，它的元素可以是别的线性表或广义表。</p>
+</blockquote>
+<blockquote>
+<h5 id="19-拆半查找查找的概念及其时间复杂度"><a href="#19-拆半查找查找的概念及其时间复杂度" class="headerlink" title="19.拆半查找查找的概念及其时间复杂度"></a>19.拆半查找查找的概念及其时间复杂度</h5><p>能使用拆半查找一定是在有序的顺序表中，每次和顺序表中的中间元素比较，因为是有序的，如果和中间元素值相等则查找结束，如果不能的话可以继续与刚才比较后的元素的前半段序列或后半段序列的中间元素比较知道查找结束。时间复杂度是n*(long2n)。</p>
+</blockquote>
+<blockquote>
+<h5 id="20-数据完整性约束的参照完整性，何时外码可以为空"><a href="#20-数据完整性约束的参照完整性，何时外码可以为空" class="headerlink" title="20.数据完整性约束的参照完整性，何时外码可以为空"></a>20.数据完整性约束的参照完整性，何时外码可以为空</h5><p>参照完整性是外码必须参照主码。当外码在本表不是主属性是可以为空。</p>
+</blockquote>
+<blockquote>
+<h5 id="21-如何进行SQL优化"><a href="#21-如何进行SQL优化" class="headerlink" title="21.如何进行SQL优化"></a>21.如何进行SQL优化</h5></blockquote>
+<blockquote>
+<h5 id="22-数据转存的定义以及数据转存的分类"><a href="#22-数据转存的定义以及数据转存的分类" class="headerlink" title="22.数据转存的定义以及数据转存的分类"></a>22.数据转存的定义以及数据转存的分类</h5></blockquote>
+<blockquote>
+<h5 id="23-什么是正规子群"><a href="#23-什么是正规子群" class="headerlink" title="23.什么是正规子群"></a>23.什么是正规子群</h5></blockquote>
+<blockquote>
+<h5 id="24-算法的特征有哪些"><a href="#24-算法的特征有哪些" class="headerlink" title="24.算法的特征有哪些"></a>24.算法的特征有哪些</h5><p>算法有五个特征，分别为有穷性、确切性、有效性、输入和输出。</p>
+</blockquote>
+<blockquote>
+<h5 id="25-数据字典有哪几部分构成，作用是什么"><a href="#25-数据字典有哪几部分构成，作用是什么" class="headerlink" title="25.数据字典有哪几部分构成，作用是什么"></a>25.数据字典有哪几部分构成，作用是什么</h5><p>数据字典有五部分构成，分别为数据项、数据结构、数据流、数据存储和处理过程。</p>
+</blockquote>
+<blockquote>
+<h5 id="26-面向对象的三个基本特征是什么，什么是封装"><a href="#26-面向对象的三个基本特征是什么，什么是封装" class="headerlink" title="26.面向对象的三个基本特征是什么，什么是封装"></a>26.面向对象的三个基本特征是什么，什么是封装</h5><p>面向对象的三个基本特征是封装、继承和多态。封装是指隐藏对象的属性和实现细节，仅对外公开接口，控制在程序中属性的读取和修改访问级别。</p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/29/2019%E5%AE%89%E5%A4%A7%E7%BB%BC%E5%90%88%E9%9D%A2%E8%AF%95/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-玩转github上开源项目" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/29/%E7%8E%A9%E8%BD%ACgithub%E4%B8%8A%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/">玩转github上开源项目</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/29/%E7%8E%A9%E8%BD%ACgithub%E4%B8%8A%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" class="archive-article-date">
+  	<time datetime="2020-04-29T00:23:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/29/%E7%8E%A9%E8%BD%ACgithub%E4%B8%8A%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-我的第一篇博客文章" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
