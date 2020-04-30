@@ -152,6 +152,310 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-剑指offer-二叉树的深度" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/30/%E5%89%91%E6%8C%87offer-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6/">剑指offer--二叉树的深度</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/30/%E5%89%91%E6%8C%87offer-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6/" class="archive-article-date">
+  	<time datetime="2020-04-30T15:03:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h1><blockquote>
+<p>输入一棵二叉树，求该树的深度。从根结点到叶结点依次经过的结点（含根、叶结点）形成树的一条路径，最长路径的长度为树的深度。</p>
+</blockquote>
+<blockquote>
+<p>本题采用队列和递归两种思路求解</p>
+<ul>
+<li>先介绍用“队列”这种数据结构来求解，利用二叉树深度的过程来统计深度</li>
+</ul>
+<p>1.如果是一颗空树，则返回深度为0<br>2.把树的根节点进队列<br>3.当队列中的数据元素不为空时，一直循环一下操作：队列的队头元素出队列，判断出队列的元素的左孩子是否为空，不为空则进队列，同样再判断有孩子；如果出队列的元素时某一层的最后一个节点，这深度加1。</p>
+</blockquote>
+<pre><code>/*
+struct TreeNode {
+    int val;
+    struct TreeNode *left;
+    struct TreeNode *right;
+    TreeNode(int x) :
+            val(x), left(NULL), right(NULL) {
+    }
+};
+*/
+class Solution {
+public:
+    int TreeDepth(TreeNode* pRoot)
+    {
+        //利用队列
+        if(pRoot==NULL) return 0;
+        queue&lt;TreeNode*&gt; nodeQueue;
+        TreeNode *p;
+        TreeNode *q = pRoot;//q变量是用来记录某一层的最右边（最后一个）的结点
+        int deep = 0;
+        nodeQueue.push(pRoot);
+        while(!nodeQueue.empty()){
+            p = nodeQueue.front();
+            nodeQueue.pop();
+            if(p-&gt;left!=NULL) nodeQueue.push(p-&gt;left);
+            if(p-&gt;right!=NULL) nodeQueue.push(p-&gt;right);
+            if(p==q){//判断是否是某一层最右边的结点
+                deep++;
+                q = nodeQueue.back();//记录下一层最右边的结点
+            }
+        }
+        return deep;
+    }
+};</code></pre><hr>
+<blockquote>
+<ul>
+<li>利用递归来求二叉树的深度，递归代码简单，但可能出现内存泄漏的问题</li>
+</ul>
+</blockquote>
+<pre><code>/*
+struct TreeNode {
+    int val;
+    struct TreeNode *left;
+    struct TreeNode *right;
+    TreeNode(int x) :
+            val(x), left(NULL), right(NULL) {
+    }
+};*/
+class Solution {
+public:
+    int TreeDepth(TreeNode* pRoot)
+    { 
+        //递归算法
+        if(pRoot==NULL) return 0;
+        return 1+max(TreeDepth(pRoot-&gt;left),TreeDepth(pRoot-&gt;right));
+    }
+};</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/30/%E5%89%91%E6%8C%87offer-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-2017年综合面试题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/30/2017%E5%B9%B4%E7%BB%BC%E5%90%88%E9%9D%A2%E8%AF%95%E9%A2%98/">2017年综合面试题</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/30/2017%E5%B9%B4%E7%BB%BC%E5%90%88%E9%9D%A2%E8%AF%95%E9%A2%98/" class="archive-article-date">
+  	<time datetime="2020-04-30T08:33:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<h5 id="1-模式、内模式、外模式；两层映像；逻辑独立性和物理独立性"><a href="#1-模式、内模式、外模式；两层映像；逻辑独立性和物理独立性" class="headerlink" title="1.模式、内模式、外模式；两层映像；逻辑独立性和物理独立性"></a>1.模式、内模式、外模式；两层映像；逻辑独立性和物理独立性</h5><ul>
+<li>模式是数据库中全体数据的逻辑结构和特征的描述，是所有用户的公共数据视图。</li>
+<li>外模式是数据库用户能够看见和使用的局部数据的逻辑结构和特征的描述，是数据库用户的数据视图，是与某一应用有关的逻辑表示。</li>
+<li>内模式是数据物理结构和存储方式的描述，是数据在数据库内部的组织方式。</li>
+<li>为了能够在系统内实现这三级模式的联系和转换，数据库管理系统在这三级模式之间提供了两层映像：外模式/模式映像和模式/内模式映像，正是这两层映像保证了数据库中数据的逻辑独立性和物理独立性。</li>
+<li>逻辑独立性是：当模式改变时，由数据库管理员对各个外模式/模式的映像做相应的改变，可以使外模式保持不变。而应用程序是依据数据的外模式编写的，从而应用程序不必改变，保证了数据与程序的逻辑独立性。</li>
+<li>物理独立性是：当数据库的存储结构改变时，由数据库管理员对模式/内模式映像作相应的改变，可以使模式保持不变，从而应用程序也不必改变。保证了数据与程序的物理独立性。</li>
+</ul>
+</blockquote>
+<blockquote>
+<h5 id="2-OS有哪些特征，基本特征是什么"><a href="#2-OS有哪些特征，基本特征是什么" class="headerlink" title="2.OS有哪些特征，基本特征是什么"></a>2.OS有哪些特征，基本特征是什么</h5><p>OS由四个基本特征，分别是：1.共享性 2.并发性 3.异步性 4.虚拟性；其中最基本的特征是共享性与并发性。</p>
+</blockquote>
+<blockquote>
+<h5 id="3-比较实时系统和分时系统的区别"><a href="#3-比较实时系统和分时系统的区别" class="headerlink" title="3.比较实时系统和分时系统的区别"></a>3.比较实时系统和分时系统的区别</h5><p>分时操作系统采用的是时间片轮转算法，不会导致饥饿现象，当不能处理紧急的任务；实时系统则采用的是优先级优先算法，当有紧急任务时可以设置高的优先级别占用CPU资源，但会有开销，并存在饥饿现象。</p>
+</blockquote>
+<blockquote>
+<h5 id="4-离散数学中的偏序"><a href="#4-离散数学中的偏序" class="headerlink" title="4.离散数学中的偏序"></a>4.离散数学中的偏序</h5></blockquote>
+<blockquote>
+<h5 id="5-CPU与外设交换信息的方式"><a href="#5-CPU与外设交换信息的方式" class="headerlink" title="5.CPU与外设交换信息的方式"></a>5.CPU与外设交换信息的方式</h5><p>1.程序查询方式<br>2.程序中断方式<br>3.DMA方式</p>
+</blockquote>
+<blockquote>
+<h5 id="6-什么是DMA、中断和程序查询方式"><a href="#6-什么是DMA、中断和程序查询方式" class="headerlink" title="6.什么是DMA、中断和程序查询方式"></a>6.什么是DMA、中断和程序查询方式</h5></blockquote>
+<blockquote>
+<h5 id="7-链表有几种结构"><a href="#7-链表有几种结构" class="headerlink" title="7.链表有几种结构"></a>7.链表有几种结构</h5></blockquote>
+<blockquote>
+<h5 id="8-交换机和路由器，谈谈其在网络中的作用和工作原理"><a href="#8-交换机和路由器，谈谈其在网络中的作用和工作原理" class="headerlink" title="8.交换机和路由器，谈谈其在网络中的作用和工作原理"></a>8.交换机和路由器，谈谈其在网络中的作用和工作原理</h5></blockquote>
+<blockquote>
+<h5 id="9-cache的映射方式，它们的优缺点。"><a href="#9-cache的映射方式，它们的优缺点。" class="headerlink" title="9.cache的映射方式，它们的优缺点。"></a>9.cache的映射方式，它们的优缺点。</h5></blockquote>
+<blockquote>
+<h5 id="10-关键路径和最短路径"><a href="#10-关键路径和最短路径" class="headerlink" title="10.关键路径和最短路径"></a>10.关键路径和最短路径</h5></blockquote>
+<blockquote>
+<h5 id="11-PPP协议"><a href="#11-PPP协议" class="headerlink" title="11.PPP协议"></a>11.PPP协议</h5></blockquote>
+<blockquote>
+<h5 id="12-CFF是什么意思"><a href="#12-CFF是什么意思" class="headerlink" title="12.CFF是什么意思"></a>12.CFF是什么意思</h5></blockquote>
+<blockquote>
+<h5 id="13-AMC是什么意思"><a href="#13-AMC是什么意思" class="headerlink" title="13.AMC是什么意思"></a>13.AMC是什么意思</h5></blockquote>
+<blockquote>
+<h5 id="14-顺序表和线性表的比较"><a href="#14-顺序表和线性表的比较" class="headerlink" title="14.顺序表和线性表的比较"></a>14.顺序表和线性表的比较</h5></blockquote>
+<blockquote>
+<h5 id="15-算法的控制方式有哪几种，算法的时间复杂度和空间复杂度"><a href="#15-算法的控制方式有哪几种，算法的时间复杂度和空间复杂度" class="headerlink" title="15.算法的控制方式有哪几种，算法的时间复杂度和空间复杂度"></a>15.算法的控制方式有哪几种，算法的时间复杂度和空间复杂度</h5></blockquote>
+<blockquote>
+<h5 id="16-编译方式和解释方式的区别"><a href="#16-编译方式和解释方式的区别" class="headerlink" title="16.编译方式和解释方式的区别"></a>16.编译方式和解释方式的区别</h5><p>编译方式是将高级语言远程序一次性全部翻译成目标程序，每次执行程序时只需执行目标程序，因此只要源程序不变就无需重新编译；而解释方式是将源程序的一条语句翻译成对应的机器目标代码并立即执行，然后翻译下一条源程序语句并执行，直至所有源程序语句全部被翻译并执行完，翻译方式是翻译一句执行一句，不会生成目标程序。</p>
+</blockquote>
+<blockquote>
+<h5 id="17-CPU响应中断的条件是什么"><a href="#17-CPU响应中断的条件是什么" class="headerlink" title="17.CPU响应中断的条件是什么"></a>17.CPU响应中断的条件是什么</h5><p>CPU响应中断必须满足三个条件，分别时：1.中断源有中断请求 2.CPU允许中断及开中断 3.一条指令执行完毕，且没有更紧迫的任务</p>
+</blockquote>
+<blockquote>
+<h5 id="18-简述数据库的三级模式"><a href="#18-简述数据库的三级模式" class="headerlink" title="18.简述数据库的三级模式"></a>18.简述数据库的三级模式</h5><p>与第一题重复</p>
+</blockquote>
+<blockquote>
+<h5 id="19-计算机组成原理的DRAM为什么要刷新，有哪几种刷新方式"><a href="#19-计算机组成原理的DRAM为什么要刷新，有哪几种刷新方式" class="headerlink" title="19.计算机组成原理的DRAM为什么要刷新，有哪几种刷新方式"></a>19.计算机组成原理的DRAM为什么要刷新，有哪几种刷新方式</h5><ul>
+<li>DRAM(动态随机存储器)是利用电容上的电荷来存储信息的，而电容上的电一般只能维持1ms到2ms，因此即使电源不断电信息也会自动消失为此每隔一定时间要刷新。</li>
+<li>常见的刷新方式有3种：1.集中刷新 2.分散刷新 3.异步刷新</li>
+</ul>
+</blockquote>
+<blockquote>
+<h5 id="20-计算机组成原理中的微指令是什么"><a href="#20-计算机组成原理中的微指令是什么" class="headerlink" title="20.计算机组成原理中的微指令是什么"></a>20.计算机组成原理中的微指令是什么</h5><p>微指令是若干微命令的集合</p>
+</blockquote>
+<blockquote>
+<h5 id="21-微指令、微命令、微操作的比较"><a href="#21-微指令、微命令、微操作的比较" class="headerlink" title="21.微指令、微命令、微操作的比较"></a>21.微指令、微命令、微操作的比较</h5><p>微指令是若干微命令（有相容性和互斥性之分）的集合，微命令是微操作的控制信号，微操作是微命令的执行过程，</p>
+</blockquote>
+<blockquote>
+<h5 id="22-SQL和Oracle在分页上的区别"><a href="#22-SQL和Oracle在分页上的区别" class="headerlink" title="22.SQL和Oracle在分页上的区别"></a>22.SQL和Oracle在分页上的区别</h5></blockquote>
+<blockquote>
+<h5 id="23-为什么计算机系统的异步性"><a href="#23-为什么计算机系统的异步性" class="headerlink" title="23.为什么计算机系统的异步性"></a>23.为什么计算机系统的异步性</h5></blockquote>
+<blockquote>
+<h5 id="24-数据恢复的方法有哪些"><a href="#24-数据恢复的方法有哪些" class="headerlink" title="24.数据恢复的方法有哪些"></a>24.数据恢复的方法有哪些</h5></blockquote>
+<blockquote>
+<h5 id="25-什么是通道，通道的功能是什么"><a href="#25-什么是通道，通道的功能是什么" class="headerlink" title="25.什么是通道，通道的功能是什么"></a>25.什么是通道，通道的功能是什么</h5></blockquote>
+<blockquote>
+<h5 id="26-什么是ARP协议"><a href="#26-什么是ARP协议" class="headerlink" title="26.什么是ARP协议"></a>26.什么是ARP协议</h5></blockquote>
+<blockquote>
+<h5 id="27-数据库是如何实现逻辑独立性和物理独立性的"><a href="#27-数据库是如何实现逻辑独立性和物理独立性的" class="headerlink" title="27.数据库是如何实现逻辑独立性和物理独立性的"></a>27.数据库是如何实现逻辑独立性和物理独立性的</h5></blockquote>
+<blockquote>
+<h5 id="28-红黑树的特点"><a href="#28-红黑树的特点" class="headerlink" title="28.红黑树的特点"></a>28.红黑树的特点</h5></blockquote>
+<blockquote>
+<h5 id="29-蚁群算法、遗传算法、蜂群算法、模拟退火算法你了解那个，简要谈谈你所了解的算法"><a href="#29-蚁群算法、遗传算法、蜂群算法、模拟退火算法你了解那个，简要谈谈你所了解的算法" class="headerlink" title="29.蚁群算法、遗传算法、蜂群算法、模拟退火算法你了解那个，简要谈谈你所了解的算法"></a>29.蚁群算法、遗传算法、蜂群算法、模拟退火算法你了解那个，简要谈谈你所了解的算法</h5></blockquote>
+<blockquote>
+<h5 id="30-函数覆盖和函数重载的区别"><a href="#30-函数覆盖和函数重载的区别" class="headerlink" title="30.函数覆盖和函数重载的区别"></a>30.函数覆盖和函数重载的区别</h5></blockquote>
+<blockquote>
+<h5 id="31-什么是SQL注入攻击，避免攻击的方法"><a href="#31-什么是SQL注入攻击，避免攻击的方法" class="headerlink" title="31.什么是SQL注入攻击，避免攻击的方法"></a>31.什么是SQL注入攻击，避免攻击的方法</h5></blockquote>
+<blockquote>
+<h5 id="32-什么是回归测试"><a href="#32-什么是回归测试" class="headerlink" title="32.什么是回归测试"></a>32.什么是回归测试</h5></blockquote>
+<blockquote>
+<h5 id="33-SQL中索引所用的数据结构的类型"><a href="#33-SQL中索引所用的数据结构的类型" class="headerlink" title="33.SQL中索引所用的数据结构的类型"></a>33.SQL中索引所用的数据结构的类型</h5></blockquote>
+<blockquote>
+<h5 id="34-子网掩码的作用"><a href="#34-子网掩码的作用" class="headerlink" title="34.子网掩码的作用"></a>34.子网掩码的作用</h5></blockquote>
+<blockquote>
+<h5 id="35-离散数学中的混合图"><a href="#35-离散数学中的混合图" class="headerlink" title="35.离散数学中的混合图"></a>35.离散数学中的混合图</h5></blockquote>
+<blockquote>
+<h5 id="36-离散数学中的赋权图"><a href="#36-离散数学中的赋权图" class="headerlink" title="36.离散数学中的赋权图"></a>36.离散数学中的赋权图</h5></blockquote>
+<blockquote>
+<h5 id="37-离散数学中的通路和回路"><a href="#37-离散数学中的通路和回路" class="headerlink" title="37.离散数学中的通路和回路"></a>37.离散数学中的通路和回路</h5></blockquote>
+<blockquote>
+<h5 id="38-上拉电阻和下拉电阻的概念"><a href="#38-上拉电阻和下拉电阻的概念" class="headerlink" title="38.上拉电阻和下拉电阻的概念"></a>38.上拉电阻和下拉电阻的概念</h5></blockquote>
+<blockquote>
+<h5 id="39-单向连通、弱连通、强连通的概念"><a href="#39-单向连通、弱连通、强连通的概念" class="headerlink" title="39.单向连通、弱连通、强连通的概念"></a>39.单向连通、弱连通、强连通的概念</h5></blockquote>
+<blockquote>
+<h5 id="40-CISC、RISC的概念"><a href="#40-CISC、RISC的概念" class="headerlink" title="40.CISC、RISC的概念"></a>40.CISC、RISC的概念</h5></blockquote>
+<blockquote>
+<h5 id="41-简要谈谈高速缓存的原理"><a href="#41-简要谈谈高速缓存的原理" class="headerlink" title="41.简要谈谈高速缓存的原理"></a>41.简要谈谈高速缓存的原理</h5></blockquote>
+<blockquote>
+<h5 id="42-软件开发模式有几种"><a href="#42-软件开发模式有几种" class="headerlink" title="42.软件开发模式有几种"></a>42.软件开发模式有几种</h5></blockquote>
+<blockquote>
+<h5 id="43-结构体和共同体的概念和区别"><a href="#43-结构体和共同体的概念和区别" class="headerlink" title="43.结构体和共同体的概念和区别"></a>43.结构体和共同体的概念和区别</h5></blockquote>
+<blockquote>
+<h5 id="44-存储器的宽待"><a href="#44-存储器的宽待" class="headerlink" title="44.存储器的宽待"></a>44.存储器的宽待</h5></blockquote>
+<blockquote>
+<h5 id="45-如何理解存储器的地址线和数据线"><a href="#45-如何理解存储器的地址线和数据线" class="headerlink" title="45.如何理解存储器的地址线和数据线"></a>45.如何理解存储器的地址线和数据线</h5></blockquote>
+<blockquote>
+<h5 id=""><a href="#" class="headerlink" title=""></a></h5></blockquote>
+<blockquote>
+<h5 id="-1"><a href="#-1" class="headerlink" title=""></a></h5></blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/30/2017%E5%B9%B4%E7%BB%BC%E5%90%88%E9%9D%A2%E8%AF%95%E9%A2%98/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-2019安大综合面试" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -270,7 +574,8 @@
 <h5 id="28-C-深拷贝和浅拷贝指的是什么"><a href="#28-C-深拷贝和浅拷贝指的是什么" class="headerlink" title="28.C++深拷贝和浅拷贝指的是什么"></a>28.C++深拷贝和浅拷贝指的是什么</h5><p>浅拷贝是指源对象与拷贝对象共用一份实体，仅仅是变量名不同；而深拷贝是指源对象与拷贝对象是相互独立的，改变其中一个对象不影响另一个对象。</p>
 </blockquote>
 <blockquote>
-<h5 id="29-产生死锁的条件是什么？怎么预防死锁，又怎么避免死锁，请简述。"><a href="#29-产生死锁的条件是什么？怎么预防死锁，又怎么避免死锁，请简述。" class="headerlink" title="29.产生死锁的条件是什么？怎么预防死锁，又怎么避免死锁，请简述。"></a>29.产生死锁的条件是什么？怎么预防死锁，又怎么避免死锁，请简述。</h5><ul>
+<h5 id="29-什么是死锁？产生死锁的条件是什么？怎么预防死锁，又怎么避免死锁，请简述。"><a href="#29-什么是死锁？产生死锁的条件是什么？怎么预防死锁，又怎么避免死锁，请简述。" class="headerlink" title="29.什么是死锁？产生死锁的条件是什么？怎么预防死锁，又怎么避免死锁，请简述。"></a>29.什么是死锁？产生死锁的条件是什么？怎么预防死锁，又怎么避免死锁，请简述。</h5><ul>
+<li></li>
 <li>产生死锁有四个必要条件，分别是：1.互斥条件 2.非剥夺抢占条件 3.请求与保持条件 4.循环等待条件</li>
 <li>预防死锁可以破坏四个必要条件之一就行，但由于互斥条件是计算机必须要的，一般就是破坏其他三个条件，分别对应三种方法<blockquote>
 <p>1.采用静态资源分配策略破坏“请求与保持条件”<br>2.允许进程剥夺其他进程占有的资源，从而破坏“不可剥夺条件”<br>3.采用资源有序分配法，破坏“循环等待条件”</p>
