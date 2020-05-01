@@ -16,7 +16,7 @@
 <meta property="og:description" content="1.模式、内模式、外模式；两层映像；逻辑独立性和物理独立性 模式是数据库中全体数据的逻辑结构和特征的描述，是所有用户的公共数据视图。 外模式是数据库用户能够看见和使用的局部数据的逻辑结构和特征的描述，是数据库用户的数据视图，是与某一应用有关的逻辑表示。 内模式是数据物理结构和存储方式的描述，是数据在数据库内部的组织方式。 为了能够在系统内实现这三级模式的联系和转换，数据库管理系统在这三级模式之间">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-04-30T08:33:00.000Z">
-<meta property="article:modified_time" content="2020-05-01T04:11:24.109Z">
+<meta property="article:modified_time" content="2020-05-01T05:28:29.086Z">
 <meta property="article:author" content="阿辉">
 <meta name="twitter:card" content="summary">
   
@@ -290,7 +290,8 @@
 <h5 id="32-什么是回归测试"><a href="#32-什么是回归测试" class="headerlink" title="32.什么是回归测试"></a>32.什么是回归测试</h5><p>回归测试是指修改了旧代码后，重新进行测试以确定修改没有引入新的错误或导致其他代码产生错误。</p>
 </blockquote>
 <blockquote>
-<h5 id="33-SQL中索引所用的数据结构的类型"><a href="#33-SQL中索引所用的数据结构的类型" class="headerlink" title="33.SQL中索引所用的数据结构的类型"></a>33.SQL中索引所用的数据结构的类型</h5></blockquote>
+<h5 id="33-SQL中索引所用的数据结构的类型"><a href="#33-SQL中索引所用的数据结构的类型" class="headerlink" title="33.SQL中索引所用的数据结构的类型"></a>33.SQL中索引所用的数据结构的类型</h5><p>常见的索引包括顺序文件的索引、B+数索引、散列索引和位图索引等。顺序文件索引是针对按指定属性值升序或降序存储的关系，在该属性上建立一个顺序索引文件，索引文件由属性值和相应的元组指针组成；B+树索引是将索引属性组织成B+树形式，B+树的叶节点为属性值和相应的元组指针……</p>
+</blockquote>
 <blockquote>
 <h5 id="34-子网掩码的作用"><a href="#34-子网掩码的作用" class="headerlink" title="34.子网掩码的作用"></a>34.子网掩码的作用</h5><p>子网掩码是用来得到某个主句IP所在的网络号。用子网掩码和IP地址进行&amp;运算就能得到网络号。</p>
 </blockquote>
@@ -306,17 +307,30 @@
 <blockquote>
 <h5 id="39-单向连通、弱连通、强连通的概念"><a href="#39-单向连通、弱连通、强连通的概念" class="headerlink" title="39.单向连通、弱连通、强连通的概念"></a>39.单向连通、弱连通、强连通的概念</h5></blockquote>
 <blockquote>
-<h5 id="40-CISC、RISC的概念"><a href="#40-CISC、RISC的概念" class="headerlink" title="40.CISC、RISC的概念"></a>40.CISC、RISC的概念</h5></blockquote>
+<h5 id="40-CISC、RISC的概念"><a href="#40-CISC、RISC的概念" class="headerlink" title="40.CISC、RISC的概念"></a>40.CISC、RISC的概念</h5><ul>
+<li>CISC(复杂指令系统计算机)指令系统复杂庞大，指令数目多，指令长度不固定，指令格式多，寻址方式多；可以存放的指令不受限制；各种指令的使用频度相差大。</li>
+<li>RISC(精简指令系统计算机)选取使用频率最高的一些简单指令，复杂指令功能由简单的指令的组合来实现；指令的长度一般固定，指令格式种类少，寻址方式种类少；CPU中通用的寄存器的数量更多；。</li>
+</ul>
+</blockquote>
 <blockquote>
-<h5 id="41-简要谈谈高速缓存的原理"><a href="#41-简要谈谈高速缓存的原理" class="headerlink" title="41.简要谈谈高速缓存的原理"></a>41.简要谈谈高速缓存的原理</h5></blockquote>
+<h5 id="41-简要谈谈高速缓存的原理"><a href="#41-简要谈谈高速缓存的原理" class="headerlink" title="41.简要谈谈高速缓存的原理"></a>41.简要谈谈高速缓存的原理</h5><p>高速缓存的出现主要是为了解决CPU运输速度与内存读写速度不匹配的矛盾。高速缓存(cache)的工作原理是基于计算机程序访问的局部性原理。在一个较短的时间间隔内由程序产生的地址往往集中在地址空间很小的范围内，真是基于局部性原理，系统不断将与当前指令集相关联的一个不太大的后续指令集从内存读到cache中，然后再与CPU高速传送，从而达到速度匹配。</p>
+</blockquote>
 <blockquote>
-<h5 id="42-软件开发模式有几种"><a href="#42-软件开发模式有几种" class="headerlink" title="42.软件开发模式有几种"></a>42.软件开发模式有几种</h5></blockquote>
+<h5 id="42-软件开发模式有几种"><a href="#42-软件开发模式有几种" class="headerlink" title="42.软件开发模式有几种"></a>42.软件开发模式有几种</h5><p>软件开发模式有瀑布模式、迭代模式、螺旅模式和边做边改等模式。</p>
+</blockquote>
 <blockquote>
-<h5 id="43-结构体和共同体的概念和区别"><a href="#43-结构体和共同体的概念和区别" class="headerlink" title="43.结构体和共同体的概念和区别"></a>43.结构体和共同体的概念和区别</h5></blockquote>
+<h5 id="43-结构体和共同体的概念和区别"><a href="#43-结构体和共同体的概念和区别" class="headerlink" title="43.结构体和共同体的概念和区别"></a>43.结构体和共同体的概念和区别</h5><ul>
+<li>结构体是一种构造数据类型（也称复杂数据类型），由若干不同类型的变量（数据）组成，每个变量都是结构体的成员，每个成员可以是基本数据类型或是构造类型，而且每个成员的数据类型可以是相同也可以不同。</li>
+<li>共同体是一种数据格式，是将几种不同的的变量存储在同一内存单元中，也就是使用覆盖技术几个变量相互覆盖，这几种不同的变量共同占用一段内存的结构。</li>
+<li>区别：1.所占用的内存不同，结构体占用的内存是分量内存之和，而共同体所占的内存是等于最大的分量的内存。 2.对共同体的不同成员赋值将会对其他成员重写，原来成员的值就不存在了，而对于结构体的不同成员赋值时互不影响的。</li>
+</ul>
+</blockquote>
 <blockquote>
-<h5 id="44-存储器的宽待"><a href="#44-存储器的宽待" class="headerlink" title="44.存储器的宽待"></a>44.存储器的宽待</h5></blockquote>
+<h5 id="44-存储器的宽待"><a href="#44-存储器的宽待" class="headerlink" title="44.存储器的宽待"></a>44.存储器的宽待</h5><p>存储器的带宽表示的是每秒从存储器中进出信息的最大数据量。</p>
+</blockquote>
 <blockquote>
-<h5 id="45-如何理解存储器的地址线和数据线"><a href="#45-如何理解存储器的地址线和数据线" class="headerlink" title="45.如何理解存储器的地址线和数据线"></a>45.如何理解存储器的地址线和数据线</h5></blockquote>
+<h5 id="45-如何理解存储器的地址线和数据线"><a href="#45-如何理解存储器的地址线和数据线" class="headerlink" title="45.如何理解存储器的地址线和数据线"></a>45.如何理解存储器的地址线和数据线</h5><p>存储器连接数据线和地址线与CPU连接。地址线是单向输入的，其位数与存储器字的个数有关；数据线是双向的，其位数与读出或写入的数据位数有关数据线数和地址线数共同反映了存储芯片容量的大小。</p>
+</blockquote>
 <blockquote>
 <h5 id=""><a href="#" class="headerlink" title=""></a></h5></blockquote>
 <blockquote>
