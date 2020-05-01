@@ -322,23 +322,45 @@ public:
 <h5 id="5-CPU与外设交换信息的方式"><a href="#5-CPU与外设交换信息的方式" class="headerlink" title="5.CPU与外设交换信息的方式"></a>5.CPU与外设交换信息的方式</h5><p>1.程序查询方式<br>2.程序中断方式<br>3.DMA方式</p>
 </blockquote>
 <blockquote>
-<h5 id="6-什么是DMA、中断和程序查询方式"><a href="#6-什么是DMA、中断和程序查询方式" class="headerlink" title="6.什么是DMA、中断和程序查询方式"></a>6.什么是DMA、中断和程序查询方式</h5></blockquote>
+<h5 id="6-什么是DMA、中断和程序查询方式"><a href="#6-什么是DMA、中断和程序查询方式" class="headerlink" title="6.什么是DMA、中断和程序查询方式"></a>6.什么是DMA、中断和程序查询方式</h5><p>程序查询方式、程序中断方式和DMA都是主机和外设交换信息的方式。</p>
+<ul>
+<li></li>
+</ul>
+</blockquote>
 <blockquote>
-<h5 id="7-链表有几种结构"><a href="#7-链表有几种结构" class="headerlink" title="7.链表有几种结构"></a>7.链表有几种结构</h5></blockquote>
+<h5 id="7-链表有几种结构"><a href="#7-链表有几种结构" class="headerlink" title="7.链表有几种结构"></a>7.链表有几种结构</h5><p>单链表，双链表，循环链表等等</p>
+</blockquote>
 <blockquote>
-<h5 id="8-交换机和路由器，谈谈其在网络中的作用和工作原理"><a href="#8-交换机和路由器，谈谈其在网络中的作用和工作原理" class="headerlink" title="8.交换机和路由器，谈谈其在网络中的作用和工作原理"></a>8.交换机和路由器，谈谈其在网络中的作用和工作原理</h5></blockquote>
+<h5 id="8-交换机和路由器，谈谈其在网络中的作用和工作原理"><a href="#8-交换机和路由器，谈谈其在网络中的作用和工作原理" class="headerlink" title="8.交换机和路由器，谈谈其在网络中的作用和工作原理"></a>8.交换机和路由器，谈谈其在网络中的作用和工作原理</h5><ul>
+<li>交换机是链路层的设备，一般是在局域网内连接各个主机的。</li>
+<li>路由器是网络层的设备，主要的功能是存储和转发数据报，路由器接受从相邻路由器发来的数据报，然后根据路由选择协议找出最佳路径转发数据报</li>
+</ul>
+</blockquote>
 <blockquote>
-<h5 id="9-cache的映射方式，它们的优缺点。"><a href="#9-cache的映射方式，它们的优缺点。" class="headerlink" title="9.cache的映射方式，它们的优缺点。"></a>9.cache的映射方式，它们的优缺点。</h5></blockquote>
+<h5 id="9-cache的映射方式，它们的优缺点。"><a href="#9-cache的映射方式，它们的优缺点。" class="headerlink" title="9.cache的映射方式，它们的优缺点。"></a>9.cache的映射方式，它们的优缺点。</h5><p>cache的映射方式有3种，分别是： </p>
+<ul>
+<li>直接映射，直接映射的优点是每块空间映射到固定的位置，映射时简单方便；缺点是当cache的利用率低，当cache中其他位置上还有空闲块却还得不能放入要访问的内存块，命中率最低。</li>
+<li>全相联映射，全相联映射的优点是只要cache中有空闲块就把要访问的内存块装入，cache的利用率比较高，命中率也就更高；缺点是需要开销去判断cache中哪块是空闲的，比较耗时和麻烦。</li>
+<li>组相联映射，组相联映射结合了直接映射和全相联映射的优点，组件采用直接映射，组内采用全相联映射。</li>
+</ul>
+</blockquote>
 <blockquote>
-<h5 id="10-关键路径和最短路径"><a href="#10-关键路径和最短路径" class="headerlink" title="10.关键路径和最短路径"></a>10.关键路径和最短路径</h5></blockquote>
+<h5 id="10-关键路径和最短路径"><a href="#10-关键路径和最短路径" class="headerlink" title="10.关键路径和最短路径"></a>10.关键路径和最短路径</h5><ul>
+<li>关键路径是在AOE网中，路径最长的那条路径就是最短路径，当在一个工程当中，关键路径是决定工程最终的完成时的耗时，当缩短关键路径的工期时整个项目都可能提前完工。</li>
+<li>最短路径是指图中某一顶点到其他顶点的最短路径</li>
+</ul>
+</blockquote>
 <blockquote>
-<h5 id="11-PPP协议"><a href="#11-PPP协议" class="headerlink" title="11.PPP协议"></a>11.PPP协议</h5></blockquote>
+<h5 id="11-PPP协议"><a href="#11-PPP协议" class="headerlink" title="11.PPP协议"></a>11.PPP协议</h5><p>PPP协议即点对点协议，为在点对点连接上传输多协议数据包提供了一个标准方法。</p>
+</blockquote>
 <blockquote>
 <h5 id="12-CFF是什么意思"><a href="#12-CFF是什么意思" class="headerlink" title="12.CFF是什么意思"></a>12.CFF是什么意思</h5></blockquote>
 <blockquote>
-<h5 id="13-AMC是什么意思"><a href="#13-AMC是什么意思" class="headerlink" title="13.AMC是什么意思"></a>13.AMC是什么意思</h5></blockquote>
+<h5 id="13-AMC是什么意思"><a href="#13-AMC是什么意思" class="headerlink" title="13.AMC是什么意思"></a>13.AMC是什么意思</h5><p>AMC(Adaptive Modulation and Coding,自适应调制编码)是无线信道上采用的一种自适应的编码调制技术，通过调整无线链路传输的调制方式与编码速率来确保链路的传输质量。</p>
+</blockquote>
 <blockquote>
-<h5 id="14-顺序表和线性表的比较"><a href="#14-顺序表和线性表的比较" class="headerlink" title="14.顺序表和线性表的比较"></a>14.顺序表和线性表的比较</h5></blockquote>
+<h5 id="14-顺序表和单链表的比较"><a href="#14-顺序表和单链表的比较" class="headerlink" title="14.顺序表和单链表的比较"></a>14.顺序表和单链表的比较</h5><p>顺序表是用一块连续的地址空间来存放数据元素的，查询数据元素的时间复杂的是O(1),但删除和插入数据元素的时间复杂度是O(n);单链表却相反，它是采用离散的地址空间来存放数据元素，查找某一元素时必须从表头开始查找，时间复杂度是O(n)，而插入和删除数据元素时的时间复杂度是O(1)。</p>
+</blockquote>
 <blockquote>
 <h5 id="15-算法的控制方式有哪几种，算法的时间复杂度和空间复杂度"><a href="#15-算法的控制方式有哪几种，算法的时间复杂度和空间复杂度" class="headerlink" title="15.算法的控制方式有哪几种，算法的时间复杂度和空间复杂度"></a>15.算法的控制方式有哪几种，算法的时间复杂度和空间复杂度</h5></blockquote>
 <blockquote>
@@ -363,37 +385,48 @@ public:
 <h5 id="21-微指令、微命令、微操作的比较"><a href="#21-微指令、微命令、微操作的比较" class="headerlink" title="21.微指令、微命令、微操作的比较"></a>21.微指令、微命令、微操作的比较</h5><p>微指令是若干微命令（有相容性和互斥性之分）的集合，微命令是微操作的控制信号，微操作是微命令的执行过程，</p>
 </blockquote>
 <blockquote>
-<h5 id="22-SQL和Oracle在分页上的区别"><a href="#22-SQL和Oracle在分页上的区别" class="headerlink" title="22.SQL和Oracle在分页上的区别"></a>22.SQL和Oracle在分页上的区别</h5></blockquote>
+<h5 id="22-SQL和Oracle在分页上的区别"><a href="#22-SQL和Oracle在分页上的区别" class="headerlink" title="22.SQL和Oracle在分页上的区别"></a>22.SQL和Oracle在分页上的区别</h5><p>对于SQL来说，采用limit语句来进行分页，而对于Oracle来说采用rownum的方式来进行分页。</p>
+</blockquote>
 <blockquote>
-<h5 id="23-为什么计算机系统的异步性"><a href="#23-为什么计算机系统的异步性" class="headerlink" title="23.为什么计算机系统的异步性"></a>23.为什么计算机系统的异步性</h5></blockquote>
+<h5 id="23-为什么计算机系统有异步性"><a href="#23-为什么计算机系统有异步性" class="headerlink" title="23.为什么计算机系统有异步性"></a>23.为什么计算机系统有异步性</h5><p>在多道程序环境中，允许多个进程并发执行。但由于资源等因素的限制，进程的执行通常并非是一气呵成的，而是以走走停停不可预知的方式运行，虽然同一程序在执行的时候是不可再现的，但最后的结果是相同的，作用完成的先后次序与进入内存的次序不一致，即进程是以异步的方式运行的。</p>
+</blockquote>
 <blockquote>
-<h5 id="24-数据恢复的方法有哪些"><a href="#24-数据恢复的方法有哪些" class="headerlink" title="24.数据恢复的方法有哪些"></a>24.数据恢复的方法有哪些</h5></blockquote>
+<h5 id="24-数据恢复的方法有哪些"><a href="#24-数据恢复的方法有哪些" class="headerlink" title="24.数据恢复的方法有哪些"></a>24.数据恢复的方法有哪些</h5><p>数据恢复技术是把数据库从错误状态恢复到某一已知的正确状态的功能。数据转储和登记日志文件是恢复中最常用的技术。恢复的基本原理就是利用存储在后备副本、日志文件和数据库镜像中的冗余数据来重建数据库。</p>
+</blockquote>
 <blockquote>
-<h5 id="25-什么是通道，通道的功能是什么"><a href="#25-什么是通道，通道的功能是什么" class="headerlink" title="25.什么是通道，通道的功能是什么"></a>25.什么是通道，通道的功能是什么</h5></blockquote>
+<h5 id="25-什么是通道，通道的功能是什么"><a href="#25-什么是通道，通道的功能是什么" class="headerlink" title="25.什么是通道，通道的功能是什么"></a>25.什么是通道，通道的功能是什么</h5><p>通道是具有独立功能的一个处理器。它主要的功能是控制外设与主机之间信息交换。</p>
+</blockquote>
 <blockquote>
-<h5 id="26-什么是ARP协议"><a href="#26-什么是ARP协议" class="headerlink" title="26.什么是ARP协议"></a>26.什么是ARP协议</h5></blockquote>
+<h5 id="26-什么是ARP协议"><a href="#26-什么是ARP协议" class="headerlink" title="26.什么是ARP协议"></a>26.什么是ARP协议</h5><p>ARP是地址解析协议。ARP协议是将IP地址解析成物理地址的协议，发送一个ARP广播一个ARP报文段，当其他主机收到报文段检查发现是想知道自己物理地址时会回复单播一个携带物理地址的ARP报文段。</p>
+</blockquote>
 <blockquote>
-<h5 id="27-数据库是如何实现逻辑独立性和物理独立性的"><a href="#27-数据库是如何实现逻辑独立性和物理独立性的" class="headerlink" title="27.数据库是如何实现逻辑独立性和物理独立性的"></a>27.数据库是如何实现逻辑独立性和物理独立性的</h5></blockquote>
+<h5 id="27-数据库是如何实现逻辑独立性和物理独立性的"><a href="#27-数据库是如何实现逻辑独立性和物理独立性的" class="headerlink" title="27.数据库是如何实现逻辑独立性和物理独立性的"></a>27.数据库是如何实现逻辑独立性和物理独立性的</h5><p>参考第一题答案。</p>
+</blockquote>
 <blockquote>
 <h5 id="28-红黑树的特点"><a href="#28-红黑树的特点" class="headerlink" title="28.红黑树的特点"></a>28.红黑树的特点</h5></blockquote>
 <blockquote>
 <h5 id="29-蚁群算法、遗传算法、蜂群算法、模拟退火算法你了解那个，简要谈谈你所了解的算法"><a href="#29-蚁群算法、遗传算法、蜂群算法、模拟退火算法你了解那个，简要谈谈你所了解的算法" class="headerlink" title="29.蚁群算法、遗传算法、蜂群算法、模拟退火算法你了解那个，简要谈谈你所了解的算法"></a>29.蚁群算法、遗传算法、蜂群算法、模拟退火算法你了解那个，简要谈谈你所了解的算法</h5></blockquote>
 <blockquote>
-<h5 id="30-函数覆盖和函数重载的区别"><a href="#30-函数覆盖和函数重载的区别" class="headerlink" title="30.函数覆盖和函数重载的区别"></a>30.函数覆盖和函数重载的区别</h5></blockquote>
+<h5 id="30-函数覆盖和函数重载的区别"><a href="#30-函数覆盖和函数重载的区别" class="headerlink" title="30.函数覆盖和函数重载的区别"></a>30.函数覆盖和函数重载的区别</h5><p>函数覆盖是在父类类和子类之间，子类重写父类的某一方法，方法返回值、方法名和方法参数都一样；函数重载一般是指同一个类中多个方法的方法名一样，但参数的类型、参数的数目和参数的顺序不一样。</p>
+</blockquote>
 <blockquote>
-<h5 id="31-什么是SQL注入攻击，避免攻击的方法"><a href="#31-什么是SQL注入攻击，避免攻击的方法" class="headerlink" title="31.什么是SQL注入攻击，避免攻击的方法"></a>31.什么是SQL注入攻击，避免攻击的方法</h5></blockquote>
+<h5 id="31-什么是SQL注入攻击，避免攻击的方法"><a href="#31-什么是SQL注入攻击，避免攻击的方法" class="headerlink" title="31.什么是SQL注入攻击，避免攻击的方法"></a>31.什么是SQL注入攻击，避免攻击的方法</h5><p>所谓SQL注入，就是通过把SQL命令插入到Web表单提交或输入应或页面请求的查询字符串，最终达到欺骗服务器执行恶意的SQL命令。避免攻击：对用户的输入进行校验，可以通过正则表达式或限制长度。</p>
+</blockquote>
 <blockquote>
-<h5 id="32-什么是回归测试"><a href="#32-什么是回归测试" class="headerlink" title="32.什么是回归测试"></a>32.什么是回归测试</h5></blockquote>
+<h5 id="32-什么是回归测试"><a href="#32-什么是回归测试" class="headerlink" title="32.什么是回归测试"></a>32.什么是回归测试</h5><p>回归测试是指修改了旧代码后，重新进行测试以确定修改没有引入新的错误或导致其他代码产生错误。</p>
+</blockquote>
 <blockquote>
 <h5 id="33-SQL中索引所用的数据结构的类型"><a href="#33-SQL中索引所用的数据结构的类型" class="headerlink" title="33.SQL中索引所用的数据结构的类型"></a>33.SQL中索引所用的数据结构的类型</h5></blockquote>
 <blockquote>
-<h5 id="34-子网掩码的作用"><a href="#34-子网掩码的作用" class="headerlink" title="34.子网掩码的作用"></a>34.子网掩码的作用</h5></blockquote>
+<h5 id="34-子网掩码的作用"><a href="#34-子网掩码的作用" class="headerlink" title="34.子网掩码的作用"></a>34.子网掩码的作用</h5><p>子网掩码是用来得到某个主句IP所在的网络号。用子网掩码和IP地址进行&amp;运算就能得到网络号。</p>
+</blockquote>
 <blockquote>
 <h5 id="35-离散数学中的混合图"><a href="#35-离散数学中的混合图" class="headerlink" title="35.离散数学中的混合图"></a>35.离散数学中的混合图</h5></blockquote>
 <blockquote>
 <h5 id="36-离散数学中的赋权图"><a href="#36-离散数学中的赋权图" class="headerlink" title="36.离散数学中的赋权图"></a>36.离散数学中的赋权图</h5></blockquote>
 <blockquote>
-<h5 id="37-离散数学中的通路和回路"><a href="#37-离散数学中的通路和回路" class="headerlink" title="37.离散数学中的通路和回路"></a>37.离散数学中的通路和回路</h5></blockquote>
+<h5 id="37-离散数学中的通路和回路"><a href="#37-离散数学中的通路和回路" class="headerlink" title="37.离散数学中的通路和回路"></a>37.离散数学中的通路和回路</h5><p>离散数学的通路是指图中顶点到其他顶点存在一条路劲，回路是从某一顶点出发经过若干条边后回到原地。</p>
+</blockquote>
 <blockquote>
 <h5 id="38-上拉电阻和下拉电阻的概念"><a href="#38-上拉电阻和下拉电阻的概念" class="headerlink" title="38.上拉电阻和下拉电阻的概念"></a>38.上拉电阻和下拉电阻的概念</h5></blockquote>
 <blockquote>
