@@ -152,71 +152,6 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-写博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/15/%E5%86%99%E5%8D%9A%E5%AE%A2/">写博客</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/15/%E5%86%99%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-  	<time datetime="2020-05-15T07:14:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="出席方法kjkjfkj"><a href="#出席方法kjkjfkj" class="headerlink" title="出席方法kjkjfkj"></a>出席方法kjkjfkj</h2><blockquote>
-<p>fajf</p>
-</blockquote>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/15/%E5%86%99%E5%8D%9A%E5%AE%A2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-Java集合简单介绍" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1097,6 +1032,134 @@ private:
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/05/01/%E5%89%91%E6%8C%87offer-%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-剑指offer-二叉树的深度" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/30/%E5%89%91%E6%8C%87offer-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6/">剑指offer--二叉树的深度</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/30/%E5%89%91%E6%8C%87offer-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6/" class="archive-article-date">
+  	<time datetime="2020-04-30T15:03:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h1><blockquote>
+<p>输入一棵二叉树，求该树的深度。从根结点到叶结点依次经过的结点（含根、叶结点）形成树的一条路径，最长路径的长度为树的深度。</p>
+</blockquote>
+<blockquote>
+<p>本题采用队列和递归两种思路求解</p>
+<ul>
+<li>先介绍用“队列”这种数据结构来求解，利用二叉树深度的过程来统计深度</li>
+</ul>
+<p>1.如果是一颗空树，则返回深度为0<br>2.把树的根节点进队列<br>3.当队列中的数据元素不为空时，一直循环一下操作：队列的队头元素出队列，判断出队列的元素的左孩子是否为空，不为空则进队列，同样再判断有孩子；如果出队列的元素时某一层的最后一个节点，这深度加1。代码如下，仅供参考。</p>
+</blockquote>
+<pre><code>/*
+struct TreeNode {
+    int val;
+    struct TreeNode *left;
+    struct TreeNode *right;
+    TreeNode(int x) :
+            val(x), left(NULL), right(NULL) {
+    }
+};
+*/
+class Solution {
+public:
+    int TreeDepth(TreeNode* pRoot)
+    {
+        //利用队列
+        if(pRoot==NULL) return 0;
+        queue&lt;TreeNode*&gt; nodeQueue;
+        TreeNode *p;
+        TreeNode *q = pRoot;//q变量是用来记录某一层的最右边（最后一个）的结点
+        int deep = 0;
+        nodeQueue.push(pRoot);
+        while(!nodeQueue.empty()){
+            p = nodeQueue.front();
+            nodeQueue.pop();
+            if(p-&gt;left!=NULL) nodeQueue.push(p-&gt;left);
+            if(p-&gt;right!=NULL) nodeQueue.push(p-&gt;right);
+            if(p==q){//判断是否是某一层最右边的结点
+                deep++;
+                q = nodeQueue.back();//记录下一层最右边的结点
+            }
+        }
+        return deep;
+    }
+};</code></pre><hr>
+<blockquote>
+<ul>
+<li>利用递归来求二叉树的深度，递归代码简单，但可能出现内存泄漏的问题</li>
+</ul>
+</blockquote>
+<pre><code>/*
+struct TreeNode {
+    int val;
+    struct TreeNode *left;
+    struct TreeNode *right;
+    TreeNode(int x) :
+            val(x), left(NULL), right(NULL) {
+    }
+};*/
+class Solution {
+public:
+    int TreeDepth(TreeNode* pRoot)
+    { 
+        //递归算法
+        if(pRoot==NULL) return 0;
+        return 1+max(TreeDepth(pRoot-&gt;left),TreeDepth(pRoot-&gt;right));
+    }
+};</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/30/%E5%89%91%E6%8C%87offer-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6/">展开全文 >></a>
         </p>
       
 
