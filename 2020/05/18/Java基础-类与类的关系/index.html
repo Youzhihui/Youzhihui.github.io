@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020 | Hexo</title>
+  <title>Java基础--类与类的关系 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2020/index.html">
+  <meta name="description" content="Java中类与类的关系 java中类的关系大体来说可以分为三种—-泛化、包含和依赖（1）泛化关系。泛化关系是is-a的关系，即A是B。    有继承和实现两种形式。在继承中，子类通过extends关键字来继承父类；子类对象可以调用父类中到的（public、protected）属性和方法,当做自己的来使用；子类也可以添加自己独有的属性或方法；子类从父类中继承过来的方法不能满足子类的需要时可以在子类中">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java基础--类与类的关系">
+<meta property="og:url" content="http://yoursite.com/2020/05/18/Java%E5%9F%BA%E7%A1%80-%E7%B1%BB%E4%B8%8E%E7%B1%BB%E7%9A%84%E5%85%B3%E7%B3%BB/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Java中类与类的关系 java中类的关系大体来说可以分为三种—-泛化、包含和依赖（1）泛化关系。泛化关系是is-a的关系，即A是B。    有继承和实现两种形式。在继承中，子类通过extends关键字来继承父类；子类对象可以调用父类中到的（public、protected）属性和方法,当做自己的来使用；子类也可以添加自己独有的属性或方法；子类从父类中继承过来的方法不能满足子类的需要时可以在子类中">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-05-18T10:06:02.000Z">
+<meta property="article:modified_time" content="2020-05-24T12:12:14.663Z">
 <meta property="article:author" content="阿辉">
 <meta name="twitter:card" content="summary">
   
@@ -150,295 +154,189 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-Java基础-类与类的关系" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      Java基础--类与类的关系
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/18/Java%E5%9F%BA%E7%A1%80-%E7%B1%BB%E4%B8%8E%E7%B1%BB%E7%9A%84%E5%85%B3%E7%B3%BB/" class="archive-article-date">
+
+        
+        <a href="/2020/05/18/Java%E5%9F%BA%E7%A1%80-%E7%B1%BB%E4%B8%8E%E7%B1%BB%E7%9A%84%E5%85%B3%E7%B3%BB/" class="archive-article-date">
   	<time datetime="2020-05-18T10:06:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-18</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/18/Java%E5%9F%BA%E7%A1%80-%E7%B1%BB%E4%B8%8E%E7%B1%BB%E7%9A%84%E5%85%B3%E7%B3%BB/">Java基础--类与类的关系</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="Java中类与类的关系"><a href="#Java中类与类的关系" class="headerlink" title="Java中类与类的关系"></a>Java中类与类的关系</h4><blockquote>
+<p>java中类的关系大体来说可以分为三种—-泛化、包含和依赖<br>（1）泛化关系。泛化关系是<code>is-a</code>的关系，即A是B。<br>    有继承和实现两种形式。在继承中，子类通过extends关键字来继承父类；子类对象可以调用父类中到的（public、protected）属性和方法,当做自己的来使用；子类也可以添加自己独有的属性或方法；子类从父类中继承过来的方法不能满足子类的需要时可以在子类中重写（覆盖） 父类的方法；每一个类都有继承类，如果不写extends关键字默认继承object，如果写了则继承后面的父类，可以理解为object是任何一个引用类型的父类；继承是单个存在的（单继承），每个类只能有一个继承类，在extends后面只能写一个类，单继承目的是为了让类变得更加安全，但可以通过传递的方式实现多继承的效果。</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>方法重载（override）和方法重写(overload)的区别</li>
+</ul>
+<p>1.类的角度，方法重写是两个继承关系的类，子类重写父类的方法；方法重载是一个类中的一组方法。<br>2.权限修饰符，方法重写中子类的权限修饰符可以大于父类的修饰符，而方法重载没有要求。<br>3.特征符，方法重写中如果父类方法是用final修饰，子类不能重写，如果父类方法用static来修饰，子类不存在重写的说法，如果父类方法用abstract来修饰，子类是具体类必须重写，否则可以不重写；方法重载没有要求。<br>4.返回值，方法重写中要求子类的返回值可以小于等于父类；方法重载没有要求。<br>5.参数，方法重写中要求子类与父类一致；方法重载中每一个方法的参数必须不一致。<br>6.异常，方法重写中如果父类方法抛出运行时异常时子类可以不予理会，如果父类抛出的是编译时异常，子类抛出的异常个数和类型小于等于父类；方法重载没有要求。  </p>
+</blockquote>
+<blockquote>
+<ul>
+<li>object类中的方法</li>
+</ul>
+<ol>
+<li><code>hashcode()</code>   将对象在内存中的地址经过计算得到一个int整数。public native int hashCode();</li>
+<li><code>equals()</code>     用来比较两个对象的内容,object默认效果是<code>==</code>,<code>==</code>号可以比较基本类型（比较值），也可以比较引用类型（比较地址），equals方法时Object类中继承过来的方法，默认效果比较地址，如想要改变其规则可以进行方法重写。public boolean equals(Object obj){return (this == obj);}</li>
+<li><code>toString()</code>   打印输出时将对象变成String字符串。public String toString(){return this.getClass().getName()+”@”+Integer.toHexString(this.hashCode());}</li>
+<li><code>getClass()</code>   获取对象对应类的类映射（反射）</li>
+<li><code>wait()</code>       线程进入挂起等待状态，存在方法重载</li>
+<li><code>notify()</code>     线程唤醒</li>
+<li><code>notifyAll()</code>  唤醒所有</li>
+<li><code>finalize()</code>   权限修饰符是protected 在对象被垃圾回收器（GC）回收的时候默认调用执行的方法。类似析构函数，</li>
+<li><code>clone()</code>      权限修饰符是protected,为了克隆对象  </li>
+</ol>
+</blockquote>
+<blockquote>
+<ul>
+<li>继承在内存中的存储形式  </li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>关于this和super的使用，this和super都是指代词，代替的是对象，this代替是当前调用方法属性时的那个对象，不一定时当前类的对象，super代替的是当前执行方法时对象的父类对象，空间内部的那个，都能调用一般属性和一般方法，可以放置在类成员的任意位置（属性、方法、构造、块），可以调用构造方法（放在构造方法的第一行），this和super在构造方法中调用另一个方法不能同时出现在第一行，构造方法之间不能来回互相调用（编译就不好使）</li>
+</ul>
+</blockquote>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/18/Java%E5%9F%BA%E7%A1%80-%E7%B1%BB%E4%B8%8E%E7%B1%BB%E7%9A%84%E5%85%B3%E7%B3%BB/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/05/Java%E9%9B%86%E5%90%88%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/" class="archive-article-date">
-  	<time datetime="2020-05-05T14:11:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-05</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/05/05/Java%E9%9B%86%E5%90%88%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java集合简单介绍</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/05/Java%E9%9B%86%E5%90%88%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/">Java集合简单介绍</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/04/%E5%89%91%E6%8C%87offer-%E6%9C%80%E5%B0%8F%E7%9A%84K%E4%B8%AA%E6%95%B0/" class="archive-article-date">
-  	<time datetime="2020-05-04T15:26:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/04/%E5%89%91%E6%8C%87offer-%E6%9C%80%E5%B0%8F%E7%9A%84K%E4%B8%AA%E6%95%B0/">剑指offer--最小的K个数</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/03/%E5%89%91%E6%8C%87offer-%E5%A4%8D%E6%9D%82%E9%93%BE%E8%A1%A8%E7%9A%84%E5%A4%8D%E5%88%B6/" class="archive-article-date">
-  	<time datetime="2020-05-03T13:38:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/03/%E5%89%91%E6%8C%87offer-%E5%A4%8D%E6%9D%82%E9%93%BE%E8%A1%A8%E7%9A%84%E5%A4%8D%E5%88%B6/">剑指offer--复杂链表的复制</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/03/%E5%89%91%E6%8C%87offer-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%8E%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/" class="archive-article-date">
-  	<time datetime="2020-05-03T12:46:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/03/%E5%89%91%E6%8C%87offer-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%8E%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/">剑指offer--二叉搜索树与双向链表</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/02/%E5%AE%89%E5%A4%A72016%E5%B9%B4%E7%BB%BC%E5%90%88%E9%9D%A2%E8%AF%95%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-05-02T03:18:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/02/%E5%AE%89%E5%A4%A72016%E5%B9%B4%E7%BB%BC%E5%90%88%E9%9D%A2%E8%AF%95%E9%A2%98/">安大2016年综合面试题</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/02/%E5%89%91%E6%8C%87offer-%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%AD%E5%92%8C%E4%B8%BA%E6%9F%90%E4%B8%80%E5%80%BC%E7%9A%84%E8%B7%AF%E5%BE%84/" class="archive-article-date">
-  	<time datetime="2020-05-02T02:59:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/02/%E5%89%91%E6%8C%87offer-%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%AD%E5%92%8C%E4%B8%BA%E6%9F%90%E4%B8%80%E5%80%BC%E7%9A%84%E8%B7%AF%E5%BE%84/">剑指offer--二叉树中和为某一值的路径</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/02/%E5%89%91%E6%8C%87offer-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86%E5%BA%8F%E5%88%97/" class="archive-article-date">
-  	<time datetime="2020-05-02T02:34:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/02/%E5%89%91%E6%8C%87offer-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86%E5%BA%8F%E5%88%97/">剑指offer--二叉搜索树的后序遍历序列</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/02/%E5%89%91%E6%8C%87offer-%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/" class="archive-article-date">
-  	<time datetime="2020-05-02T01:59:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/02/%E5%89%91%E6%8C%87offer-%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/">剑指offer--重建二叉树</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/01/%E5%89%91%E6%8C%87offer-%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88/" class="archive-article-date">
-  	<time datetime="2020-05-01T07:36:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/01/%E5%89%91%E6%8C%87offer-%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88/">剑指offer--包含min函数的栈</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2020/page/2/">2</a><a class="extend next" rel="next" href="/archives/2020/page/2/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -462,8 +360,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
