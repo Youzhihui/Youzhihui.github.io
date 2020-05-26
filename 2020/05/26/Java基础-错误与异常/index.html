@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020 | Hexo</title>
+  <title>Java基础--错误与异常 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2020/page/2/index.html">
+  <meta name="description" content="错误与异常 程序的运行过程中，可能会发成一些不被期望的效果，肯定会阻止我们的程序按照指令去执行，这种不被预期出现的效果，肯定需要抛出来告诉我们，在Java中有一个定义好的规则Throwable(可以抛出的)，它是一个类，实现了一个序列化的接口，有两个分支Error（错误）和Exception（异常）  Error错误通常是一些物理性的错误，JVM虚拟机本身出现的问题，程序指令是处理不了的Stack">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java基础--错误与异常">
+<meta property="og:url" content="http://yoursite.com/2020/05/26/Java%E5%9F%BA%E7%A1%80-%E9%94%99%E8%AF%AF%E4%B8%8E%E5%BC%82%E5%B8%B8/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="错误与异常 程序的运行过程中，可能会发成一些不被期望的效果，肯定会阻止我们的程序按照指令去执行，这种不被预期出现的效果，肯定需要抛出来告诉我们，在Java中有一个定义好的规则Throwable(可以抛出的)，它是一个类，实现了一个序列化的接口，有两个分支Error（错误）和Exception（异常）  Error错误通常是一些物理性的错误，JVM虚拟机本身出现的问题，程序指令是处理不了的Stack">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-05-26T13:42:20.000Z">
+<meta property="article:modified_time" content="2020-05-26T16:52:01.247Z">
 <meta property="article:author" content="阿辉">
 <meta name="twitter:card" content="summary">
   
@@ -150,268 +154,241 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Java基础-错误与异常" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java基础--错误与异常
+    </h1>
+  
+
+        
+        <a href="/2020/05/26/Java%E5%9F%BA%E7%A1%80-%E9%94%99%E8%AF%AF%E4%B8%8E%E5%BC%82%E5%B8%B8/" class="archive-article-date">
+  	<time datetime="2020-05-26T13:42:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-26</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="错误与异常"><a href="#错误与异常" class="headerlink" title="错误与异常"></a>错误与异常</h4><blockquote>
+<p>程序的运行过程中，可能会发成一些不被期望的效果，肯定会阻止我们的程序按照指令去执行，这种不被预期出现的效果，肯定需要抛出来告诉我们，<br>在Java中有一个定义好的规则Throwable(可以抛出的)，它是一个类，实现了一个序列化的接口，有两个分支Error（错误）和Exception（异常）</p>
+<ul>
+<li>Error错误<br>通常是一些物理性的错误，JVM虚拟机本身出现的问题，程序指令是处理不了的<br>StackOverflowError 、 OutOfMemoryError 、 </li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>Exception异常<br>通常是一种人为规定的不正常的现象，通常是给定的程序指令产生一些不符合规范的事情<br>异常的分支体系：运行时异常（非检查异常）、编译时异常（检查异常）<br>1、运行时异常：Error和RuntimeException都算运行时异常，用javac编译的时候不会提示和发现的，在程序编写时不要求必须处理，如果我们愿意可以添加处理手段（try throws）,要求大家出现这样的异常的时候知道怎么产生及如何修改。常见的运行时异常：<br>（1）<code>InputMisMatchException</code>  输入不匹配  <code>int value = input.nextInt();// abc</code><br>（2）<code>NumberFormatException</code>   数字格式化  <code>int valur = Integer.parseInt(&quot;123.45&quot;);</code><br>（3）<code>NegativeArraySizeException</code>  数组长度负数  <code>int[] array = new int[-2];</code><br>（4）<code>NullPointerException</code>    空指针异常  <code>Person p = null;p.getName();</code><br>（5）<code>ArithmeticException</code>     数字异常    <code>10/0  整数不允许除以0</code><br>（6）<code>ClassCastException</code>      造型异常    <code>Person p = new Teacher(); Student s = (Studnet)p;</code><br>（7）<code>tringIndexOutOfBoundsException</code>   字符串越界    <code>int[] array = {1,2,3};array[5];</code><br>（8）<code>ArrayIndexOutOfBoundsException</code>    数组索引越界  <code>String str = &quot;abc&quot;;str.charAt(5);</code><br>（9）<code>IndexOutOfBoundsException</code>         List家族集合越界<br>（10）<code>ILLegalArgumentException</code>         非法参数异常  <code>ArrayList list = new ArrayList(-1);</code>  </li>
+</ul>
+</blockquote>
+<blockquote>
+<p>2、编译时异常：处理Error和RuntimeException以外的其他的异常，用javac编译的时候强制要求我们必须为这样的异常做处理（try或throw）。因为这样的异常在程序运行的过程中极有可能产生问题的，当异常产生后后续的所有执行就会停止。编译时异常：<br>（1）InterruptException                 <code>try{Thread.sleep(5000);}catch(Exception e){}</code><br>后续还会有很多的编译时异常</p>
+</blockquote>
+<h4 id="添加处理异常的手段"><a href="#添加处理异常的手段" class="headerlink" title="添加处理异常的手段"></a>添加处理异常的手段</h4><blockquote>
+<p>注意：处理异常不是异常消失了，处理异常指的是处理掉异常之后后续的代码不会因为此异常而终止执行<br>处理异常两种手段：<br>1、<code>try{}catch(){}[finally{}]</code><br>（1）<code>try</code>不能单独出现<br>（2）后面必须添加<code>catch</code>或<code>finall</code><br>（3）<code>catch</code>有一组括号（NullpointerException），目的是为了捕获某一种异常<br>（4）<code>catch</code>可能有很多个存在，捕获的异常之间没有任何的继承关系，捕获的异常需要按从小到大进行捕获<br>（5）<code>finall</code>不是必须存在的，若存在<code>finall</code>结构，则必须执行<br>（6）处理异常放在方法内部可能会有小问题，如果在方法内部含有返回值，不管返回值return关键字在哪里，finally一定会执行完毕，返回值的具体结果得看情况  </p>
+</blockquote>
+<blockquote>
+<p>2、<code>throws</code>抛出<br>（1）异常只能在方法上抛出，属性是不能处理异常，<br>（2）<code>throws</code>只能放在方法和构造方法之上<br>（3）方法可以抛出不止一个异常，多个异常用<code>，</code>隔开<br>（4）抛出的异常与多个<code>catch</code>类似，要么没关系，要么先抛出小异常  </p>
+</blockquote>
+<h4 id="我们也可以自己创建异常—-自定义异常"><a href="#我们也可以自己创建异常—-自定义异常" class="headerlink" title="我们也可以自己创建异常—-自定义异常"></a>我们也可以自己创建异常—-自定义异常</h4><blockquote>
+<p>1、自己描述一个异常的类<br>2、让我们自己的类继承，如果继承的是<code>RuntimeException</code>则是运行时异常，可以不必添加处理手段，如果继承的是Exception则是编译时异常，必须添加处理的手段，<br>3、创建一个当前自定义异常的对象，通过<code>throw</code>关键字主动产生异常<br>4、当我们设计描述的方法（事情）之前没有相关的异常能描述我们的问题，这个时候才会用自定义异常来描述， </p>
+</blockquote>
+<blockquote>
+<ul>
+<li>运行时异常</li>
+</ul>
+</blockquote>
+<pre><code>package mythrowable;
+
+public class MyException extends RuntimeException{
+    public MyException() {}
+    public MyException(String msg) {
+        super(msg);
+    }
+}
+
+package mythrowable;
+
+public class TestException {
+    public void testMyException(){
+        System.out.println(&quot;测试自定义异常的方法执行啦&quot;);
+        if(3&gt;2) {//若满足某个条件
+            throw new MyException(&quot;说明一下异常的具体问题&quot;);
+        }
+    }
+    public static void main(String[] args) {
+        TestException te = new TestException();
+        te.testMyException();
+    }
+}</code></pre><blockquote>
+<ul>
+<li>编译时异常（必须用try或throws处理）</li>
+</ul>
+</blockquote>
+<pre><code>package mythrowable;
+
+public class MyException extends RuntimeException{
+    public MyException() {}
+    public MyException(String msg) {
+        super(msg);
+    }
+}
+
+package mythrowable;
+
+public class TestException {
+    public void testMyException() throws MyException{
+        System.out.println(&quot;测试自定义异常的方法执行啦&quot;);
+        if(3&gt;2) {//若满足某个条件
+            throw new MyException(&quot;说明一下异常的具体问题&quot;);
+        }
+    }
+    public static void main(String[] args) {
+        TestException te = new TestException();
+        try {//异常处理
+            te.testMyException();
+        }catch (Exception e) {
+            // TODO: handle exception
+            e.printStackTrace();
+        }
+    }
+}</code></pre><blockquote>
+<ul>
+<li>final 、 finall 、 finalize三者之间的区别<br>final 特征修饰符<br>finally  处理异常手段的一部分<br>finalize 是Object类中的一个protected方法，当对象没有任何引用指向的时候会被GC回收，当对象回收的时候默认调用finalize方法。  </li>
+</ul>
+</blockquote>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/02/%E5%89%91%E6%8C%87offer-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86%E5%BA%8F%E5%88%97/" class="archive-article-date">
-  	<time datetime="2020-05-02T02:34:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/02/%E5%89%91%E6%8C%87offer-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86%E5%BA%8F%E5%88%97/">剑指offer--二叉搜索树的后序遍历序列</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/26/Java%E5%9F%BA%E7%A1%80-%E9%94%99%E8%AF%AF%E4%B8%8E%E5%BC%82%E5%B8%B8/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/02/%E5%89%91%E6%8C%87offer-%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/" class="archive-article-date">
-  	<time datetime="2020-05-02T01:59:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-02</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/05/26/java%E5%9F%BA%E7%A1%80-%E4%BF%AE%E9%A5%B0%E7%AC%A6%E5%BC%95%E7%94%A8%EF%BC%88%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java基础--修饰符应用（单例模式）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/02/%E5%89%91%E6%8C%87offer-%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/">剑指offer--重建二叉树</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/01/%E5%89%91%E6%8C%87offer-%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88/" class="archive-article-date">
-  	<time datetime="2020-05-01T07:36:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/01/%E5%89%91%E6%8C%87offer-%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88/">剑指offer--包含min函数的栈</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/30/%E5%89%91%E6%8C%87offer-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6/" class="archive-article-date">
-  	<time datetime="2020-04-30T15:03:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/30/%E5%89%91%E6%8C%87offer-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6/">剑指offer--二叉树的深度</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/30/2017%E5%B9%B4%E7%BB%BC%E5%90%88%E9%9D%A2%E8%AF%95%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-04-30T08:33:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/30/2017%E5%B9%B4%E7%BB%BC%E5%90%88%E9%9D%A2%E8%AF%95%E9%A2%98/">2017年综合面试题</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/29/2019%E5%AE%89%E5%A4%A7%E7%BB%BC%E5%90%88%E9%9D%A2%E8%AF%95/" class="archive-article-date">
-  	<time datetime="2020-04-29T10:14:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/29/2019%E5%AE%89%E5%A4%A7%E7%BB%BC%E5%90%88%E9%9D%A2%E8%AF%95/">2019安大综合面试</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/29/%E7%8E%A9%E8%BD%ACgithub%E4%B8%8A%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" class="archive-article-date">
-  	<time datetime="2020-04-29T00:23:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/29/%E7%8E%A9%E8%BD%ACgithub%E4%B8%8A%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/">玩转github上开源项目</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/28/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
-  	<time datetime="2020-04-28T02:03:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/28/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">我的第一篇博客文章</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/28/hello-world/" class="archive-article-date">
-  	<time datetime="2020-04-28T01:53:05.568Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/28/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2020/">&amp;laquo; Prev</a><a class="page-number" href="/archives/2020/">1</a><span class="page-number current">2</span>
-    </nav>
   
 
 
@@ -435,8 +412,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

@@ -152,6 +152,155 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Java基础-错误与异常" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/26/Java%E5%9F%BA%E7%A1%80-%E9%94%99%E8%AF%AF%E4%B8%8E%E5%BC%82%E5%B8%B8/">Java基础--错误与异常</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/26/Java%E5%9F%BA%E7%A1%80-%E9%94%99%E8%AF%AF%E4%B8%8E%E5%BC%82%E5%B8%B8/" class="archive-article-date">
+  	<time datetime="2020-05-26T13:42:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="错误与异常"><a href="#错误与异常" class="headerlink" title="错误与异常"></a>错误与异常</h4><blockquote>
+<p>程序的运行过程中，可能会发成一些不被期望的效果，肯定会阻止我们的程序按照指令去执行，这种不被预期出现的效果，肯定需要抛出来告诉我们，<br>在Java中有一个定义好的规则Throwable(可以抛出的)，它是一个类，实现了一个序列化的接口，有两个分支Error（错误）和Exception（异常）</p>
+<ul>
+<li>Error错误<br>通常是一些物理性的错误，JVM虚拟机本身出现的问题，程序指令是处理不了的<br>StackOverflowError 、 OutOfMemoryError 、 </li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>Exception异常<br>通常是一种人为规定的不正常的现象，通常是给定的程序指令产生一些不符合规范的事情<br>异常的分支体系：运行时异常（非检查异常）、编译时异常（检查异常）<br>1、运行时异常：Error和RuntimeException都算运行时异常，用javac编译的时候不会提示和发现的，在程序编写时不要求必须处理，如果我们愿意可以添加处理手段（try throws）,要求大家出现这样的异常的时候知道怎么产生及如何修改。常见的运行时异常：<br>（1）<code>InputMisMatchException</code>  输入不匹配  <code>int value = input.nextInt();// abc</code><br>（2）<code>NumberFormatException</code>   数字格式化  <code>int valur = Integer.parseInt(&quot;123.45&quot;);</code><br>（3）<code>NegativeArraySizeException</code>  数组长度负数  <code>int[] array = new int[-2];</code><br>（4）<code>NullPointerException</code>    空指针异常  <code>Person p = null;p.getName();</code><br>（5）<code>ArithmeticException</code>     数字异常    <code>10/0  整数不允许除以0</code><br>（6）<code>ClassCastException</code>      造型异常    <code>Person p = new Teacher(); Student s = (Studnet)p;</code><br>（7）<code>tringIndexOutOfBoundsException</code>   字符串越界    <code>int[] array = {1,2,3};array[5];</code><br>（8）<code>ArrayIndexOutOfBoundsException</code>    数组索引越界  <code>String str = &quot;abc&quot;;str.charAt(5);</code><br>（9）<code>IndexOutOfBoundsException</code>         List家族集合越界<br>（10）<code>ILLegalArgumentException</code>         非法参数异常  <code>ArrayList list = new ArrayList(-1);</code>  </li>
+</ul>
+</blockquote>
+<blockquote>
+<p>2、编译时异常：处理Error和RuntimeException以外的其他的异常，用javac编译的时候强制要求我们必须为这样的异常做处理（try或throw）。因为这样的异常在程序运行的过程中极有可能产生问题的，当异常产生后后续的所有执行就会停止。编译时异常：<br>（1）InterruptException                 <code>try{Thread.sleep(5000);}catch(Exception e){}</code><br>后续还会有很多的编译时异常</p>
+</blockquote>
+<h4 id="添加处理异常的手段"><a href="#添加处理异常的手段" class="headerlink" title="添加处理异常的手段"></a>添加处理异常的手段</h4><blockquote>
+<p>注意：处理异常不是异常消失了，处理异常指的是处理掉异常之后后续的代码不会因为此异常而终止执行<br>处理异常两种手段：<br>1、<code>try{}catch(){}[finally{}]</code><br>（1）<code>try</code>不能单独出现<br>（2）后面必须添加<code>catch</code>或<code>finall</code><br>（3）<code>catch</code>有一组括号（NullpointerException），目的是为了捕获某一种异常<br>（4）<code>catch</code>可能有很多个存在，捕获的异常之间没有任何的继承关系，捕获的异常需要按从小到大进行捕获<br>（5）<code>finall</code>不是必须存在的，若存在<code>finall</code>结构，则必须执行<br>（6）处理异常放在方法内部可能会有小问题，如果在方法内部含有返回值，不管返回值return关键字在哪里，finally一定会执行完毕，返回值的具体结果得看情况  </p>
+</blockquote>
+<blockquote>
+<p>2、<code>throws</code>抛出<br>（1）异常只能在方法上抛出，属性是不能处理异常，<br>（2）<code>throws</code>只能放在方法和构造方法之上<br>（3）方法可以抛出不止一个异常，多个异常用<code>，</code>隔开<br>（4）抛出的异常与多个<code>catch</code>类似，要么没关系，要么先抛出小异常  </p>
+</blockquote>
+<h4 id="我们也可以自己创建异常—-自定义异常"><a href="#我们也可以自己创建异常—-自定义异常" class="headerlink" title="我们也可以自己创建异常—-自定义异常"></a>我们也可以自己创建异常—-自定义异常</h4><blockquote>
+<p>1、自己描述一个异常的类<br>2、让我们自己的类继承，如果继承的是<code>RuntimeException</code>则是运行时异常，可以不必添加处理手段，如果继承的是Exception则是编译时异常，必须添加处理的手段，<br>3、创建一个当前自定义异常的对象，通过<code>throw</code>关键字主动产生异常<br>4、当我们设计描述的方法（事情）之前没有相关的异常能描述我们的问题，这个时候才会用自定义异常来描述， </p>
+</blockquote>
+<blockquote>
+<ul>
+<li>运行时异常</li>
+</ul>
+</blockquote>
+<pre><code>package mythrowable;
+
+public class MyException extends RuntimeException{
+    public MyException() {}
+    public MyException(String msg) {
+        super(msg);
+    }
+}
+
+package mythrowable;
+
+public class TestException {
+    public void testMyException(){
+        System.out.println(&quot;测试自定义异常的方法执行啦&quot;);
+        if(3&gt;2) {//若满足某个条件
+            throw new MyException(&quot;说明一下异常的具体问题&quot;);
+        }
+    }
+    public static void main(String[] args) {
+        TestException te = new TestException();
+        te.testMyException();
+    }
+}</code></pre><blockquote>
+<ul>
+<li>编译时异常（必须用try或throws处理）</li>
+</ul>
+</blockquote>
+<pre><code>package mythrowable;
+
+public class MyException extends RuntimeException{
+    public MyException() {}
+    public MyException(String msg) {
+        super(msg);
+    }
+}
+
+package mythrowable;
+
+public class TestException {
+    public void testMyException() throws MyException{
+        System.out.println(&quot;测试自定义异常的方法执行啦&quot;);
+        if(3&gt;2) {//若满足某个条件
+            throw new MyException(&quot;说明一下异常的具体问题&quot;);
+        }
+    }
+    public static void main(String[] args) {
+        TestException te = new TestException();
+        try {//异常处理
+            te.testMyException();
+        }catch (Exception e) {
+            // TODO: handle exception
+            e.printStackTrace();
+        }
+    }
+}</code></pre><blockquote>
+<ul>
+<li>final 、 finall 、 finalize三者之间的区别<br>final 特征修饰符<br>finally  处理异常手段的一部分<br>finalize 是Object类中的一个protected方法，当对象没有任何引用指向的时候会被GC回收，当对象回收的时候默认调用finalize方法。  </li>
+</ul>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/26/Java%E5%9F%BA%E7%A1%80-%E9%94%99%E8%AF%AF%E4%B8%8E%E5%BC%82%E5%B8%B8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-java基础-修饰符引用（单例模式）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1109,90 +1258,6 @@ public:
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/05/02/%E5%89%91%E6%8C%87offer-%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%AD%E5%92%8C%E4%B8%BA%E6%9F%90%E4%B8%80%E5%80%BC%E7%9A%84%E8%B7%AF%E5%BE%84/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-剑指offer-二叉搜索树的后序遍历序列" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/02/%E5%89%91%E6%8C%87offer-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86%E5%BA%8F%E5%88%97/">剑指offer--二叉搜索树的后序遍历序列</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/02/%E5%89%91%E6%8C%87offer-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86%E5%BA%8F%E5%88%97/" class="archive-article-date">
-  	<time datetime="2020-05-02T02:34:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h1><blockquote>
-<p>输入一个非空整数数组，判断该数组是不是某二叉搜索树的后序遍历的结果。如果是则输出Yes,否则输出No。假设输入的数组的任意两个数字都互不相同。</p>
-</blockquote>
-<blockquote>
-<p>本题采用递归思路求解：根据二叉搜索树的性质，一个节点大于该节点的左孩子，小于该节点的右孩子。二叉搜索树的后序遍历的最后一个元素是树的根节点，根节点的左子树所有节点值一定都小于根节点的值，右子树所有节点的值大于根节点的值。我们只需从序列的末尾出发找到小于根节点的第一个值并记下下标，下边前部分的元素（包括下标元素）是左子树的后序遍历序列，后部分的元素是右子树的后序遍历，然后重复刚才的判断，如果违背了二叉搜索树的性质（根节点的左子树所有节点值一定都小于根节点的值，右子树所有节点的值大于根节点的值），则返回flase,否则返回true。代码如下，仅供参考。<br>递归思路：</p>
-</blockquote>
-<pre><code>class Solution {
-public:
-    bool VerifySquenceOfBST(vector&lt;int&gt; sequence) {
-        if(!sequence.size()) return false;
-        return judge(sequence,0,sequence.size()-1);
-    }
-    //
-    bool judge(vector&lt;int&gt;&amp; sequence,int left,int right){
-        if(left&gt;=right) return true;              //等号“=”对应叶子节点（或该树只有根节点），大于号“&gt;”对应空树
-        int i = right;                            //后序遍历序列的最后一个元素，即某棵子树的根节点
-        while(i&gt;left&amp;&amp;sequence[i-1]&gt;sequence[right]) --i; //
-        for(int j=i-1;j&gt;=left;--j){
-            if(sequence[j]&gt;sequence[right]) return false;
-        }
-        return judge(sequence,left,i-1) &amp;&amp; judge(sequence,i,right-1);
-    }
-};</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/02/%E5%89%91%E6%8C%87offer-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86%E5%BA%8F%E5%88%97/">展开全文 >></a>
         </p>
       
 
