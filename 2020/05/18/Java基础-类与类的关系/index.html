@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Java基础--类与类的关系 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Java中类与类的关系 java中类的关系大体来说可以分为三种—-泛化、包含和依赖（1）泛化关系。泛化关系是is-a的关系，即A是B。    有继承和实现两种形式。在继承中，子类通过extends关键字来继承父类；子类对象可以调用父类中到的（public、protected）属性和方法,当做自己的来使用；子类也可以添加自己独有的属性或方法；子类从父类中继承过来的方法不能满足子类的需要时可以在子类中">
+  <meta name="description" content="Java中类与类的关系 java中类的关系大体来说可以分为三种—-泛化、包含和依赖（1）泛化关系。泛化关系是is-a的关系，即A是B。    有继承和实现两种形式。在继承中，子类通过extends关键字来继承父类；子类对象可以调用父类中到的（public、protected）属性和方法,当做自己的来使用(构造方法严格意义来说不算作子类继承过来的，只是单纯的在子类调用构造方法时默认调用父类的构造方法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java基础--类与类的关系">
 <meta property="og:url" content="http://yoursite.com/2020/05/18/Java%E5%9F%BA%E7%A1%80-%E7%B1%BB%E4%B8%8E%E7%B1%BB%E7%9A%84%E5%85%B3%E7%B3%BB/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Java中类与类的关系 java中类的关系大体来说可以分为三种—-泛化、包含和依赖（1）泛化关系。泛化关系是is-a的关系，即A是B。    有继承和实现两种形式。在继承中，子类通过extends关键字来继承父类；子类对象可以调用父类中到的（public、protected）属性和方法,当做自己的来使用；子类也可以添加自己独有的属性或方法；子类从父类中继承过来的方法不能满足子类的需要时可以在子类中">
+<meta property="og:description" content="Java中类与类的关系 java中类的关系大体来说可以分为三种—-泛化、包含和依赖（1）泛化关系。泛化关系是is-a的关系，即A是B。    有继承和实现两种形式。在继承中，子类通过extends关键字来继承父类；子类对象可以调用父类中到的（public、protected）属性和方法,当做自己的来使用(构造方法严格意义来说不算作子类继承过来的，只是单纯的在子类调用构造方法时默认调用父类的构造方法">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-05-18T10:06:02.000Z">
-<meta property="article:modified_time" content="2020-05-24T12:12:14.663Z">
+<meta property="article:modified_time" content="2020-05-25T15:44:05.063Z">
 <meta property="article:author" content="阿辉">
 <meta name="twitter:card" content="summary">
   
@@ -175,11 +175,11 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h4 id="Java中类与类的关系"><a href="#Java中类与类的关系" class="headerlink" title="Java中类与类的关系"></a>Java中类与类的关系</h4><blockquote>
-<p>java中类的关系大体来说可以分为三种—-泛化、包含和依赖<br>（1）泛化关系。泛化关系是<code>is-a</code>的关系，即A是B。<br>    有继承和实现两种形式。在继承中，子类通过extends关键字来继承父类；子类对象可以调用父类中到的（public、protected）属性和方法,当做自己的来使用；子类也可以添加自己独有的属性或方法；子类从父类中继承过来的方法不能满足子类的需要时可以在子类中重写（覆盖） 父类的方法；每一个类都有继承类，如果不写extends关键字默认继承object，如果写了则继承后面的父类，可以理解为object是任何一个引用类型的父类；继承是单个存在的（单继承），每个类只能有一个继承类，在extends后面只能写一个类，单继承目的是为了让类变得更加安全，但可以通过传递的方式实现多继承的效果。</p>
+<p>java中类的关系大体来说可以分为三种—-泛化、包含和依赖<br>（1）泛化关系。泛化关系是<code>is-a</code>的关系，即A是B。<br>    有继承和实现两种形式。在继承中，子类通过extends关键字来继承父类；子类对象可以调用父类中到的（public、protected）属性和方法,当做自己的来使用(构造方法严格意义来说不算作子类继承过来的，只是单纯的在子类调用构造方法时默认调用父类的构造方法；程序块严格意义来说不算做子类继承来的，程序块不能直接调用，默认调用父类的构造方法之前自动执行父类的程序块)；子类也可以添加自己独有的属性或方法；子类从父类中继承过来的方法不能满足子类的需要时可以在子类中重写（覆盖） 父类的方法；每一个类都有继承类，如果不写extends关键字默认继承object，如果写了则继承后面的父类（间接的继承object类），可以理解为object是任何一个引用类型的父类；继承是单个存在的（单继承），每个类只能有一个继承类，在extends后面只能写一个类，单继承目的是为了让类变得更加安全，但可以通过传递的方式实现多继承的效果。<br>（2）包含关系。包含关系是<code>has-a</code>的关系，即A有B<br>    有组合（整体和部分的关系，不可分割的，要出现都出现，要消亡都消亡）、聚合（整体和部分的关系，创建时有可能分开的）和关联（整体和部分的关系，可以分割，后来形成的）三种形式。从java程序来描述这样的关系，通过一个类的对象当作另一个类的属性来存储。<br>（3）依赖关系。依赖关系是<code>use-a</code>的关系，即A用B。<br>    不是整体和部分的关系，某一件事情产生了关系，临时组合在一起，这件事情一旦做完关系即解散。Java程序体现的形式：一个类的方法使用到了另一个类的对象，有两种形式，一种是可以在方法中传递参数，还可以在方法中自己创建（new关键字）</p>
 </blockquote>
 <blockquote>
 <ul>
-<li>方法重载（override）和方法重写(overload)的区别</li>
+<li>方法重载（override）和 方法重写(overload)的区别</li>
 </ul>
 <p>1.类的角度，方法重写是两个继承关系的类，子类重写父类的方法；方法重载是一个类中的一组方法。<br>2.权限修饰符，方法重写中子类的权限修饰符可以大于父类的修饰符，而方法重载没有要求。<br>3.特征符，方法重写中如果父类方法是用final修饰，子类不能重写，如果父类方法用static来修饰，子类不存在重写的说法，如果父类方法用abstract来修饰，子类是具体类必须重写，否则可以不重写；方法重载没有要求。<br>4.返回值，方法重写中要求子类的返回值可以小于等于父类；方法重载没有要求。<br>5.参数，方法重写中要求子类与父类一致；方法重载中每一个方法的参数必须不一致。<br>6.异常，方法重写中如果父类方法抛出运行时异常时子类可以不予理会，如果父类抛出的是编译时异常，子类抛出的异常个数和类型小于等于父类；方法重载没有要求。  </p>
 </blockquote>
@@ -189,11 +189,11 @@
 </ul>
 <ol>
 <li><code>hashcode()</code>   将对象在内存中的地址经过计算得到一个int整数。public native int hashCode();</li>
-<li><code>equals()</code>     用来比较两个对象的内容,object默认效果是<code>==</code>,<code>==</code>号可以比较基本类型（比较值），也可以比较引用类型（比较地址），equals方法时Object类中继承过来的方法，默认效果比较地址，如想要改变其规则可以进行方法重写。public boolean equals(Object obj){return (this == obj);}</li>
-<li><code>toString()</code>   打印输出时将对象变成String字符串。public String toString(){return this.getClass().getName()+”@”+Integer.toHexString(this.hashCode());}</li>
+<li><code>equals()</code>     用来比较两个对象的内容,object默认效果是<code>==</code>,<code>==</code>号可以比较基本类型（比较值），也可以比较引用类型（比较地址），equals方法时Object类中继承过来的方法，默认效果比较地址，如想要改变其规则可以进行方法重写。<br>public boolean equals(Object obj){return (this == obj);}</li>
+<li><code>toString()</code>   打印输出时将对象变成String字符串。<br>public String toString(){return this.getClass().getName()+”@”+Integer.toHexString(this.hashCode());}</li>
 <li><code>getClass()</code>   获取对象对应类的类映射（反射）</li>
 <li><code>wait()</code>       线程进入挂起等待状态，存在方法重载</li>
-<li><code>notify()</code>     线程唤醒</li>
+<li><code>notify()</code>     线程唤醒   </li>
 <li><code>notifyAll()</code>  唤醒所有</li>
 <li><code>finalize()</code>   权限修饰符是protected 在对象被垃圾回收器（GC）回收的时候默认调用执行的方法。类似析构函数，</li>
 <li><code>clone()</code>      权限修饰符是protected,为了克隆对象  </li>
@@ -201,12 +201,22 @@
 </blockquote>
 <blockquote>
 <ul>
-<li>继承在内存中的存储形式  </li>
+<li>继承在内存中的存储形式   </li>
 </ul>
 </blockquote>
 <blockquote>
 <ul>
 <li>关于this和super的使用，this和super都是指代词，代替的是对象，this代替是当前调用方法属性时的那个对象，不一定时当前类的对象，super代替的是当前执行方法时对象的父类对象，空间内部的那个，都能调用一般属性和一般方法，可以放置在类成员的任意位置（属性、方法、构造、块），可以调用构造方法（放在构造方法的第一行），this和super在构造方法中调用另一个方法不能同时出现在第一行，构造方法之间不能来回互相调用（编译就不好使）</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>设计类的关系遵顼的原则：高内聚低耦合。耦合度：泛化（继承、实现）&gt; 包含（组合、聚合、关联） &gt; 依赖</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>静态常量 (private static final int BOOKSTROE_ADMIN = 0;)</li>
 </ul>
 </blockquote>
 
@@ -301,6 +311,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2020/05/25/Java%E5%9F%BA%E7%A1%80-%E4%BF%AE%E9%A5%B0%E7%AC%A61/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Java基础--修饰符
+        
+      </div>
+    </a>
   
   
     <a href="/2020/05/05/Java%E9%9B%86%E5%90%88%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/" id="article-nav-older" class="article-nav-link-wrap">

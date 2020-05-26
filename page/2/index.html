@@ -152,6 +152,241 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-剑指offer-重建二叉树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/02/%E5%89%91%E6%8C%87offer-%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/">剑指offer--重建二叉树</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/02/%E5%89%91%E6%8C%87offer-%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/" class="archive-article-date">
+  	<time datetime="2020-05-02T01:59:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><blockquote>
+<p>输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。</p>
+</blockquote>
+<blockquote>
+<p>本题采用递归思路求解<br>递归思路：如果遍历序列为空，返回空；在中序遍历中找到前序遍历的第一个元素（即根节点），找到根节点后记录根节点左子树的前序遍历和中序遍历，记录根节点右子树的中序遍历，把得到的相对应的前序遍历和中序遍历重复上面的过程即可。代码如下，仅供参考。</p>
+</blockquote>
+<pre><code>/**
+ * Definition for binary tree
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* reConstructBinaryTree(vector&lt;int&gt; pre,vector&lt;int&gt; vin) {
+        if(pre.size()==0||vin.size()==0){          //递归跳出条件
+            return NULL;
+        }
+        TreeNode *root = new TreeNode(pre[0]);
+        int i;
+        for(i=0;i&lt;vin.size()&amp;&amp;vin[i]!=pre[0];i++); //找到根节点对应的元素值索引
+        vector&lt;int&gt; pre_left,pre_right,vin_left,vin_right;
+        int pre_i = 1;                             //标记pre容器的下表，根节点索引为0，所以从1开始，把pre容器分成两个容器
+        for(int j=0;j&lt;vin.size();j++){
+            if(j&lt;i){
+                vin_left.push_back(vin[j]);
+                pre_left.push_back(pre[pre_i]);
+                pre_i++;
+            }else if(j&gt;i){
+                vin_right.push_back(vin[j]);
+                pre_right.push_back(pre[pre_i]);
+                pre_i++;
+            }
+        }
+        root-&gt;left = reConstructBinaryTree(pre_left,vin_left);
+        root-&gt;right = reConstructBinaryTree(pre_right,vin_right);
+        return root;
+    }
+};</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/02/%E5%89%91%E6%8C%87offer-%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-剑指offer-包含min函数的栈" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/01/%E5%89%91%E6%8C%87offer-%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88/">剑指offer--包含min函数的栈</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/01/%E5%89%91%E6%8C%87offer-%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88/" class="archive-article-date">
+  	<time datetime="2020-05-01T07:36:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h1><blockquote>
+<p>定义栈的数据结构，请在该类型中实现一个能够得到栈中所含最小元素的min函数（时间复杂度应为O（1））。注意：保证测试中不会当栈为空的时候，对栈调用pop()或者min()或者top()方法。</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>求解思路1：设置两个栈结构，一个数据栈（dataStack）用来存放数据元素，另一个最小栈（minStack）来记录数据栈中最小的元素。每当有元素要进栈时先把进栈元素与栈中最小元素（即minStack得栈顶元素）比较，如果进栈元素更小，则把元素压入dataStack和minStack中，否则把要进栈的元素压入dataStack中，minStack压入minStack的栈顶元素。</li>
+</ul>
+</blockquote>
+<pre><code>class Solution {
+public:
+    void push(int value) {       //进栈
+        if(dataStack.empty()){
+            dataStack.push(value);
+            minStack.push(value);
+        }else{
+            if(value&lt;minStack.top()){
+                minStack.push(value);
+            }else{
+                minStack.push(minStack.top());
+            }
+            dataStack.push(value);
+        }
+    }
+    void pop() {                 //出栈
+        dataStack.pop();
+        minStack.pop();
+    }
+    int top() {                  //取栈顶元素
+        return dataStack.top();
+    }
+    int min() {                  //得到栈中最小的元素
+        return minStack.top();
+    }
+private:
+    stack&lt;int&gt; dataStack;        //数据栈
+    stack&lt;int&gt; minStack;         //最小值栈，当数据栈改变（数据进栈或出栈）时记录最小的元素
+};</code></pre><hr>
+<blockquote>
+<ul>
+<li>求解思路2：用一个变量min来记录当前栈中最小的元素。当有元素进栈时，先把要进栈的元素与min比较，如果要进栈的元素更小或相等，则先把min压栈，再把进栈元素压栈，同时更新min变量为进栈元素的值；当有元素要出栈时，如果出栈的元素与min值相等，则先推出栈顶元素，在把栈顶元素赋值给min，在退出栈顶元素（这个时候推出的栈顶元素时保存在栈中的最小的元素值）。</li>
+</ul>
+</blockquote>
+<pre><code>class Solution {
+public:
+    void push(int value) {
+        if(min&gt;=value){
+            if(!dataAndMinStack.empty()) dataAndMinStack.push(min);
+            min = value;
+        }
+        dataAndMinStack.push(value);
+    }
+    void pop() {
+        if(dataAndMinStack.empty) return ;
+        if(dataAndMinStack.size()==1){
+            min = INT_MAX;
+        }else if(min == dataAndMinStack.top()){
+            dataAndMinStack.pop();
+            min = stack.top();
+        }
+        dataAndMinStack.pop();
+    }
+    int top() {
+        return dataAndMinStack.top();
+    }
+    int min() {
+        return min;
+    }
+private:
+    stack&lt;int&gt; dataAndMinStack;
+    int static min = INT_MAX;
+};</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/01/%E5%89%91%E6%8C%87offer-%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-剑指offer-二叉树的深度" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
