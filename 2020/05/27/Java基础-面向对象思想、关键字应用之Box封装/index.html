@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020/5 | Hexo</title>
+  <title>Java基础--面向对象思想、关键字应用之Box封装 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2020/05/index.html">
+  <meta name="description" content="ArrayBox的封装 设计一个类ArrayBox，这个类的功能和集合中ArrayList的功能类似，底层用数组实现，目的是数组底层有些特性不太好Box接口,让LinkedBox实现改接口  package util; public interface Box {     public boolean add(int element);     public int get(int index);">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java基础--面向对象思想、关键字应用之Box封装">
+<meta property="og:url" content="http://yoursite.com/2020/05/27/Java%E5%9F%BA%E7%A1%80-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%9D%E6%83%B3%E3%80%81%E5%85%B3%E9%94%AE%E5%AD%97%E5%BA%94%E7%94%A8%E4%B9%8BBox%E5%B0%81%E8%A3%85/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="ArrayBox的封装 设计一个类ArrayBox，这个类的功能和集合中ArrayList的功能类似，底层用数组实现，目的是数组底层有些特性不太好Box接口,让LinkedBox实现改接口  package util; public interface Box {     public boolean add(int element);     public int get(int index);">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-05-27T06:59:30.000Z">
+<meta property="article:modified_time" content="2020-05-27T13:44:52.649Z">
 <meta property="article:author" content="阿辉">
 <meta name="twitter:card" content="summary">
   
@@ -150,295 +154,449 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Java基础-面向对象思想、关键字应用之Box封装" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/28/Java%E5%9F%BA%E7%A1%80-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F-%E5%86%85%E9%83%A8%E7%B1%BB/" class="archive-article-date">
-  	<time datetime="2020-05-28T00:54:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-28</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/28/Java%E5%9F%BA%E7%A1%80-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F-%E5%86%85%E9%83%A8%E7%B1%BB/">Java基础---策略模式+内部类</a>
+    <h1 class="article-title" itemprop="name">
+      Java基础--面向对象思想、关键字应用之Box封装
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/27/Java%E5%9F%BA%E7%A1%80-%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F-%E5%A4%9A%E6%80%81/" class="archive-article-date">
-  	<time datetime="2020-05-27T09:16:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/27/Java%E5%9F%BA%E7%A1%80-%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F-%E5%A4%9A%E6%80%81/">Java基础--适配器模式+多态</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/27/Java%E5%9F%BA%E7%A1%80-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%9D%E6%83%B3%E3%80%81%E5%85%B3%E9%94%AE%E5%AD%97%E5%BA%94%E7%94%A8%E4%B9%8BBox%E5%B0%81%E8%A3%85/" class="archive-article-date">
+        
+        <a href="/2020/05/27/Java%E5%9F%BA%E7%A1%80-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%9D%E6%83%B3%E3%80%81%E5%85%B3%E9%94%AE%E5%AD%97%E5%BA%94%E7%94%A8%E4%B9%8BBox%E5%B0%81%E8%A3%85/" class="archive-article-date">
   	<time datetime="2020-05-27T06:59:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-27</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/27/Java%E5%9F%BA%E7%A1%80-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%9D%E6%83%B3%E3%80%81%E5%85%B3%E9%94%AE%E5%AD%97%E5%BA%94%E7%94%A8%E4%B9%8BBox%E5%B0%81%E8%A3%85/">Java基础--面向对象思想、关键字应用之Box封装</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="ArrayBox的封装"><a href="#ArrayBox的封装" class="headerlink" title="ArrayBox的封装"></a>ArrayBox的封装</h5><blockquote>
+<p>设计一个类ArrayBox，这个类的功能和集合中ArrayList的功能类似，底层用数组实现，目的是数组底层有些特性不太好<br>Box接口,让LinkedBox实现改接口</p>
+</blockquote>
+<pre><code>package util;
+public interface Box {
+    public boolean add(int element);
+    public int get(int index);
+    public int remove(int index);
+    public int size();
+}</code></pre><blockquote>
+<p>具体的ArrayBox代码实现</p>
+</blockquote>
+<pre><code>package util;
+public class ArrayBox implements Box{
+    //设计一个静态常量  用来存储数组的默认长度
+    private static final int DEFAULT_CAPACITY = 10;
+    //设计一个自己的属性  用来存放真实的数据的  []
+    private int[] elementDate;
+    //设计一个自己的属性  用来记录数组内存储的有效元素的个数
+    private int size = 0;
+    //构造方法重载
+    public ArrayBox() {
+        elementDate = new int[DEFAULT_CAPACITY];
+    }
+    public ArrayBox(int capacity) {
+        elementDate = new int[capacity];
+    }
+    //小A同学  负责确保数组内部的容量
+    private void ensureCapacityInternal(int minCapacity) {
+        //判断如果你需要的最小容量比原来数组的长度还要大
+        if(minCapacity-elementDate.length&gt;0) {//如果不初始化elementDate（默认为NULL）会报空指针异常
+            //进行数组的扩容  找别人计算扩容的大小
+            this.grow(minCapacity);
+        }
+    }
+    //小B同学    负责计算扩容大小
+    private void grow(int minCapacity) {
+        //获取原数组的长度
+        int oldCapacity = elementDate.length;
+        //帮忙计算  在原数组之上增加1.5倍
+        int newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1);
+        //比较计算后的长度和所需的长度
+        if(newCapacity-minCapacity&lt;0) {
+            //那么直接按照所需的长度作为新数组的长度
+            newCapacity = minCapacity;
+        }
+        //调用其他方法（小C同学）创建新的数组，将原数组中的所有元素移入新数组中
+        elementDate =  this.copyOf(elementDate, newCapacity);
+    }
+    //小 C同学  负责将原数组中的元素移入新数组中
+    private int[] copyOf(int[] oldArray,int newCapacity) {
+        //按照提供的长度创建一个新数组
+        int[] newArray = new int[newCapacity];
+        for(int i=0;i&lt;oldArray.length;i++) {
+            newArray[i] = oldArray[i];
+        }
+        //将新数组返回
+        return newArray;
+    }
+    //小D同学    检测给定index是否合法
+    private void rangeCheck(int index) {
+        if(index&lt;0 || index&gt;=size) {
+            //自定义一个异常来说明问题
+            throw new BoxIndexOutOfException(&quot;&quot;+index+&quot;&quot;+size);
+        }
+    }
+    //--------------------------------------------------
+    //用来将用户给定的element存起来  参数是需要存起来的元素  返回值是否存储成功
+    public boolean add(int element) {
+        //首先得确保数组的内部容量够用
+        this.ensureCapacityInternal(size+1);
+        //上述一行代码可以执行完毕，证明elementData的数组肯定够用
+        //直接将新来的element元素存入数组中  并且让size多记录一个
+        elementDate[size++] = element;
+        //返回true告知用户存储元素成功
+        return true;
+    }
+    //用来获取给定位置的元素  参数是索引位置  返回值是取得的元素
+    public int get(int index) {
+        //找个小弟  检测给定的index是否合法
+        this.rangeCheck(index);
+        //如果上述代码可以执行  证明index是合法的
+        //则找到index对应位置的元素  将其返回
+        return elementDate[index];
+    }
+    //用来删除给定位置的元素   参数是索引位置  返回值是删除掉的那个元素
+    public int remove(int index) {
+        //调用小D同学  检测index是否合法
+        this.rangeCheck(index);
+        //上述代码可以执行  证明index是合法的
+        //找到index位置的元素  保留起来留给用户
+        int oldValue = elementDate[index];
+        for(int i=index;i&lt;size;i++) {//从index位置开始至size-1结束  后面的元素依次向前移动覆盖
+            elementDate[i-1] = elementDate[i];
+        }
+        //手动将最后一个元素删除，让size减少一个记录
+        elementDate[--size] = 0;
+        //将旧数据返回
+        return oldValue;
+    }
+    //设计一个方法  用来获取size有效的个数
+    public int size() {
+        return this.size;
+    }
+}</code></pre><blockquote>
+<p>自定义异常</p>
+</blockquote>
+<pre><code>package util;
+public class BoxIndexOutOfException extends RuntimeException{
+    public BoxIndexOutOfException() {}
+    public BoxIndexOutOfException(String msg) {
+        super(msg);
+    }
+}</code></pre><h5 id="LinkedBox的封装"><a href="#LinkedBox的封装" class="headerlink" title="LinkedBox的封装"></a>LinkedBox的封装</h5><blockquote>
+<p>设计一个类LinkedBox，这个类的功能和集合中LinkedList的功能类似，底层用双向链表节点来实现，目的是方便插入和删除  </p>
+</blockquote>
+<blockquote>
+<p>Box接口,让LinkedBox实现改接口</p>
+</blockquote>
+<pre><code>package util;
 
-        <div class="article-info info-on-right">
-          
-          
+public interface Box {
+    public boolean add(int element);
+    public int get(int index);
+    public int remove(int index);
+    public int size();
+}</code></pre><blockquote>
+<p>LinkedBox所用到的节点类</p>
+</blockquote>
+<pre><code>package util;
+public class Node {
+    private Node prev;
+    private int item;
+    private Node next;
+    public Node() {}
+    public Node(Node prev, int item, Node next) {
+        super();
+        this.prev = prev;
+        this.item = item;
+        this.next = next;
+    }
+    public Node getPrev() {
+        return prev;
+    }
+    public void setPrev(Node prev) {
+        this.prev = prev;
+    }
+    public int getItem() {
+        return item;
+    }
+    public void setItem(int item) {
+        this.item = item;
+    }
+    public Node getNext() {
+        return next;
+    }
+    public void setNext(Node next) {
+        this.next = next;
+    }
+}</code></pre><blockquote>
+<p>具体的LinkedBox代码实现</p>
+</blockquote>
+<pre><code>package util;
 
+public class LinkedBox implements Box{
+
+    //创建几个属性
+    private Node first;
+    private Node last;
+    private int size;
+
+
+    //设计一个小A同学，负责将元素添加到新的Node里，挂在链表的尾端
+    private void linkLast(int element) {
+        //获取链表的尾结点
+        Node l = last;
+        //创建一个新的node节点  将新的数据包装起来
+        Node newNode = new Node(l,element,null);
+        //将新节点对象设置为尾结点
+        last = newNode;
+        //严谨的判断
+        if(l==null) {//如果尾结点没有对象 证明这个链表是没有使用过的
+            first = newNode;
+        }else {//原来用过  刚才已经将新的节点连接在last之后了
+            l.setNext(newNode);
+        }
+        //有效元素个数添加一个
+        size++;
+    }
+
+    //设计一个小B同学  负责检测index
+    private void rangeChedk(int index) {
+        // TODO Auto-generated method stub
+        if(index&lt;0 || index&gt;=size) {
+            throw new BoxIndexOutOfException(&quot;index:&quot;+index+&quot;,size:&quot;+size);
+        }
+    }
+
+    //设计一个小C同学  负责找寻给定index位置的对象
+    private Node node(int index) {
+        Node targetNode;
+        //判断index范围是在前半部分还是后半部分
+        if(index&lt; (size&gt;&gt;1)) {//从前往后找比较快
+            targetNode = first;
+            for(int i=0;i&lt;index;i++) {
+                targetNode = targetNode.getNext();
+            }
+        }else {//从后往前找
+            targetNode = last;
+            for(int i=size-1;i&gt;index;i--) {
+                targetNode = targetNode.getPrev();
+            }
+        }
+        return targetNode;
+    }
+
+    //设计一个方法小D  负责将给定的node节点对象删除  并且返回数据
+    private int unlink(Node targetNode) {
+        int oldValue = targetNode.getItem();
+        //找当前node的前一个对象
+        Node prev = targetNode.getPrev();
+        //找当前node的后一个对象
+        Node next = targetNode.getNext();
+        //删除节点对象
+        if(prev==null) {//当前node就是第一个
+            first = next;
+        }else {
+            prev.setNext(next);
+            targetNode.setPrev(null);
+        }
+        if(next==null) {//当前node就是最后一个
+            last = prev;
+        }else {
+            next.setPrev(prev);
+            targetNode.setNext(null);
+        }
+        size--;
+        return oldValue;
+    }
+
+    //--------------------------------------------------
+    @Override
+    public boolean add(int element) {
+        // TODO Auto-generated method stub
+        //将element存入一个新的Node对象里  添加至链表的尾端
+        this.linkLast(element);
+        //告知添加成功
+        return true;
+    }
+
+    @Override
+    public int get(int index) {
+        // TODO Auto-generated method stub
+        //检测index是否合法
+        this.rangeChedk(index);
+        //找寻index对应位置的那个node对象  将对象中的元素取出
+        return this.node(index).getItem();
+    }
+
+    @Override
+    public int remove(int index) {
+        // TODO Auto-generated method stub
+        //检测范围是否合法
+        this.rangeChedk(index);
+        //找到index那个位置对应的node
+        Node targetNode = this.node(index);
+        //设计一个小D同学，负责删除当前的目标节点  并返回oldValue
+
+        return this.unlink(targetNode);
+    }
+
+    @Override
+    public int size() {
+        // TODO Auto-generated method stub
+        return this.size;
+    }
+
+}</code></pre><blockquote>
+<p>自定义异常</p>
+</blockquote>
+<pre><code>package util;
+public class BoxIndexOutOfException extends RuntimeException{
+    public BoxIndexOutOfException() {}
+    public BoxIndexOutOfException(String msg) {
+        super(msg);
+    }
+}</code></pre>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/27/Java%E5%9F%BA%E7%A1%80-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%9D%E6%83%B3%E3%80%81%E5%85%B3%E9%94%AE%E5%AD%97%E5%BA%94%E7%94%A8%E4%B9%8BBox%E5%B0%81%E8%A3%85/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/26/Java%E5%9F%BA%E7%A1%80-%E9%94%99%E8%AF%AF%E4%B8%8E%E5%BC%82%E5%B8%B8/" class="archive-article-date">
-  	<time datetime="2020-05-26T13:42:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-26</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2020/05/27/Java%E5%9F%BA%E7%A1%80-%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F-%E5%A4%9A%E6%80%81/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Java基础--适配器模式+多态
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/05/26/Java%E5%9F%BA%E7%A1%80-%E9%94%99%E8%AF%AF%E4%B8%8E%E5%BC%82%E5%B8%B8/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java基础--错误与异常</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/26/Java%E5%9F%BA%E7%A1%80-%E9%94%99%E8%AF%AF%E4%B8%8E%E5%BC%82%E5%B8%B8/">Java基础--错误与异常</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/26/java%E5%9F%BA%E7%A1%80-%E4%BF%AE%E9%A5%B0%E7%AC%A6%E5%BC%95%E7%94%A8%EF%BC%88%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-05-26T00:32:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/26/java%E5%9F%BA%E7%A1%80-%E4%BF%AE%E9%A5%B0%E7%AC%A6%E5%BC%95%E7%94%A8%EF%BC%88%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%EF%BC%89/">java基础--修饰符应用（单例模式）</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/25/Java%E5%9F%BA%E7%A1%80-%E4%BF%AE%E9%A5%B0%E7%AC%A61/" class="archive-article-date">
-  	<time datetime="2020-05-25T03:44:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/25/Java%E5%9F%BA%E7%A1%80-%E4%BF%AE%E9%A5%B0%E7%AC%A61/">Java基础--修饰符</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/18/Java%E5%9F%BA%E7%A1%80-%E7%B1%BB%E4%B8%8E%E7%B1%BB%E7%9A%84%E5%85%B3%E7%B3%BB/" class="archive-article-date">
-  	<time datetime="2020-05-18T10:06:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/18/Java%E5%9F%BA%E7%A1%80-%E7%B1%BB%E4%B8%8E%E7%B1%BB%E7%9A%84%E5%85%B3%E7%B3%BB/">Java基础--类与类的关系</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/05/Java%E9%9B%86%E5%90%88%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/" class="archive-article-date">
-  	<time datetime="2020-05-05T14:11:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/05/Java%E9%9B%86%E5%90%88%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/">Java集合简单介绍</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/04/%E5%89%91%E6%8C%87offer-%E6%9C%80%E5%B0%8F%E7%9A%84K%E4%B8%AA%E6%95%B0/" class="archive-article-date">
-  	<time datetime="2020-05-04T15:26:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/04/%E5%89%91%E6%8C%87offer-%E6%9C%80%E5%B0%8F%E7%9A%84K%E4%B8%AA%E6%95%B0/">剑指offer--最小的K个数</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/03/%E5%89%91%E6%8C%87offer-%E5%A4%8D%E6%9D%82%E9%93%BE%E8%A1%A8%E7%9A%84%E5%A4%8D%E5%88%B6/" class="archive-article-date">
-  	<time datetime="2020-05-03T13:38:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/03/%E5%89%91%E6%8C%87offer-%E5%A4%8D%E6%9D%82%E9%93%BE%E8%A1%A8%E7%9A%84%E5%A4%8D%E5%88%B6/">剑指offer--复杂链表的复制</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2020/05/page/2/">2</a><a class="extend next" rel="next" href="/archives/2020/05/page/2/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -462,8 +620,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

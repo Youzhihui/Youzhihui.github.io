@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020/5 | Hexo</title>
+  <title>Java基础--适配器模式+多态 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2020/05/index.html">
+  <meta name="description" content="适配器模式（Adapter） 适配器模式（属于结构型模式）分为类适配器、对象适配器、缺省适配器    缺省适配器:一个接口和正常子类之间插了一个抽象类，这个抽象类把一些不太重要的方法挑出来具体化了 ，让子类去找合适自己的来使用（即重写），      以下用伪代码来实现Box的封装，利用了缺省适配器模式          &#x2F;&#x2F;为了将所有的box规则统一起来  让使用者用起来更加方便 public i">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java基础--适配器模式+多态">
+<meta property="og:url" content="http://yoursite.com/2020/05/27/Java%E5%9F%BA%E7%A1%80-%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F-%E5%A4%9A%E6%80%81/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="适配器模式（Adapter） 适配器模式（属于结构型模式）分为类适配器、对象适配器、缺省适配器    缺省适配器:一个接口和正常子类之间插了一个抽象类，这个抽象类把一些不太重要的方法挑出来具体化了 ，让子类去找合适自己的来使用（即重写），      以下用伪代码来实现Box的封装，利用了缺省适配器模式          &#x2F;&#x2F;为了将所有的box规则统一起来  让使用者用起来更加方便 public i">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-05-27T09:16:32.000Z">
+<meta property="article:modified_time" content="2020-05-28T02:39:46.261Z">
 <meta property="article:author" content="阿辉">
 <meta name="twitter:card" content="summary">
   
@@ -150,295 +154,502 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Java基础-适配器模式-多态" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/28/Java%E5%9F%BA%E7%A1%80-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F-%E5%86%85%E9%83%A8%E7%B1%BB/" class="archive-article-date">
-  	<time datetime="2020-05-28T00:54:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-28</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/28/Java%E5%9F%BA%E7%A1%80-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F-%E5%86%85%E9%83%A8%E7%B1%BB/">Java基础---策略模式+内部类</a>
+    <h1 class="article-title" itemprop="name">
+      Java基础--适配器模式+多态
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/27/Java%E5%9F%BA%E7%A1%80-%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F-%E5%A4%9A%E6%80%81/" class="archive-article-date">
+        
+        <a href="/2020/05/27/Java%E5%9F%BA%E7%A1%80-%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F-%E5%A4%9A%E6%80%81/" class="archive-article-date">
   	<time datetime="2020-05-27T09:16:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-27</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/27/Java%E5%9F%BA%E7%A1%80-%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F-%E5%A4%9A%E6%80%81/">Java基础--适配器模式+多态</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="适配器模式（Adapter）"><a href="#适配器模式（Adapter）" class="headerlink" title="适配器模式（Adapter）"></a>适配器模式（Adapter）</h5><blockquote>
+<p>适配器模式（属于结构型模式）分为类适配器、对象适配器、缺省适配器  </p>
+<ul>
+<li>缺省适配器:一个接口和正常子类之间插了一个抽象类，这个抽象类把一些不太重要的方法挑出来具体化了 ，让子类去找合适自己的来使用（即重写），  </li>
+</ul>
+</blockquote>
+<blockquote>
+<p>以下用伪代码来实现Box的封装，利用了缺省适配器模式        </p>
+</blockquote>
+<pre><code>//为了将所有的box规则统一起来  让使用者用起来更加方便
+public interface Box{
+    public boolean add(int element);//添加到末尾
+    public void add(int index,int element);//给定的位置中插入一个元素
+    public void addAll();//将给定Box中所有的元素添加到我们现在的Box当中来
+    public int get(int index);
+    public int remove(int index);
+    public int size();
+}
 
-        <div class="article-info info-on-right">
-          
-          
+public abstract AbstractBox implements Box{
+    public boolean add(int element);
+    public void add(int index,int element){//具体化
+        //抛出自定义异常
+    }
+    public void addAll(){//具体化
+        //抛出自定义异常
+    }
+    public int get(int index);
+    public int remove(int index);
+    public int size();
 
+    public void rangeCheck(int index){
+        if(index&lt;0 || index&gt;=size){
+            //抛出自定义异常
+        }
+    }
+}
+
+public class ArrayBox extends AbstractBox{
+    属性用来存储真实的数据 elementDate[];
+    属性用来记录有效元素的个数 int size;
+
+    public boolean add(int element){
+        //1.确保数组内部容量
+        //2.将elemen元素存入数组的最后位置  size++
+        //3.返回一个true告知用户添加成功
+    }
+    public int get(int index){
+        //1.检测index范围是否合法
+        //2.将index位置的元素从数组中取出并返回
+    }
+    public int remove(int index){
+        //1.检测index范围是否合法
+        //2.获取index位置上的元素--保存起来
+        //3.从index开始至size-1位置  将后面的元素逐一前移覆盖
+        //4.最后有效的那个元素删掉  --size
+        //5.保留起来的旧元素返回
+    }
+    public int size(){
+        //return this.size;
+    }
+}
+------------------------------------------------------------------------
+//这是自定义的类型----节点
+public class Node{
+    Node prev;
+    int item；
+    Node next;
+}
+public class LinkedBox extends AbstractBox{
+    属性存储首节点 first
+    属性存储尾结点 last
+    属性存储有效元素的个数 size
+
+    public boolean add(int element){
+        //找一个人  将element添加到链表的末尾
+        //告知添加成功
+    }
+    public int get(int index){
+        //检测index是否合法
+        //找一个人 帮我们找到index位置的那个Node对象
+        //将node中的item数据返回
+    }
+    public int remove(int index){
+        //检测index是否合法
+        //找一个人  帮我们找到index位置的那个Node对象
+        //找一个人  帮我们将node对象删除  将删除node对象中的旧数据放回
+    }
+    public int size(){
+        返回有效元素的个数
+    }
+
+    特别注意：
+    这个可以重写AbstractBox抽象类中的两个add方法
+    public void add(int index,int element){//具体化
+        根据自己的需求来实现方法执行过程
+    }
+    public void addAll(){//具体化
+        根据自己的需求来实现方法执 行过程
+    }
+
+}</code></pre><h5 id="Java面向对象的三大特性之多态"><a href="#Java面向对象的三大特性之多态" class="headerlink" title="Java面向对象的三大特性之多态"></a>Java面向对象的三大特性之多态</h5><blockquote>
+<p>多态：同一个对象体现出来的多种不同形态（身份），将一种行为表现出不同的效果<br>要想实现多态的效果需要有继承关系的多个类<br>体现形式：（1）多态的前提需要继承关系，使父类类型的引用  指向 子类的对象，Teacher t = new Teacher() —–&gt; 这个老师是一个老师;Person p = new Teacher() —–&gt; 这个人是一个老师,此时这个真实的老师体现出来的身份是一个人的身份；<br>（2）该引用只能调到父类中定义得属性或方法；<br>（3）如果子类中将父类的方法重写，那么调取方法后执行的结果是子类重写之后的那个结果（属性没有重写一说，故如果父类和子类有同名的属性，则执行的是父类的属性）；<br>（4）若想要调用子类中独有的成员，将身份还原回去（造型–向下转型）<br>（5）造型时（强制向下转型时）可能会出现一个运行时异常<code>ClassCastException</code>造型异常，将对象的类型还原时与真实类型不匹配，如果想要避免造型的异常，可以使用instanceof关键字来进行判断;<code>if(o instanceof Studnet)[引用对象是否属于后面类型]{Studnet s = (Studnet)o; s.study();}else{System.out.println(&quot;对不起，类型不匹配 不能帮您造型啦 否则会出问题&quot;)}</code>                               </p>
+</blockquote>
+<h6 id="小任务（利用多态效果改进）"><a href="#小任务（利用多态效果改进）" class="headerlink" title="小任务（利用多态效果改进）"></a>小任务（利用多态效果改进）</h6><blockquote>
+<p>银行Bank:设计一个方法，等待用户来办理业务（不同的人办理业务的不太一样）,有一下步骤：（1）叫一个号码–&gt;排队 （2）去窗口办理–&gt;办理 （3）办理完毕离开</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>最原始的代码，没有使用到面向对象核心思想，代码太繁琐,每一个人做的事情一样，仅仅具体细节不同<br>可能会遇到的问题<br>（1）三个不同的人类方法名不一致（可以）<br>（2）银行办理业务的方法写了三个，每一类人都来一种方法不现实  </li>
+</ul>
+</blockquote>
+<pre><code>package business;
+public class Senior {
+    private String name;
+    public Senior() {}
+    public Senior(String name) {
+        super();
+        this.name = name;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    //1.进银行 叫一个号码
+    public void callNumber() {
+        System.out.println(&quot;年时也高  不知道在哪里叫号 请求大堂经理帮忙&quot;);
+    }
+    //2.去窗口办理
+    public void transact() {
+        System.out.println(&quot;到窗口  掏出手绢  拿出存折  取钱&quot;);
+    }
+    //3.办理完毕离开
+    public void leave() {
+        System.out.println(&quot;办理完毕  慢慢的离开了&quot;);
+    }
+}
+
+package business;
+public class Young {
+    private String name;
+    public Young() {}
+    public Young(String name) {
+        this.name = name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public String getName() {
+        return this.name;
+    }
+    //1.进银行 叫一个号码
+    public void callNumber() {
+        System.out.println(&quot;自己知道在门口按按钮 拿到号码小票&quot;);
+    }
+    //2.去窗口办理
+    public void transact() {
+        System.out.println(&quot;去窗口 汇款&quot;);
+    }
+    //3.办理完毕离开
+    public void leave() {
+        System.out.println(&quot;办理完迅速离开&quot;);
+    }
+}
+
+package business;
+
+public class Toff {
+private String name;
+    public Toff() {}
+    public Toff(String name) {
+        super();
+        this.name = name;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    //1.进银行 叫一个号码
+    public void callNumber() {
+        System.out.println(&quot;土豪是VIP，直接进入VIP窗口&quot;);
+    }
+    //2.去窗口办理
+    public void transact() {
+        System.out.println(&quot;土豪是VIP，用一张限量款黑卡 取1000w买车&quot;);
+    }
+    //3.办理完毕离开
+    public void leave() {
+        System.out.println(&quot;办理完毕  帅气的提着一袋子钱离开&quot;);
+    }
+}
+
+package business;
+public class Bank {
+    //开门  等待用户进来办理业务
+    public void profession(Senior senior) {
+        System.out.println(senior.getName()+&quot;客户进银行里&quot;    );
+        senior.callNumber();
+        senior.transact();
+        senior.leave();
+    }
+    //开门  等待用户进来办理业务
+    public void profession(Young young) {
+        System.out.println(young.getName()+&quot;客户进银行里&quot;    );
+        young.callNumber();
+        young.transact();
+        young.leave();
+    }
+    //开门  等待用户进来办理业务
+    public void profession(Toff toff) {
+        System.out.println(toff.getName()+&quot;客户进银行里&quot;    );
+        toff.callNumber();
+        toff.transact();
+        toff.leave();
+    }
+}
+
+package business;
+public class Test {
+    public static void main(String[] args) {
+        Bank bank = new Bank();
+        Senior senior = new Senior(&quot;长者&quot;);
+        bank.profession(senior);//银行欢迎长者进来办理业务
+        Young young = new Young(&quot;年轻人&quot;);
+        bank.profession(young);
+        Toff toff = new Toff(&quot;土豪&quot;);
+        bank.profession(toff);
+    }
+}</code></pre><blockquote>
+<ul>
+<li>利用抽象类、接口和多态改进的刚才的代码 ，解决上述问题<br>（1）可以在三个人类之上创建一个父类，解决三个人类中的相同代码 比如<code>name</code>属性 比如<code>leave()</code>方法<br>（2）父类定义的三个方法可以是抽象的，解决了子类命名不一致问题  子类执行也不一致<br>（3）父类可以作为参数传入银行中方法  </li>
+</ul>
+</blockquote>
+<pre><code>package business;
+public abstract class Person {
+    protected String name;
+    public String getName() {
+        return name;
+    }
+    //1.进银行 叫一个号码
+    public abstract void callNumber();
+    //2.去窗口办理
+    public abstract void transact();
+    //3.办理完毕离开
+    public abstract void leave();
+}
+
+package business;
+public class Senior extends Person{
+    public Senior() {}
+    public Senior(String name) {
+        this.name = name;
+    }
+    //1.进银行 叫一个号码
+    public void callNumber() {
+        System.out.println(&quot;年时也高  不知道在哪里叫号 请求大堂经理帮忙&quot;);
+    }
+    //2.去窗口办理
+    public void transact() {
+        System.out.println(&quot;到窗口  掏出手绢  拿出存折  取钱&quot;);
+    }
+    //3.办理完毕离开
+    public void leave() {
+        System.out.println(&quot;办理完毕  慢慢的离开了&quot;);
+    }
+}
+
+package business;
+public class Young extends Person{
+    public Young() {}
+    public Young(String name) {
+        this.name = name;
+    }
+    //1.进银行 叫一个号码
+    public void callNumber() {
+        System.out.println(&quot;自己知道在门口按按钮 拿到号码小票&quot;);
+    }
+    //2.去窗口办理
+    public void transact() {
+        System.out.println(&quot;去窗口 汇款&quot;);
+    }
+    //3.办理完毕离开
+    public void leave() {
+        System.out.println(&quot;办理完迅速离开&quot;);
+    }
+}
+
+package business;
+public class Toff extends Person{
+    public Toff() {}
+    public Toff(String name) {
+        super();
+        this.name = name;
+    }
+    //1.进银行 叫一个号码
+    public void callNumber() {
+        System.out.println(&quot;土豪是VIP，直接进入VIP窗口&quot;);
+    }
+    //2.去窗口办理
+    public void transact() {
+        System.out.println(&quot;土豪是VIP，用一张限量款黑卡 取1000w买车&quot;);
+    }
+    //3.办理完毕离开
+    public void leave() {
+        System.out.println(&quot;办理完毕  帅气的提着一袋子钱离开&quot;);
+    }
+}
+
+package business;
+public class Bank {
+    //开门  等待用户进来办理业务
+    public void profession(Person person) {
+        System.out.println(person.getName()+&quot;客户进银行里&quot;    );
+        person.callNumber();
+        person.transact();
+        person.leave();
+    }
+}
+
+package business;
+public class Test {
+    public static void main(String[] args) {
+        Bank bank = new Bank();
+        Person person = new Senior(&quot;长者&quot;);
+        bank.profession(person);//银行欢迎长者进来办理业务
+//        
+//        Young young = new Young(&quot;年轻人&quot;);
+//        bank.profession(young);
+//        
+//        Toff toff = new Toff(&quot;土豪&quot;);
+//        bank.profession(toff);
+    }
+}</code></pre><blockquote>
+<h6 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h6><p>调用一个方法  名字一样  传递的参数不同<br>1.利用方法重载  —  静态加载<br>2.利用多态效果  —  动态加载  </p>
+</blockquote>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/27/Java%E5%9F%BA%E7%A1%80-%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F-%E5%A4%9A%E6%80%81/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/27/Java%E5%9F%BA%E7%A1%80-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%9D%E6%83%B3%E3%80%81%E5%85%B3%E9%94%AE%E5%AD%97%E5%BA%94%E7%94%A8%E4%B9%8BBox%E5%B0%81%E8%A3%85/" class="archive-article-date">
-  	<time datetime="2020-05-27T06:59:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-27</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2020/05/28/Java%E5%9F%BA%E7%A1%80-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F-%E5%86%85%E9%83%A8%E7%B1%BB/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Java基础---策略模式+内部类
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/05/27/Java%E5%9F%BA%E7%A1%80-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%9D%E6%83%B3%E3%80%81%E5%85%B3%E9%94%AE%E5%AD%97%E5%BA%94%E7%94%A8%E4%B9%8BBox%E5%B0%81%E8%A3%85/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java基础--面向对象思想、关键字应用之Box封装</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/27/Java%E5%9F%BA%E7%A1%80-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%9D%E6%83%B3%E3%80%81%E5%85%B3%E9%94%AE%E5%AD%97%E5%BA%94%E7%94%A8%E4%B9%8BBox%E5%B0%81%E8%A3%85/">Java基础--面向对象思想、关键字应用之Box封装</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/26/Java%E5%9F%BA%E7%A1%80-%E9%94%99%E8%AF%AF%E4%B8%8E%E5%BC%82%E5%B8%B8/" class="archive-article-date">
-  	<time datetime="2020-05-26T13:42:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/26/Java%E5%9F%BA%E7%A1%80-%E9%94%99%E8%AF%AF%E4%B8%8E%E5%BC%82%E5%B8%B8/">Java基础--错误与异常</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/26/java%E5%9F%BA%E7%A1%80-%E4%BF%AE%E9%A5%B0%E7%AC%A6%E5%BC%95%E7%94%A8%EF%BC%88%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-05-26T00:32:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/26/java%E5%9F%BA%E7%A1%80-%E4%BF%AE%E9%A5%B0%E7%AC%A6%E5%BC%95%E7%94%A8%EF%BC%88%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%EF%BC%89/">java基础--修饰符应用（单例模式）</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/25/Java%E5%9F%BA%E7%A1%80-%E4%BF%AE%E9%A5%B0%E7%AC%A61/" class="archive-article-date">
-  	<time datetime="2020-05-25T03:44:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/25/Java%E5%9F%BA%E7%A1%80-%E4%BF%AE%E9%A5%B0%E7%AC%A61/">Java基础--修饰符</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/18/Java%E5%9F%BA%E7%A1%80-%E7%B1%BB%E4%B8%8E%E7%B1%BB%E7%9A%84%E5%85%B3%E7%B3%BB/" class="archive-article-date">
-  	<time datetime="2020-05-18T10:06:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/18/Java%E5%9F%BA%E7%A1%80-%E7%B1%BB%E4%B8%8E%E7%B1%BB%E7%9A%84%E5%85%B3%E7%B3%BB/">Java基础--类与类的关系</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/05/Java%E9%9B%86%E5%90%88%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/" class="archive-article-date">
-  	<time datetime="2020-05-05T14:11:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/05/Java%E9%9B%86%E5%90%88%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/">Java集合简单介绍</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/04/%E5%89%91%E6%8C%87offer-%E6%9C%80%E5%B0%8F%E7%9A%84K%E4%B8%AA%E6%95%B0/" class="archive-article-date">
-  	<time datetime="2020-05-04T15:26:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/04/%E5%89%91%E6%8C%87offer-%E6%9C%80%E5%B0%8F%E7%9A%84K%E4%B8%AA%E6%95%B0/">剑指offer--最小的K个数</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/03/%E5%89%91%E6%8C%87offer-%E5%A4%8D%E6%9D%82%E9%93%BE%E8%A1%A8%E7%9A%84%E5%A4%8D%E5%88%B6/" class="archive-article-date">
-  	<time datetime="2020-05-03T13:38:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/03/%E5%89%91%E6%8C%87offer-%E5%A4%8D%E6%9D%82%E9%93%BE%E8%A1%A8%E7%9A%84%E5%A4%8D%E5%88%B6/">剑指offer--复杂链表的复制</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2020/05/page/2/">2</a><a class="extend next" rel="next" href="/archives/2020/05/page/2/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -462,8 +673,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

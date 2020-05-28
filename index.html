@@ -152,6 +152,860 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Java基础-策略模式-内部类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/28/Java%E5%9F%BA%E7%A1%80-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F-%E5%86%85%E9%83%A8%E7%B1%BB/">Java基础---策略模式+内部类</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/28/Java%E5%9F%BA%E7%A1%80-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F-%E5%86%85%E9%83%A8%E7%B1%BB/" class="archive-article-date">
+  	<time datetime="2020-05-28T00:54:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h5><blockquote>
+<p>策略模式（Strategy）属于行为型模式，解决类与类之间的关系的。策略模式用来控制固定流程的执行，在中间提供了一个抽象方法，这个方法提供了不同子类的实现，每一个子类的具体实现称为一个策略，执行的结果由于提供了不同的策略而不同<br>拿上次的Bank小任务举例  </p>
+</blockquote>
+<pre><code>银行类{
+    方法办理业务（人）{  //人可能是抽象类或接口（注意：抽象类和接口都不能产生对象），传递一个子类的对象
+        欢迎用户进来
+
+        叫号
+        办理
+        离开
+
+        欢迎下次再来
+    }
+}
+-----------------------------------------------------
+人类{//抽象类，提供策略
+    抽象方法；
+}
+-----------------------------------------------------
+具体的类{//继承了人类，每个具体的类称为一个策略的实现
+    实现父类中的抽象方法
+}</code></pre><h5 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h5><blockquote>
+<p>内部类是指在Java中可以将一个类定义在另一个类的内部，内部类可以定义在类的内部（与类成员层次一致），内部类以可以定义在<code>方法/块</code> 内部（与类成员相差一个层次，与方法的局部变量一个层次）<br>内部类的分类：<br>1、成员内部类（重点）：（1）将一个类直接定义在类里面，作为成员，与属性或方法层次一致；<br>（2）成员内部类可以与正常类一样使用不同的修饰符来修饰；<br>（3）好处：省略了.java文件；成员内部类中是可以访问外部类的所有成员，包括私有元素<br>（4）若想在内部类中通过对象<code>.</code>调用外部类成员,可以使用格式：<code>外部类名.this.外部类成员</code><br>（5）创建内部类对象那个，调用内部类方法格式 ：<code>外部类名.内部类名  内部对象名 = new 外部类名().new 内部类名()</code><br>（6）内部类存在后，源代码进行编译产生一个字节码  <code>外部类名$内部类名.class</code>文件</p>
+</blockquote>
+<blockquote>
+<p>2、将一个类定义在<code>方法/块</code>里面，作为成员的内部结构，与临时的局部变量一个层次<br>（1）局部内部类像是一个局部的变量一样，不能用public protected private static 修饰，只能用abstract或fianl来修饰<br>（2）局部内部类命名规则 <code>Demo$1InnerTestMethod</code>  <code>Demo$2InnerTestMethod</code><br>（3）局部内部类使用的变量只能是final修饰(因为类需要提前编译，而变量是可以改变的，要使得编译的类字节码文件不在改变必须让类使用到的变量为fianl的)   </p>
+</blockquote>
+<blockquote>
+<p>3、匿名内部类（重重点）：又分为成员匿名内部类和局部匿名内部类  </p>
+</blockquote>
+<pre><code>public interface Test{
+    public void test();
+}
+Test t = new Test(){//匿名内部类，后面的大括号中的内容相当于实现了Test接口，只是这个类没名字,new出匿名类的对象
+    public void test(){
+        //具体实现
+    }
+}</code></pre><blockquote>
+<p>通常接口或抽象类的具体子类会这样写，开发中为了省略一个类文件，上述写法比较常见<br>匿名内部类很特殊，只有类体，没有类的其他结构（修饰符、名字、继承、实现），<br>匿名内部类类不能用任何修饰符来修饰，也没有构造方法  </p>
+</blockquote>
+<blockquote>
+<p>4、静态内部类：成员静态内部类<br>不需要外部类对象来创建对象，通过正常的方式直接创建内部类对象<br>静态元素不能访问非静态元素</p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/28/Java%E5%9F%BA%E7%A1%80-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F-%E5%86%85%E9%83%A8%E7%B1%BB/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Java基础-适配器模式-多态" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/27/Java%E5%9F%BA%E7%A1%80-%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F-%E5%A4%9A%E6%80%81/">Java基础--适配器模式+多态</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/27/Java%E5%9F%BA%E7%A1%80-%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F-%E5%A4%9A%E6%80%81/" class="archive-article-date">
+  	<time datetime="2020-05-27T09:16:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="适配器模式（Adapter）"><a href="#适配器模式（Adapter）" class="headerlink" title="适配器模式（Adapter）"></a>适配器模式（Adapter）</h5><blockquote>
+<p>适配器模式（属于结构型模式）分为类适配器、对象适配器、缺省适配器  </p>
+<ul>
+<li>缺省适配器:一个接口和正常子类之间插了一个抽象类，这个抽象类把一些不太重要的方法挑出来具体化了 ，让子类去找合适自己的来使用（即重写），  </li>
+</ul>
+</blockquote>
+<blockquote>
+<p>以下用伪代码来实现Box的封装，利用了缺省适配器模式        </p>
+</blockquote>
+<pre><code>//为了将所有的box规则统一起来  让使用者用起来更加方便
+public interface Box{
+    public boolean add(int element);//添加到末尾
+    public void add(int index,int element);//给定的位置中插入一个元素
+    public void addAll();//将给定Box中所有的元素添加到我们现在的Box当中来
+    public int get(int index);
+    public int remove(int index);
+    public int size();
+}
+
+public abstract AbstractBox implements Box{
+    public boolean add(int element);
+    public void add(int index,int element){//具体化
+        //抛出自定义异常
+    }
+    public void addAll(){//具体化
+        //抛出自定义异常
+    }
+    public int get(int index);
+    public int remove(int index);
+    public int size();
+
+    public void rangeCheck(int index){
+        if(index&lt;0 || index&gt;=size){
+            //抛出自定义异常
+        }
+    }
+}
+
+public class ArrayBox extends AbstractBox{
+    属性用来存储真实的数据 elementDate[];
+    属性用来记录有效元素的个数 int size;
+
+    public boolean add(int element){
+        //1.确保数组内部容量
+        //2.将elemen元素存入数组的最后位置  size++
+        //3.返回一个true告知用户添加成功
+    }
+    public int get(int index){
+        //1.检测index范围是否合法
+        //2.将index位置的元素从数组中取出并返回
+    }
+    public int remove(int index){
+        //1.检测index范围是否合法
+        //2.获取index位置上的元素--保存起来
+        //3.从index开始至size-1位置  将后面的元素逐一前移覆盖
+        //4.最后有效的那个元素删掉  --size
+        //5.保留起来的旧元素返回
+    }
+    public int size(){
+        //return this.size;
+    }
+}
+------------------------------------------------------------------------
+//这是自定义的类型----节点
+public class Node{
+    Node prev;
+    int item；
+    Node next;
+}
+public class LinkedBox extends AbstractBox{
+    属性存储首节点 first
+    属性存储尾结点 last
+    属性存储有效元素的个数 size
+
+    public boolean add(int element){
+        //找一个人  将element添加到链表的末尾
+        //告知添加成功
+    }
+    public int get(int index){
+        //检测index是否合法
+        //找一个人 帮我们找到index位置的那个Node对象
+        //将node中的item数据返回
+    }
+    public int remove(int index){
+        //检测index是否合法
+        //找一个人  帮我们找到index位置的那个Node对象
+        //找一个人  帮我们将node对象删除  将删除node对象中的旧数据放回
+    }
+    public int size(){
+        返回有效元素的个数
+    }
+
+    特别注意：
+    这个可以重写AbstractBox抽象类中的两个add方法
+    public void add(int index,int element){//具体化
+        根据自己的需求来实现方法执行过程
+    }
+    public void addAll(){//具体化
+        根据自己的需求来实现方法执 行过程
+    }
+
+}</code></pre><h5 id="Java面向对象的三大特性之多态"><a href="#Java面向对象的三大特性之多态" class="headerlink" title="Java面向对象的三大特性之多态"></a>Java面向对象的三大特性之多态</h5><blockquote>
+<p>多态：同一个对象体现出来的多种不同形态（身份），将一种行为表现出不同的效果<br>要想实现多态的效果需要有继承关系的多个类<br>体现形式：（1）多态的前提需要继承关系，使父类类型的引用  指向 子类的对象，Teacher t = new Teacher() —–&gt; 这个老师是一个老师;Person p = new Teacher() —–&gt; 这个人是一个老师,此时这个真实的老师体现出来的身份是一个人的身份；<br>（2）该引用只能调到父类中定义得属性或方法；<br>（3）如果子类中将父类的方法重写，那么调取方法后执行的结果是子类重写之后的那个结果（属性没有重写一说，故如果父类和子类有同名的属性，则执行的是父类的属性）；<br>（4）若想要调用子类中独有的成员，将身份还原回去（造型–向下转型）<br>（5）造型时（强制向下转型时）可能会出现一个运行时异常<code>ClassCastException</code>造型异常，将对象的类型还原时与真实类型不匹配，如果想要避免造型的异常，可以使用instanceof关键字来进行判断;<code>if(o instanceof Studnet)[引用对象是否属于后面类型]{Studnet s = (Studnet)o; s.study();}else{System.out.println(&quot;对不起，类型不匹配 不能帮您造型啦 否则会出问题&quot;)}</code>                               </p>
+</blockquote>
+<h6 id="小任务（利用多态效果改进）"><a href="#小任务（利用多态效果改进）" class="headerlink" title="小任务（利用多态效果改进）"></a>小任务（利用多态效果改进）</h6><blockquote>
+<p>银行Bank:设计一个方法，等待用户来办理业务（不同的人办理业务的不太一样）,有一下步骤：（1）叫一个号码–&gt;排队 （2）去窗口办理–&gt;办理 （3）办理完毕离开</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>最原始的代码，没有使用到面向对象核心思想，代码太繁琐,每一个人做的事情一样，仅仅具体细节不同<br>可能会遇到的问题<br>（1）三个不同的人类方法名不一致（可以）<br>（2）银行办理业务的方法写了三个，每一类人都来一种方法不现实  </li>
+</ul>
+</blockquote>
+<pre><code>package business;
+public class Senior {
+    private String name;
+    public Senior() {}
+    public Senior(String name) {
+        super();
+        this.name = name;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    //1.进银行 叫一个号码
+    public void callNumber() {
+        System.out.println(&quot;年时也高  不知道在哪里叫号 请求大堂经理帮忙&quot;);
+    }
+    //2.去窗口办理
+    public void transact() {
+        System.out.println(&quot;到窗口  掏出手绢  拿出存折  取钱&quot;);
+    }
+    //3.办理完毕离开
+    public void leave() {
+        System.out.println(&quot;办理完毕  慢慢的离开了&quot;);
+    }
+}
+
+package business;
+public class Young {
+    private String name;
+    public Young() {}
+    public Young(String name) {
+        this.name = name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public String getName() {
+        return this.name;
+    }
+    //1.进银行 叫一个号码
+    public void callNumber() {
+        System.out.println(&quot;自己知道在门口按按钮 拿到号码小票&quot;);
+    }
+    //2.去窗口办理
+    public void transact() {
+        System.out.println(&quot;去窗口 汇款&quot;);
+    }
+    //3.办理完毕离开
+    public void leave() {
+        System.out.println(&quot;办理完迅速离开&quot;);
+    }
+}
+
+package business;
+
+public class Toff {
+private String name;
+    public Toff() {}
+    public Toff(String name) {
+        super();
+        this.name = name;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    //1.进银行 叫一个号码
+    public void callNumber() {
+        System.out.println(&quot;土豪是VIP，直接进入VIP窗口&quot;);
+    }
+    //2.去窗口办理
+    public void transact() {
+        System.out.println(&quot;土豪是VIP，用一张限量款黑卡 取1000w买车&quot;);
+    }
+    //3.办理完毕离开
+    public void leave() {
+        System.out.println(&quot;办理完毕  帅气的提着一袋子钱离开&quot;);
+    }
+}
+
+package business;
+public class Bank {
+    //开门  等待用户进来办理业务
+    public void profession(Senior senior) {
+        System.out.println(senior.getName()+&quot;客户进银行里&quot;    );
+        senior.callNumber();
+        senior.transact();
+        senior.leave();
+    }
+    //开门  等待用户进来办理业务
+    public void profession(Young young) {
+        System.out.println(young.getName()+&quot;客户进银行里&quot;    );
+        young.callNumber();
+        young.transact();
+        young.leave();
+    }
+    //开门  等待用户进来办理业务
+    public void profession(Toff toff) {
+        System.out.println(toff.getName()+&quot;客户进银行里&quot;    );
+        toff.callNumber();
+        toff.transact();
+        toff.leave();
+    }
+}
+
+package business;
+public class Test {
+    public static void main(String[] args) {
+        Bank bank = new Bank();
+        Senior senior = new Senior(&quot;长者&quot;);
+        bank.profession(senior);//银行欢迎长者进来办理业务
+        Young young = new Young(&quot;年轻人&quot;);
+        bank.profession(young);
+        Toff toff = new Toff(&quot;土豪&quot;);
+        bank.profession(toff);
+    }
+}</code></pre><blockquote>
+<ul>
+<li>利用抽象类、接口和多态改进的刚才的代码 ，解决上述问题<br>（1）可以在三个人类之上创建一个父类，解决三个人类中的相同代码 比如<code>name</code>属性 比如<code>leave()</code>方法<br>（2）父类定义的三个方法可以是抽象的，解决了子类命名不一致问题  子类执行也不一致<br>（3）父类可以作为参数传入银行中方法  </li>
+</ul>
+</blockquote>
+<pre><code>package business;
+public abstract class Person {
+    protected String name;
+    public String getName() {
+        return name;
+    }
+    //1.进银行 叫一个号码
+    public abstract void callNumber();
+    //2.去窗口办理
+    public abstract void transact();
+    //3.办理完毕离开
+    public abstract void leave();
+}
+
+package business;
+public class Senior extends Person{
+    public Senior() {}
+    public Senior(String name) {
+        this.name = name;
+    }
+    //1.进银行 叫一个号码
+    public void callNumber() {
+        System.out.println(&quot;年时也高  不知道在哪里叫号 请求大堂经理帮忙&quot;);
+    }
+    //2.去窗口办理
+    public void transact() {
+        System.out.println(&quot;到窗口  掏出手绢  拿出存折  取钱&quot;);
+    }
+    //3.办理完毕离开
+    public void leave() {
+        System.out.println(&quot;办理完毕  慢慢的离开了&quot;);
+    }
+}
+
+package business;
+public class Young extends Person{
+    public Young() {}
+    public Young(String name) {
+        this.name = name;
+    }
+    //1.进银行 叫一个号码
+    public void callNumber() {
+        System.out.println(&quot;自己知道在门口按按钮 拿到号码小票&quot;);
+    }
+    //2.去窗口办理
+    public void transact() {
+        System.out.println(&quot;去窗口 汇款&quot;);
+    }
+    //3.办理完毕离开
+    public void leave() {
+        System.out.println(&quot;办理完迅速离开&quot;);
+    }
+}
+
+package business;
+public class Toff extends Person{
+    public Toff() {}
+    public Toff(String name) {
+        super();
+        this.name = name;
+    }
+    //1.进银行 叫一个号码
+    public void callNumber() {
+        System.out.println(&quot;土豪是VIP，直接进入VIP窗口&quot;);
+    }
+    //2.去窗口办理
+    public void transact() {
+        System.out.println(&quot;土豪是VIP，用一张限量款黑卡 取1000w买车&quot;);
+    }
+    //3.办理完毕离开
+    public void leave() {
+        System.out.println(&quot;办理完毕  帅气的提着一袋子钱离开&quot;);
+    }
+}
+
+package business;
+public class Bank {
+    //开门  等待用户进来办理业务
+    public void profession(Person person) {
+        System.out.println(person.getName()+&quot;客户进银行里&quot;    );
+        person.callNumber();
+        person.transact();
+        person.leave();
+    }
+}
+
+package business;
+public class Test {
+    public static void main(String[] args) {
+        Bank bank = new Bank();
+        Person person = new Senior(&quot;长者&quot;);
+        bank.profession(person);//银行欢迎长者进来办理业务
+//        
+//        Young young = new Young(&quot;年轻人&quot;);
+//        bank.profession(young);
+//        
+//        Toff toff = new Toff(&quot;土豪&quot;);
+//        bank.profession(toff);
+    }
+}</code></pre><blockquote>
+<h6 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h6><p>调用一个方法  名字一样  传递的参数不同<br>1.利用方法重载  —  静态加载<br>2.利用多态效果  —  动态加载  </p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/27/Java%E5%9F%BA%E7%A1%80-%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F-%E5%A4%9A%E6%80%81/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Java基础-面向对象思想、关键字应用之Box封装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/27/Java%E5%9F%BA%E7%A1%80-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%9D%E6%83%B3%E3%80%81%E5%85%B3%E9%94%AE%E5%AD%97%E5%BA%94%E7%94%A8%E4%B9%8BBox%E5%B0%81%E8%A3%85/">Java基础--面向对象思想、关键字应用之Box封装</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/27/Java%E5%9F%BA%E7%A1%80-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%9D%E6%83%B3%E3%80%81%E5%85%B3%E9%94%AE%E5%AD%97%E5%BA%94%E7%94%A8%E4%B9%8BBox%E5%B0%81%E8%A3%85/" class="archive-article-date">
+  	<time datetime="2020-05-27T06:59:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="ArrayBox的封装"><a href="#ArrayBox的封装" class="headerlink" title="ArrayBox的封装"></a>ArrayBox的封装</h5><blockquote>
+<p>设计一个类ArrayBox，这个类的功能和集合中ArrayList的功能类似，底层用数组实现，目的是数组底层有些特性不太好<br>Box接口,让LinkedBox实现改接口</p>
+</blockquote>
+<pre><code>package util;
+public interface Box {
+    public boolean add(int element);
+    public int get(int index);
+    public int remove(int index);
+    public int size();
+}</code></pre><blockquote>
+<p>具体的ArrayBox代码实现</p>
+</blockquote>
+<pre><code>package util;
+public class ArrayBox implements Box{
+    //设计一个静态常量  用来存储数组的默认长度
+    private static final int DEFAULT_CAPACITY = 10;
+    //设计一个自己的属性  用来存放真实的数据的  []
+    private int[] elementDate;
+    //设计一个自己的属性  用来记录数组内存储的有效元素的个数
+    private int size = 0;
+    //构造方法重载
+    public ArrayBox() {
+        elementDate = new int[DEFAULT_CAPACITY];
+    }
+    public ArrayBox(int capacity) {
+        elementDate = new int[capacity];
+    }
+    //小A同学  负责确保数组内部的容量
+    private void ensureCapacityInternal(int minCapacity) {
+        //判断如果你需要的最小容量比原来数组的长度还要大
+        if(minCapacity-elementDate.length&gt;0) {//如果不初始化elementDate（默认为NULL）会报空指针异常
+            //进行数组的扩容  找别人计算扩容的大小
+            this.grow(minCapacity);
+        }
+    }
+    //小B同学    负责计算扩容大小
+    private void grow(int minCapacity) {
+        //获取原数组的长度
+        int oldCapacity = elementDate.length;
+        //帮忙计算  在原数组之上增加1.5倍
+        int newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1);
+        //比较计算后的长度和所需的长度
+        if(newCapacity-minCapacity&lt;0) {
+            //那么直接按照所需的长度作为新数组的长度
+            newCapacity = minCapacity;
+        }
+        //调用其他方法（小C同学）创建新的数组，将原数组中的所有元素移入新数组中
+        elementDate =  this.copyOf(elementDate, newCapacity);
+    }
+    //小 C同学  负责将原数组中的元素移入新数组中
+    private int[] copyOf(int[] oldArray,int newCapacity) {
+        //按照提供的长度创建一个新数组
+        int[] newArray = new int[newCapacity];
+        for(int i=0;i&lt;oldArray.length;i++) {
+            newArray[i] = oldArray[i];
+        }
+        //将新数组返回
+        return newArray;
+    }
+    //小D同学    检测给定index是否合法
+    private void rangeCheck(int index) {
+        if(index&lt;0 || index&gt;=size) {
+            //自定义一个异常来说明问题
+            throw new BoxIndexOutOfException(&quot;&quot;+index+&quot;&quot;+size);
+        }
+    }
+    //--------------------------------------------------
+    //用来将用户给定的element存起来  参数是需要存起来的元素  返回值是否存储成功
+    public boolean add(int element) {
+        //首先得确保数组的内部容量够用
+        this.ensureCapacityInternal(size+1);
+        //上述一行代码可以执行完毕，证明elementData的数组肯定够用
+        //直接将新来的element元素存入数组中  并且让size多记录一个
+        elementDate[size++] = element;
+        //返回true告知用户存储元素成功
+        return true;
+    }
+    //用来获取给定位置的元素  参数是索引位置  返回值是取得的元素
+    public int get(int index) {
+        //找个小弟  检测给定的index是否合法
+        this.rangeCheck(index);
+        //如果上述代码可以执行  证明index是合法的
+        //则找到index对应位置的元素  将其返回
+        return elementDate[index];
+    }
+    //用来删除给定位置的元素   参数是索引位置  返回值是删除掉的那个元素
+    public int remove(int index) {
+        //调用小D同学  检测index是否合法
+        this.rangeCheck(index);
+        //上述代码可以执行  证明index是合法的
+        //找到index位置的元素  保留起来留给用户
+        int oldValue = elementDate[index];
+        for(int i=index;i&lt;size;i++) {//从index位置开始至size-1结束  后面的元素依次向前移动覆盖
+            elementDate[i-1] = elementDate[i];
+        }
+        //手动将最后一个元素删除，让size减少一个记录
+        elementDate[--size] = 0;
+        //将旧数据返回
+        return oldValue;
+    }
+    //设计一个方法  用来获取size有效的个数
+    public int size() {
+        return this.size;
+    }
+}</code></pre><blockquote>
+<p>自定义异常</p>
+</blockquote>
+<pre><code>package util;
+public class BoxIndexOutOfException extends RuntimeException{
+    public BoxIndexOutOfException() {}
+    public BoxIndexOutOfException(String msg) {
+        super(msg);
+    }
+}</code></pre><h5 id="LinkedBox的封装"><a href="#LinkedBox的封装" class="headerlink" title="LinkedBox的封装"></a>LinkedBox的封装</h5><blockquote>
+<p>设计一个类LinkedBox，这个类的功能和集合中LinkedList的功能类似，底层用双向链表节点来实现，目的是方便插入和删除  </p>
+</blockquote>
+<blockquote>
+<p>Box接口,让LinkedBox实现改接口</p>
+</blockquote>
+<pre><code>package util;
+
+public interface Box {
+    public boolean add(int element);
+    public int get(int index);
+    public int remove(int index);
+    public int size();
+}</code></pre><blockquote>
+<p>LinkedBox所用到的节点类</p>
+</blockquote>
+<pre><code>package util;
+public class Node {
+    private Node prev;
+    private int item;
+    private Node next;
+    public Node() {}
+    public Node(Node prev, int item, Node next) {
+        super();
+        this.prev = prev;
+        this.item = item;
+        this.next = next;
+    }
+    public Node getPrev() {
+        return prev;
+    }
+    public void setPrev(Node prev) {
+        this.prev = prev;
+    }
+    public int getItem() {
+        return item;
+    }
+    public void setItem(int item) {
+        this.item = item;
+    }
+    public Node getNext() {
+        return next;
+    }
+    public void setNext(Node next) {
+        this.next = next;
+    }
+}</code></pre><blockquote>
+<p>具体的LinkedBox代码实现</p>
+</blockquote>
+<pre><code>package util;
+
+public class LinkedBox implements Box{
+
+    //创建几个属性
+    private Node first;
+    private Node last;
+    private int size;
+
+
+    //设计一个小A同学，负责将元素添加到新的Node里，挂在链表的尾端
+    private void linkLast(int element) {
+        //获取链表的尾结点
+        Node l = last;
+        //创建一个新的node节点  将新的数据包装起来
+        Node newNode = new Node(l,element,null);
+        //将新节点对象设置为尾结点
+        last = newNode;
+        //严谨的判断
+        if(l==null) {//如果尾结点没有对象 证明这个链表是没有使用过的
+            first = newNode;
+        }else {//原来用过  刚才已经将新的节点连接在last之后了
+            l.setNext(newNode);
+        }
+        //有效元素个数添加一个
+        size++;
+    }
+
+    //设计一个小B同学  负责检测index
+    private void rangeChedk(int index) {
+        // TODO Auto-generated method stub
+        if(index&lt;0 || index&gt;=size) {
+            throw new BoxIndexOutOfException(&quot;index:&quot;+index+&quot;,size:&quot;+size);
+        }
+    }
+
+    //设计一个小C同学  负责找寻给定index位置的对象
+    private Node node(int index) {
+        Node targetNode;
+        //判断index范围是在前半部分还是后半部分
+        if(index&lt; (size&gt;&gt;1)) {//从前往后找比较快
+            targetNode = first;
+            for(int i=0;i&lt;index;i++) {
+                targetNode = targetNode.getNext();
+            }
+        }else {//从后往前找
+            targetNode = last;
+            for(int i=size-1;i&gt;index;i--) {
+                targetNode = targetNode.getPrev();
+            }
+        }
+        return targetNode;
+    }
+
+    //设计一个方法小D  负责将给定的node节点对象删除  并且返回数据
+    private int unlink(Node targetNode) {
+        int oldValue = targetNode.getItem();
+        //找当前node的前一个对象
+        Node prev = targetNode.getPrev();
+        //找当前node的后一个对象
+        Node next = targetNode.getNext();
+        //删除节点对象
+        if(prev==null) {//当前node就是第一个
+            first = next;
+        }else {
+            prev.setNext(next);
+            targetNode.setPrev(null);
+        }
+        if(next==null) {//当前node就是最后一个
+            last = prev;
+        }else {
+            next.setPrev(prev);
+            targetNode.setNext(null);
+        }
+        size--;
+        return oldValue;
+    }
+
+    //--------------------------------------------------
+    @Override
+    public boolean add(int element) {
+        // TODO Auto-generated method stub
+        //将element存入一个新的Node对象里  添加至链表的尾端
+        this.linkLast(element);
+        //告知添加成功
+        return true;
+    }
+
+    @Override
+    public int get(int index) {
+        // TODO Auto-generated method stub
+        //检测index是否合法
+        this.rangeChedk(index);
+        //找寻index对应位置的那个node对象  将对象中的元素取出
+        return this.node(index).getItem();
+    }
+
+    @Override
+    public int remove(int index) {
+        // TODO Auto-generated method stub
+        //检测范围是否合法
+        this.rangeChedk(index);
+        //找到index那个位置对应的node
+        Node targetNode = this.node(index);
+        //设计一个小D同学，负责删除当前的目标节点  并返回oldValue
+
+        return this.unlink(targetNode);
+    }
+
+    @Override
+    public int size() {
+        // TODO Auto-generated method stub
+        return this.size;
+    }
+
+}</code></pre><blockquote>
+<p>自定义异常</p>
+</blockquote>
+<pre><code>package util;
+public class BoxIndexOutOfException extends RuntimeException{
+    public BoxIndexOutOfException() {}
+    public BoxIndexOutOfException(String msg) {
+        super(msg);
+    }
+}</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/27/Java%E5%9F%BA%E7%A1%80-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%9D%E6%83%B3%E3%80%81%E5%85%B3%E9%94%AE%E5%AD%97%E5%BA%94%E7%94%A8%E4%B9%8BBox%E5%B0%81%E8%A3%85/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Java基础-错误与异常" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -545,7 +1399,7 @@ public class TestMain {
 </blockquote>
 <blockquote>
 <ul>
-<li>什么是接口（通常是为了定义规则的）<br>接口也是一个类的结构，只不过用interface来修饰，替换原来的class<br>成员：（1）不能含有一般的属性，只能含有公有的静态的常量（public static final可以省略）；（2）不能含有一般的方法，只能含有公有的抽象的方法（1.8default修饰具体方法）；（3）不能含有一般程序块，也不能含有static块（块本身就是具体的，接口中不让含有具体的）；（4）不能含有构造方法；<br>不能创建对象，只能通过子类多实现（implements）来做事<br>与别的类的关系：（1）抽象类可以直接多实现接口； （2）具体类不可以直接多实现接口，要想实现必须将接口中的抽象方法具体化，或者自己变成抽象类； （3）接口不能继承别的类； （4）接口可以多继承接口（比较特殊），直接多实现</li>
+<li>什么是接口（通常是为了定义规则的）<br>接口也是一个类的结构，只不过用interface来修饰，替换原来的class<br>成员：（1）不能含有一般的属性，只能含有公有的静态的常量（public static final可以省略）；（2）不能含有一般的方法，只能含有公有的抽象的方法（1.8default修饰具体方法）；（3）不能含有一般程序块，也不能含有static块（块本身就是具体的，接口中不让含有具体的）；（4）不能含有构造方法；<br>接口没有构造方法，不能创建对象，只能通过子类多实现（implements）来做事<br>与别的类的关系：（1）抽象类可以直接多实现接口； （2）具体类不可以直接多实现接口，要想实现必须将接口中的抽象方法具体化，或者自己变成抽象类； （3）接口不能继承别的类（抽象类或具体类）； （4）接口可以多继承接口（比较特殊），直接多实现</li>
 </ul>
 </blockquote>
 
@@ -1011,285 +1865,9 @@ public:
 
 
   
-    <article id="post-剑指offer-二叉搜索树与双向链表" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/03/%E5%89%91%E6%8C%87offer-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%8E%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/">剑指offer--二叉搜索树与双向链表</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/03/%E5%89%91%E6%8C%87offer-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%8E%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/" class="archive-article-date">
-  	<time datetime="2020-05-03T12:46:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h1><blockquote>
-<p>输入一棵二叉搜索树，将该二叉搜索树转换成一个排序的双向链表。要求不能创建任何新的结点，只能调整树中结点指针的指向。</p>
-</blockquote>
-<blockquote>
-<p>本题求解思路求解：据二叉搜索树的性质，如果不是空树，一个节点大于该节点的左孩子，小于该节点的右孩子。而二叉排序树的中序遍历（先该节点的左孩子，再改节点，最后该节点的右孩子）则是一个单调递增的序列。这里采用非递归遍历二叉搜索树，用变量p指向正在遍历的节点，变量pre指向前一个遍历的节点。</p>
-</blockquote>
-<blockquote>
-<p>1.如果是颗空树则直接返回NULL；<br>2.从根节点开始一直让节点的左孩子进栈，最后到这颗树的最左下角的节点<br>3.循环条件：p！=NULL或栈不为空取。</p>
-<blockquote>
-<p>3.1 出栈顶元素，如果是第一次取栈中的元素，用参数pRootOfTree记录遍历首个元素的节点；否则让pre(前一个遍历的节点)的右孩子指向p（正在遍历的节点），<br>p指向p的右孩子，重复步骤3。<br>返回pRootOfTree</p>
-</blockquote>
-</blockquote>
-<pre><code>/*
-struct TreeNode {
-    int val;
-    struct TreeNode *left;
-    struct TreeNode *right;
-    TreeNode(int x) :
-            val(x), left(NULL), right(NULL) {
-    }
-};*/
-class Solution {
-public:
-    TreeNode* Convert(TreeNode* pRootOfTree)
-    {
-        //非递归中序遍历
-        if(pRootOfTree==NULL) return NULL;
-        stack&lt;TreeNode*&gt; stackTree;
-        TreeNode* p = pRootOfTree;
-        TreeNode* pre = NULL;
-        bool isFirst = true;
-        while(p!=NULL||!stackTree.empty()){  //p!=NULL只是当栈为空时让节点进栈
-            while(p!=NULL){
-                stackTree.push(p);
-                p = p-&gt;left;
-            }
-            p = stackTree.top();
-            stackTree.pop();  //删除栈顶元素，但不返回栈顶元素    
-                              //error: assigning to &apos;TreeNode *&apos; from incompatible type &apos;void&apos;
-            if(isFirst){
-                pRootOfTree = p;
-                pre = pRootOfTree;
-                isFirst = false;
-            }else{
-                pre-&gt;right = p;
-                p-&gt;left = pre;
-                pre = p;
-            }
-            p = p-&gt;right;
-        }
-        return pRootOfTree;
-    }
-};</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/03/%E5%89%91%E6%8C%87offer-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%8E%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-安大2016年综合面试题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/02/%E5%AE%89%E5%A4%A72016%E5%B9%B4%E7%BB%BC%E5%90%88%E9%9D%A2%E8%AF%95%E9%A2%98/">安大2016年综合面试题</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/02/%E5%AE%89%E5%A4%A72016%E5%B9%B4%E7%BB%BC%E5%90%88%E9%9D%A2%E8%AF%95%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-05-02T03:18:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/02/%E5%AE%89%E5%A4%A72016%E5%B9%B4%E7%BB%BC%E5%90%88%E9%9D%A2%E8%AF%95%E9%A2%98/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-剑指offer-二叉树中和为某一值的路径" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/02/%E5%89%91%E6%8C%87offer-%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%AD%E5%92%8C%E4%B8%BA%E6%9F%90%E4%B8%80%E5%80%BC%E7%9A%84%E8%B7%AF%E5%BE%84/">剑指offer--二叉树中和为某一值的路径</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/02/%E5%89%91%E6%8C%87offer-%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%AD%E5%92%8C%E4%B8%BA%E6%9F%90%E4%B8%80%E5%80%BC%E7%9A%84%E8%B7%AF%E5%BE%84/" class="archive-article-date">
-  	<time datetime="2020-05-02T02:59:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h1><blockquote>
-<p>输入一颗二叉树的根节点和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。</p>
-</blockquote>
-<blockquote>
-<p>本题求解思路求解：采用先序递归遍历二叉树，若遍历到叶子节点时发现符合条件则保存，非叶子节点则继续。代码如下，仅供参考。</p>
-</blockquote>
-<pre><code>/*
-struct TreeNode {
-    int val;
-    struct TreeNode *left;
-    struct TreeNode *right;
-    TreeNode(int x) :
-            val(x), left(NULL), right(NULL) {
-    }
-};*/
-class Solution {
-public:
-    vector&lt;vector&lt;int&gt; &gt; FindPath(TreeNode* root,int expectNumber) {
-        vector&lt;vector&lt;int&gt;&gt; result; //存所有符合条件的路径并返回
-        vector&lt;int&gt; path;           //存某条路径
-        if(root)
-            dfs(root,expectNumber,result,path);
-        return result;
-    }
-
-    void dfs(TreeNode* root,int s,vector&lt;vector&lt;int&gt;&gt;&amp; result,vector&lt;int&gt;&amp; path){ //递归先序遍历
-        path.push_back(root-&gt;val);
-        if(!root-&gt;left&amp;&amp;!root-&gt;right){ //为叶子节点时
-            if(s==root-&gt;val)
-                result.push_back(path);//到达叶子节点后的值符合条件时保存
-        }
-        //非叶子节点，递归下去
-        if(root-&gt;left)
-            dfs(root-&gt;left,s-root-&gt;val,result,path);
-        if(root-&gt;right)
-            dfs(root-&gt;right,s-root-&gt;val,result,path);
-        path.pop_back();//弹出不和要求的节点数值
-    }
-};</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/02/%E5%89%91%E6%8C%87offer-%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%AD%E5%92%8C%E4%B8%BA%E6%9F%90%E4%B8%80%E5%80%BC%E7%9A%84%E8%B7%AF%E5%BE%84/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
     </nav>
   
 
