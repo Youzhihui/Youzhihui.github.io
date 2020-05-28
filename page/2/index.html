@@ -152,6 +152,116 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-剑指offer-复杂链表的复制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/03/%E5%89%91%E6%8C%87offer-%E5%A4%8D%E6%9D%82%E9%93%BE%E8%A1%A8%E7%9A%84%E5%A4%8D%E5%88%B6/">剑指offer--复杂链表的复制</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/03/%E5%89%91%E6%8C%87offer-%E5%A4%8D%E6%9D%82%E9%93%BE%E8%A1%A8%E7%9A%84%E5%A4%8D%E5%88%B6/" class="archive-article-date">
+  	<time datetime="2020-05-03T13:38:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h1><blockquote>
+<p>输入一个复杂链表（每个节点中有节点值，以及两个指针，一个指向下一个节点，另一个特殊指针random指向一个随机节点），请对此链表进行深拷贝，并返回拷贝后的头结点。（注意，输出结果中请不要返回参数中的节点引用，否则判题程序会直接返回空）</p>
+</blockquote>
+<blockquote>
+<p>本题求解思路求解：<br>1.复制每个节点，如：复制节点A得到A1，将A1插入节点A后面;<br>2.遍历链表，A1-&gt;random = A-&gt;random-&gt;next，目的是让复制的节点的random指针能正确的指向对应的节点;<br>3.将链表拆分成原链表和复制后的链表。</p>
+</blockquote>
+<pre><code>/*
+struct RandomListNode {
+    int label;
+    struct RandomListNode *next, *random;
+    RandomListNode(int x) :
+            label(x), next(NULL), random(NULL) {
+    }
+};
+*/
+class Solution {
+public:
+    RandomListNode* Clone(RandomListNode* pHead)
+    {
+        if(pHead==NULL) return NULL;
+        RandomListNode *currentNode = pHead;
+        //复制过程
+        while(currentNode){
+            RandomListNode *node = new RandomListNode(currentNode-&gt;label);
+            node-&gt;next = currentNode-&gt;next;
+            currentNode-&gt;next = node;
+            currentNode = node-&gt;next;
+        }
+        currentNode = pHead;
+        //遍历链表过程
+        while(currentNode){
+            RandomListNode *node = currentNode-&gt;next;
+            if(currentNode-&gt;random){
+                node-&gt;random = currentNode-&gt;random-&gt;next;
+            }
+            currentNode = node-&gt;next;
+        }
+        //拆分过程
+        RandomListNode *pCloneHead = pHead-&gt;next;
+        RandomListNode *temp;
+        currentNode = pHead;
+        while(currentNode-&gt;next){
+            temp = currentNode-&gt;next;
+            currentNode-&gt;next = temp-&gt;next;
+            currentNode = temp;
+        }
+        return pCloneHead;
+    }
+};    </code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/03/%E5%89%91%E6%8C%87offer-%E5%A4%8D%E6%9D%82%E9%93%BE%E8%A1%A8%E7%9A%84%E5%A4%8D%E5%88%B6/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-剑指offer-二叉搜索树与双向链表" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1345,68 +1455,6 @@ public:
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/04/29/2019%E5%AE%89%E5%A4%A7%E7%BB%BC%E5%90%88%E9%9D%A2%E8%AF%95/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-玩转github上开源项目" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/29/%E7%8E%A9%E8%BD%ACgithub%E4%B8%8A%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/">玩转github上开源项目</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/29/%E7%8E%A9%E8%BD%ACgithub%E4%B8%8A%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" class="archive-article-date">
-  	<time datetime="2020-04-29T00:23:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/29/%E7%8E%A9%E8%BD%ACgithub%E4%B8%8A%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/">展开全文 >></a>
         </p>
       
 
