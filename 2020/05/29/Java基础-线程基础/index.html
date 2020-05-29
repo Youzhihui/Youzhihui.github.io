@@ -16,7 +16,7 @@
 <meta property="og:description" content="程序 进程 线程 程序：可以理解为是一组静态的代码块进程：正在进行的程序，动态的线程：正在执行程序中的小单元  线程的三个级别 1、主线程（系统线程）    虚拟机2、用户线程（main）      用户定义的主方法3、守护线程（精灵线程）  GC     如何在Java中创建线程 ，让线程执行，多线程并发， 每一个线程的几种不同状态以及状态之间如何切换 创建线程（new）——就绪状态（start">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-05-29T04:26:00.000Z">
-<meta property="article:modified_time" content="2020-05-29T08:44:49.492Z">
+<meta property="article:modified_time" content="2020-05-29T12:12:07.605Z">
 <meta property="article:author" content="阿辉">
 <meta name="twitter:card" content="summary">
   
@@ -257,7 +257,7 @@ public class Test {
     }
 }</code></pre><hr>
 <h6 id="小案例"><a href="#小案例" class="headerlink" title="小案例"></a>小案例</h6><blockquote>
-<p>问题描述：模拟一个火车站售票的小例子，涉及到的类<br>1、车票类：属性（起始站、终点站、票价）<br>2、系统类：属性（集合）  方法（买票）<br>3、窗口window（多线程）类：是一个线程<br>利用了Vector集合，集合本身就是线程安全</p>
+<p>问题描述：模拟一个火车站售票的小例子，涉及到的类<br>1、车票类：属性（起始站、终点站、票价）<br>2、系统类：属性（集合）  方法（买票）<br>3、窗口window（多线程）类：是一个线程<br>利用了Vector集合，集合本身就是线程安全，多个线程并发操作同一个集合的时候，不会抢夺资源</p>
 </blockquote>
 <blockquote>
 <p>实现代码：<br>车票类</p>
@@ -488,6 +488,15 @@ public class Test {
 
   
 <nav id="article-nav">
+  
+    <a href="/2020/05/29/Java%E5%9F%BA%E7%A1%80-%E7%94%9F%E4%BA%A7%E8%80%85%E6%B6%88%E8%B4%B9%E8%80%85%E6%A8%A1%E5%9E%8B/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Java基础---生产者消费者模型
+        
+      </div>
+    </a>
   
   
     <a href="/2020/05/28/Java%E5%9F%BA%E7%A1%80-%E6%9E%9A%E4%B8%BE%E5%92%8CRuntim/" id="article-nav-older" class="article-nav-link-wrap">
