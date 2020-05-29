@@ -152,6 +152,290 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Java基础-线程基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/29/Java%E5%9F%BA%E7%A1%80-%E7%BA%BF%E7%A8%8B%E5%9F%BA%E7%A1%80/">Java基础--线程基础</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/29/Java%E5%9F%BA%E7%A1%80-%E7%BA%BF%E7%A8%8B%E5%9F%BA%E7%A1%80/" class="archive-article-date">
+  	<time datetime="2020-05-29T04:26:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="程序-进程-线程"><a href="#程序-进程-线程" class="headerlink" title="程序 进程 线程"></a>程序 进程 线程</h5><blockquote>
+<p>程序：可以理解为是一组静态的代码块<br>进程：正在进行的程序，动态的<br>线程：正在执行程序中的小单元</p>
+</blockquote>
+<h5 id="线程的三个级别"><a href="#线程的三个级别" class="headerlink" title="线程的三个级别"></a>线程的三个级别</h5><blockquote>
+<p>1、主线程（系统线程）    虚拟机<br>2、用户线程（main）      用户定义的主方法<br>3、守护线程（精灵线程）  GC   </p>
+</blockquote>
+<h5 id="如何在Java中创建线程-，让线程执行，多线程并发，"><a href="#如何在Java中创建线程-，让线程执行，多线程并发，" class="headerlink" title="如何在Java中创建线程 ，让线程执行，多线程并发，"></a>如何在Java中创建线程 ，让线程执行，多线程并发，</h5><blockquote>
+<p>每一个线程的几种不同状态以及状态之间如何切换<br> 创建线程（<code>new</code>）——就绪状态（<code>start()</code>）——执行状态（<code>CPU分配run()</code>）——挂起/等待（<code>wait()</code>   当返回就绪态时可以调用<code>notify()/notifyAll()</code> ）——异常/消亡（ <code>exception</code> 或 <code>over</code> ）</p>
+</blockquote>
+<blockquote>
+<p>实现线程的过程（方法一：继承Thread）<br>1、自己描述一个类<br>2、继承父类Thread<br>3、重写<code>run()</code>方法<br>4、new一个线程对象  调用<code>start()</code>方法，让线程进入就绪状态            </p>
+</blockquote>
+<blockquote>
+<p>实现一个多人跑步的小例子</p>
+</blockquote>
+<pre><code>package thread;
+public class Runner extends Thread{
+    private String name;
+    public Runner() {}
+    public Runner(String name) {
+        this.name = name;
+    }
+    //重写run方法
+    public void run() {
+        for(int i=1;i&lt;=100;i++) {
+            System.out.println(this.name+&quot;跑到第&quot;+i+&quot;米&quot;);
+        }
+    }
+}
+package thread;
+public class Test {
+    public static void main(String[] args) {
+        //1.创建一个线程对象
+        Runner runner1 = new Runner(&quot;张健&quot;);
+        Runner runner2 = new Runner(&quot;吴锋&quot;);
+        Runner runner3 = new Runner(&quot;毛逢&quot;);
+        //2.调用start方法，让线程进入就绪状态
+        runner1.start();//从Thread类中继承来得方法
+        runner2.start();
+        runner3.start();
+    }
+}</code></pre><blockquote>
+<p>注意：上述实现继承的过程存在着问题，即Java中的类是单继承的，当某一个类已经继承了另外一个类时又想实现线程就无能为力了，所以这里再介绍第二种实现线程的方法  </p>
+</blockquote>
+<hr>
+<hr>
+<blockquote>
+<p>实现线程的过程（方法二：实现Runable）<br>1、自己描述一个类<br>2、实现一个父接口Runable<br>3、重写<code>run()</code>方法<br>4、new一个线程对象，需要创建Thread将自己的对象包起来  然后调用<code>start()</code>方法</p>
+</blockquote>
+<blockquote>
+<p>同样实现上面一个多人跑步的小例子</p>
+</blockquote>
+<pre><code>package thread;
+public class Runner implements Runnable{
+    private String name;
+    public Runner() {}
+    public Runner(String name) {
+        this.name = name;
+    }
+    //重写run方法
+    public void run() {
+        for(int i=1;i&lt;=100;i++) {
+            System.out.println(this.name+&quot;跑到第&quot;+i+&quot;米&quot;);
+        }
+    }
+}
+package thread;
+public class Test {
+    public static void main(String[] args) {
+        //1.创建一个线程对象
+        Runner runner1 = new Runner(&quot;张健&quot;);
+        Runner runner2 = new Runner(&quot;吴锋&quot;);
+        Runner runner3 = new Runner(&quot;毛逢&quot;);    
+        //2.创建Threa对象包含实现Runable的对象  再用Thread对象调用start方法，让线程进入就绪状态
+        Thread thread1 = new Thread(runner1);
+        Thread thread2 = new Thread(runner2);//把实现Runable类的对象作为参数传给Thread
+        Thread thread3 = new Thread(runner3);
+        thread1.start();//从Thread类中继承来得方法
+        thread2.start();//从Thread类中继承来得方法
+        thread3.start();//从Thread类中继承来得方法
+    }
+}</code></pre><hr>
+<h6 id="小案例"><a href="#小案例" class="headerlink" title="小案例"></a>小案例</h6><blockquote>
+<p>问题描述：模拟一个火车站售票的小例子，涉及到的类<br>1、车票类：属性（起始站、终点站、票价）<br>2、系统类：属性（集合）  方法（买票）<br>3、窗口window（多线程）类：是一个线程<br>利用了Vector集合，集合本身就是线程安全</p>
+</blockquote>
+<blockquote>
+<p>实现代码：<br>车票类</p>
+</blockquote>
+<pre><code>package system12306;
+public class Ticket {
+
+    //类中没有任何的逻辑，只是包含一些基本的属性，没一个对象更像时一个小容器
+    //一个对象包含很多属性   增强可读性
+    private String start;//起始站名
+    private String end;//终点站名
+    private Float price;//遇到基本类型时写基本类型的包装类 更安全  null也不会报错
+
+    public Ticket() {}
+
+    public Ticket(String start, String end, Float price) {
+        this.start = start;
+        this.end = end;
+        this.price = price;
+    }
+
+    public String getStart() {
+        return start;
+    }
+    public void setStart(String start) {
+        this.start = start;
+    }
+
+    public String getEnd() {
+        return end;
+    }
+    public void setEnd(String end) {
+        this.end = end;
+    }
+
+    public Float getPrice() {
+        return price;
+    }
+    public void setPrice(Float price) {
+        this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append(&quot;[&quot;);
+        builder.append(this.getStart());
+        builder.append(&quot;--&gt;&quot;);
+        builder.append(this.getEnd());
+        builder.append(&quot;:&quot;);
+        builder.append(this.getPrice());
+        builder.append(&quot;]&quot;);
+        return builder.toString();
+    }
+
+}</code></pre><blockquote>
+<p>系统类</p>
+</blockquote>
+<pre><code>package system12306;
+import java.util.Vector;
+
+public class System12306 {
+
+
+    //属性   集合  Vector  synchronized  线程安全
+    private Vector&lt;Ticket&gt; tickets = new Vector&lt;&gt;();
+
+    //当前系统创建后给tickets集合赋值
+    {
+        for(int i=10;i&lt;100;i++) {
+            tickets.add(new Ticket(&quot;北京&quot;+i, &quot;深圳&quot;+i, (i%5+5)*25F));
+        }
+    }
+
+    //设计一个单例模式
+    private System12306() {};
+    private static System12306 sys = new System12306();
+    public static System12306 getInstance() {
+        return sys;
+    }
+
+    //设计一个方法  从集合中获取一张火车票
+    public Ticket getTicket() {
+        try {
+            return tickets.remove(0);
+        }catch (Exception e) {
+            // TODO: handle exception
+            return null;
+        }
+    }
+}</code></pre><blockquote>
+<p>窗口类</p>
+</blockquote>
+<pre><code>package system12306;
+public class Window extends Thread{
+
+    private String windowName;//窗口的名字
+    public Window(String windowName) {
+        this.windowName = windowName;
+    }
+
+    public void run() {
+        this.sellTicket();
+    }
+
+    private void sellTicket() {
+        while (true) {
+            System12306 system12306 = System12306.getInstance();
+            Ticket ticket = system12306.getTicket();
+            if(ticket==null) {
+                System.out.println(&quot;对不起&quot;+windowName+&quot;窗口车票已售完！&quot;);
+                break;
+            }
+            System.out.println(&quot;从&quot;+windowName+&quot;售出&quot;+ticket.toString());
+        }
+    }
+}</code></pre><blockquote>
+<p>测试类</p>
+</blockquote>
+<pre><code>package system12306;
+public class Test {
+    public static void main(String[] args) {
+        Window window1 = new Window(&quot;北京东站&quot;);
+        Window window2 = new Window(&quot;北京南站&quot;);
+        Window window3 = new Window(&quot;北京西站&quot;);
+        Window window4 = new Window(&quot;北京北站&quot;);
+        window1.start();
+        window2.start();
+        window3.start();
+        window4.start();
+    }
+}</code></pre><hr>
+<blockquote>
+<p>动手小任务：微信强红包<br>发红包 ，5块钱随机（保证10个人都有，至少0.01）分成10 个红包，把随机分的10份钱存放在集合中；创建多个线程（20个）从集合里抢红包，抢到了从集合中移除，一直下去直到红包抢完</p>
+</blockquote>
+<blockquote>
+<p>思考：<br>1、如何切换线程的不同的状态<br>2、如果在设计中没有vector集合   我们自己像控制线程的安全怎么办呢</p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/29/Java%E5%9F%BA%E7%A1%80-%E7%BA%BF%E7%A8%8B%E5%9F%BA%E7%A1%80/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Java基础-枚举和Runtim" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1845,103 +2129,6 @@ public class TestMain {
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/05/05/Java%E9%9B%86%E5%90%88%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-剑指offer-最小的K个数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/04/%E5%89%91%E6%8C%87offer-%E6%9C%80%E5%B0%8F%E7%9A%84K%E4%B8%AA%E6%95%B0/">剑指offer--最小的K个数</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/04/%E5%89%91%E6%8C%87offer-%E6%9C%80%E5%B0%8F%E7%9A%84K%E4%B8%AA%E6%95%B0/" class="archive-article-date">
-  	<time datetime="2020-05-04T15:26:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h1><blockquote>
-<p>输入n个整数，找出其中最小的K个数。例如输入4,5,1,6,2,7,3,8这8个数字，则最小的4个数字是1,2,3,4,。</p>
-</blockquote>
-<blockquote>
-<p>本题求解思路求解：一种最简单的思路是先排序，在取出最小的K个数。这里并不是用排序的方法，用一个与标记数组，先找到最小的那个元素值所对应的下角标号，在标记数组对应的角标标记，再去找次小的元素值，对应的标记数组也标记，直到找到K个最小的。</p>
-</blockquote>
-<pre><code>class Solution {
-public:
-    vector&lt;int&gt; GetLeastNumbers_Solution(vector&lt;int&gt; input, int k) {
-        vector&lt;int&gt; result;
-        if(k&gt;input.size()) return result;
-        int length = input.size();
-        int index[length];
-        memset(index,0,sizeof(index));
-        int min;
-        int corsur;
-        for(int i=0;i&lt;k;i++){
-            for(int l=0;l&lt;length;l++){
-                if(index[l]==0){
-                    min = input[l];
-                    corsur = l;
-                    break;
-                }
-            }
-            for(int j=0;j&lt;length;j++){
-                if(min&gt;input[j]&amp;&amp;index[j]==0){
-                    min = input[j];
-                    corsur = j;
-                }
-            }
-            index[corsur] = 1;
-            result.push_back(min);
-        }
-        return result;
-    }
-};</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/04/%E5%89%91%E6%8C%87offer-%E6%9C%80%E5%B0%8F%E7%9A%84K%E4%B8%AA%E6%95%B0/">展开全文 >></a>
         </p>
       
 
