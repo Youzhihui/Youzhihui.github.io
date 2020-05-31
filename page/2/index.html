@@ -152,6 +152,551 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Java基础-错误与异常" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/26/Java%E5%9F%BA%E7%A1%80-%E9%94%99%E8%AF%AF%E4%B8%8E%E5%BC%82%E5%B8%B8/">Java基础--错误与异常</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/26/Java%E5%9F%BA%E7%A1%80-%E9%94%99%E8%AF%AF%E4%B8%8E%E5%BC%82%E5%B8%B8/" class="archive-article-date">
+  	<time datetime="2020-05-26T13:42:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="错误与异常"><a href="#错误与异常" class="headerlink" title="错误与异常"></a>错误与异常</h4><blockquote>
+<p>程序的运行过程中，可能会发成一些不被期望的效果，肯定会阻止我们的程序按照指令去执行，这种不被预期出现的效果，肯定需要抛出来告诉我们，<br>在Java中有一个定义好的规则Throwable(可以抛出的)，它是一个类，实现了一个序列化的接口，有两个分支Error（错误）和Exception（异常）</p>
+<ul>
+<li>Error错误<br>通常是一些物理性的错误，JVM虚拟机本身出现的问题，程序指令是处理不了的<br>StackOverflowError 、 OutOfMemoryError 、 </li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>Exception异常<br>通常是一种人为规定的不正常的现象，通常是给定的程序指令产生一些不符合规范的事情<br>异常的分支体系：运行时异常（非检查异常）、编译时异常（检查异常）<br>1、运行时异常：Error和RuntimeException都算运行时异常，用javac编译的时候不会提示和发现的，在程序编写时不要求必须处理，如果我们愿意可以添加处理手段（try throws）,要求大家出现这样的异常的时候知道怎么产生及如何修改。常见的运行时异常：<br>（1）<code>InputMisMatchException</code>  输入不匹配  <code>int value = input.nextInt();// abc</code><br>（2）<code>NumberFormatException</code>   数字格式化  <code>int valur = Integer.parseInt(&quot;123.45&quot;);</code><br>（3）<code>NegativeArraySizeException</code>  数组长度负数  <code>int[] array = new int[-2];</code><br>（4）<code>NullPointerException</code>    空指针异常  <code>Person p = null;p.getName();</code><br>（5）<code>ArithmeticException</code>     数字异常    <code>10/0  整数不允许除以0</code><br>（6）<code>ClassCastException</code>      造型异常    <code>Person p = new Teacher(); Student s = (Studnet)p;</code><br>（7）<code>tringIndexOutOfBoundsException</code>   字符串越界    <code>int[] array = {1,2,3};array[5];</code><br>（8）<code>ArrayIndexOutOfBoundsException</code>    数组索引越界  <code>String str = &quot;abc&quot;;str.charAt(5);</code><br>（9）<code>IndexOutOfBoundsException</code>         List家族集合越界<br>（10）<code>ILLegalArgumentException</code>         非法参数异常  <code>ArrayList list = new ArrayList(-1);</code>  </li>
+</ul>
+</blockquote>
+<blockquote>
+<p>2、编译时异常：处理Error和RuntimeException以外的其他的异常，用javac编译的时候强制要求我们必须为这样的异常做处理（try或throw）。因为这样的异常在程序运行的过程中极有可能产生问题的，当异常产生后后续的所有执行就会停止。编译时异常：<br>（1）InterruptException                 <code>try{Thread.sleep(5000);}catch(Exception e){}</code><br>后续还会有很多的编译时异常</p>
+</blockquote>
+<h4 id="添加处理异常的手段"><a href="#添加处理异常的手段" class="headerlink" title="添加处理异常的手段"></a>添加处理异常的手段</h4><blockquote>
+<p>注意：处理异常不是异常消失了，处理异常指的是处理掉异常之后后续的代码不会因为此异常而终止执行<br>处理异常两种手段：<br>1、<code>try{}catch(){}[finally{}]</code><br>（1）<code>try</code>不能单独出现<br>（2）后面必须添加<code>catch</code>或<code>finall</code><br>（3）<code>catch</code>有一组括号（NullpointerException），目的是为了捕获某一种异常<br>（4）<code>catch</code>可能有很多个存在，捕获的异常之间没有任何的继承关系，捕获的异常需要按从小到大进行捕获<br>（5）<code>finall</code>不是必须存在的，若存在<code>finall</code>结构，则必须执行<br>（6）处理异常放在方法内部可能会有小问题，如果在方法内部含有返回值，不管返回值return关键字在哪里，finally一定会执行完毕，返回值的具体结果得看情况  </p>
+</blockquote>
+<blockquote>
+<p>2、<code>throws</code>抛出<br>（1）异常只能在方法上抛出，属性是不能处理异常，<br>（2）<code>throws</code>只能放在方法和构造方法之上<br>（3）方法可以抛出不止一个异常，多个异常用<code>，</code>隔开<br>（4）抛出的异常与多个<code>catch</code>类似，要么没关系，要么先抛出小异常  </p>
+</blockquote>
+<h4 id="我们也可以自己创建异常—-自定义异常"><a href="#我们也可以自己创建异常—-自定义异常" class="headerlink" title="我们也可以自己创建异常—-自定义异常"></a>我们也可以自己创建异常—-自定义异常</h4><blockquote>
+<p>1、自己描述一个异常的类<br>2、让我们自己的类继承，如果继承的是<code>RuntimeException</code>则是运行时异常，可以不必添加处理手段，如果继承的是Exception则是编译时异常，必须添加处理的手段，<br>3、创建一个当前自定义异常的对象，通过<code>throw</code>关键字主动产生异常<br>4、当我们设计描述的方法（事情）之前没有相关的异常能描述我们的问题，这个时候才会用自定义异常来描述， </p>
+</blockquote>
+<blockquote>
+<ul>
+<li>运行时异常</li>
+</ul>
+</blockquote>
+<pre><code>package mythrowable;
+
+public class MyException extends RuntimeException{
+    public MyException() {}
+    public MyException(String msg) {
+        super(msg);
+    }
+}
+
+package mythrowable;
+
+public class TestException {
+    public void testMyException(){
+        System.out.println(&quot;测试自定义异常的方法执行啦&quot;);
+        if(3&gt;2) {//若满足某个条件
+            throw new MyException(&quot;说明一下异常的具体问题&quot;);
+        }
+    }
+    public static void main(String[] args) {
+        TestException te = new TestException();
+        te.testMyException();
+    }
+}</code></pre><blockquote>
+<ul>
+<li>编译时异常（必须用try或throws处理）</li>
+</ul>
+</blockquote>
+<pre><code>package mythrowable;
+
+public class MyException extends RuntimeException{
+    public MyException() {}
+    public MyException(String msg) {
+        super(msg);
+    }
+}
+
+package mythrowable;
+
+public class TestException {
+    public void testMyException() throws MyException{
+        System.out.println(&quot;测试自定义异常的方法执行啦&quot;);
+        if(3&gt;2) {//若满足某个条件
+            throw new MyException(&quot;说明一下异常的具体问题&quot;);
+        }
+    }
+    public static void main(String[] args) {
+        TestException te = new TestException();
+        try {//异常处理
+            te.testMyException();
+        }catch (Exception e) {
+            // TODO: handle exception
+            e.printStackTrace();
+        }
+    }
+}</code></pre><blockquote>
+<ul>
+<li>final 、 finall 、 finalize三者之间的区别<br>final 特征修饰符<br>finally  处理异常手段的一部分<br>finalize 是Object类中的一个protected方法，当对象没有任何引用指向的时候会被GC回收，当对象回收的时候默认调用finalize方法。  </li>
+</ul>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/26/Java%E5%9F%BA%E7%A1%80-%E9%94%99%E8%AF%AF%E4%B8%8E%E5%BC%82%E5%B8%B8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-java基础-修饰符引用（单例模式）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/26/java%E5%9F%BA%E7%A1%80-%E4%BF%AE%E9%A5%B0%E7%AC%A6%E5%BC%95%E7%94%A8%EF%BC%88%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%EF%BC%89/">java基础--修饰符应用（单例模式）</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/26/java%E5%9F%BA%E7%A1%80-%E4%BF%AE%E9%A5%B0%E7%AC%A6%E5%BC%95%E7%94%A8%EF%BC%88%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%EF%BC%89/" class="archive-article-date">
+  	<time datetime="2020-05-26T00:32:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h4><blockquote>
+<p>设计模式并不是知识点，它是前人总结的设计经验，用来解决某些场景下的某一类问题，是一种通用的解决方案，有了设计模式之后可以让代码更加容易理解，确保了复用性和可靠性。<br>常用的设计模式有23种，大体可分为三类:  </p>
+<ol>
+<li>创建型模式（5种）—–&gt;用于解决对像创建的过程<br>单例模式、工厂方法模式、抽象的工厂模式、构造者模式、原型模式</li>
+<li>结构型模式（7种）—–&gt;把类和对象通过某种形式结合在一起，构成某种复杂或合理的结构<br>适配器模式、装饰者模式、代理模式、外观模式、桥接模式、组合模式、享元模式</li>
+<li>行为型模式（11种）—-&gt;用来解决类或对象之间的交互，更合理的优化类或对象之间的关系<br>观察者模式、策略模式、模板模式、责任链模式、解析器模式、迭代子模式、命令模式、状态模式、备忘录模式、访问者模式、中介者模式 </li>
+</ol>
+</blockquote>
+<hr>
+<hr>
+<h5 id="单例设计模式-Singleton"><a href="#单例设计模式-Singleton" class="headerlink" title="单例设计模式(Singleton)"></a>单例设计模式(Singleton)</h5><blockquote>
+<p>设计一个类只能创建一个对象，有效减少内存占用空间，提高内存的效率</p>
+<ul>
+<li>饿汉式（立即加载）:对象在启动时加载，不会产生对象没有就拿来使用的问题（不会出现空指针异常），但当项目启动时加载的对象过多而有些对象还没有使用可能会产生服务器承载压力的问题。  </li>
+<li>懒汉式（延迟加载）:对象什么时候用到了才会加载  ，对象可能会由于没有操作好导致异常，启动项目时只加载需要的，不需要的还没有创建，不会浪费空间，</li>
+<li>生命周期托管（单例对象让别人帮我们处理）:对象加载过程交给别人</li>
+</ul>
+</blockquote>
+<hr>
+<blockquote>
+<ul>
+<li>单例模式的实现</li>
+</ul>
+<ol>
+<li>私有的构造方法</li>
+<li>私有的静态的当前类对象作为属性</li>
+<li>公有的静态的方法返回当前的类对象</li>
+</ol>
+</blockquote>
+<hr>
+<hr>
+<h3 id="代码实现："><a href="#代码实现：" class="headerlink" title="代码实现："></a>代码实现：</h3><blockquote>
+<ul>
+<li>饿汉式代码实现：</li>
+</ul>
+</blockquote>
+<pre><code>package singleton;
+public class SingleTon {
+    //通过设计让这个类只能创建一个对象
+
+    //每一个类都有默认无参数的构造方法--公有
+    //1.让构造方法变成私有--保证外面不可以随便创建对象
+    private SingleTon() {}
+    //2、单例对象，不是无例--在本类种的某个成员位置上创建唯一的一个对象
+    //在类的以下四个成员中new一个对象
+    //属性--------
+    //方法--------不行，方法每一次执行都会产生一个过程，保证不了唯一
+    //构造方法-----不行，私有的，本身就是个构造过程
+    //块----------不行，没有返回值，创造了对象也无法给别人使用
+
+    //3.在当前类中存在一个私有的静态的属性，是当前类类型的
+    private static SingleTon single = new SingleTon();//立即加载的方式，饿汉式
+    //4、提供一个获取单个对象的方法给用户
+    //  返回值   将对象返回储去
+    public static SingleTon getSingleTon() {
+        return single;//引用类型
+    }
+}</code></pre><blockquote>
+<ul>
+<li>懒汉式代码实现：</li>
+</ul>
+</blockquote>
+<pre><code>package singleton;
+
+public class SingleTon {
+    //通过设计让这个类只能创建一个对象
+
+    //每一个类都有默认无参数的构造方法--公有
+    //1.让构造方法变成私有--保证外面不可以随便创建对象
+    private SingleTon() {}
+    //2、单例对象，不是无例--在本类种的某个成员位置上创建唯一的一个对象
+    //在类的以下四个成员中new一个对象
+    //属性--------
+    //方法--------不行，方法每一次执行都会产生一个过程，保证不了唯一
+    //构造方法-----不行，私有的，本身就是个构造过程
+    //块----------不行，没有返回值，创造了对象也无法给别人使用
+
+    //3.在当前类中存在一个私有的静态的属性，是当前类类型的
+    private static SingleTon single;
+    //4、提供一个获取单个对象的方法给用户
+    //  返回值   将对象返回储去
+    public static SingleTon getSingleTon() {
+        if(single == null) {
+            single = new SingleTon();//延迟加载的方式  懒汉式
+        }
+        return single;//引用类型
+    }
+}</code></pre><blockquote>
+<p>测试代码</p>
+</blockquote>
+<pre><code>package singleton;
+
+public class TestMain {
+    public static void main(String[] args) {
+        SingleTon singleTon1 = SingleTon.getSingleTon();
+        SingleTon singleTon2 = SingleTon.getSingleTon();
+        System.out.println(singleTon1==singleTon2);
+        System.out.println(singleTon1);
+        System.out.println(singleTon2);
+    }
+}</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/26/java%E5%9F%BA%E7%A1%80-%E4%BF%AE%E9%A5%B0%E7%AC%A6%E5%BC%95%E7%94%A8%EF%BC%88%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%EF%BC%89/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Java基础-修饰符1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/25/Java%E5%9F%BA%E7%A1%80-%E4%BF%AE%E9%A5%B0%E7%AC%A61/">Java基础--修饰符</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/25/Java%E5%9F%BA%E7%A1%80-%E4%BF%AE%E9%A5%B0%E7%AC%A61/" class="archive-article-date">
+  	<time datetime="2020-05-25T03:44:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="Java修饰符讲解"><a href="#Java修饰符讲解" class="headerlink" title="Java修饰符讲解"></a>Java修饰符讲解</h4><blockquote>
+<p>描述一个类的结构如下：</p>
+</blockquote>
+<pre><code>修饰符 class 类名{  
+    属性       （权限 特征 类型 名字）
+    方法       （权限 特征 返回值 名字 参数 异常 执行体）
+    构造函数   （权限 名字 参数 异常 执行体）
+    代码块     （执行体）
+}</code></pre><blockquote>
+<p>可以看出，不管是类还是属性和方法，都会涉及到修饰符的使用，这里就简单聊聊修饰符的问题</p>
+</blockquote>
+<hr>
+<hr>
+<h5 id="修饰符分为权限修饰符和特征修饰符"><a href="#修饰符分为权限修饰符和特征修饰符" class="headerlink" title="修饰符分为权限修饰符和特征修饰符"></a>修饰符分为权限修饰符和特征修饰符</h5><blockquote>
+<ul>
+<li>权限修饰符（可以修饰什么，修饰以后的范围），可以用来修饰类本身和类中的成员（除程序块），权限修饰符用来修饰类的时候只有两个可以用（public 默认不写），权限修饰符都可以用来修饰类中其他成员<br>1、 public         公共的         本类  同包  子类     当前项目中任意类的位置只要有对象都可以访问<br>2、 protected      受保护的       本类  同包  子类（通过子类对象在子类范围内部访问）<br>3、 默认不写       默认的         本类  同包（package关键字后面的包名完全一致）<br>4、 private        私有的         本类  </li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>特征修饰符（可以修饰什么，修饰以后有什么特点），</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>1、 final          最终的，不可改变的<br>1.1 修饰变量：     如果在定义变量时没有赋初值值，就给变量一次存值的机会（因为变量在栈内存空间内没有默认值，如果不给机会就没法使用会报错），一旦变量被存储一个值，若用fianl修饰后，则不让再次改变，相当于常量（值没法动）；注意变量类型是基本类型还是引用类型，如果修饰的变量是基本数据类型，则变量内的值不让更改，如果修饰的变量是引用数据类型则变量内的地址引用不让改变，<br>1.2 修饰属性：     属性是全局变量，是存储再对在堆内存的对象空间内的一个空间，属性如果没有赋值是有默认值存在的，属性用final修饰后必须给属性赋初值否则编译报错，特点与修饰变量一致，注意变量类型是基本类型还是引用类型，如果修饰的变量是基本数据类型，则变量内的值不让更改，如果修饰的变量是引用数据类型则变量内的地址引用不让改变，<br>1.3 修饰方法：     方法是最终的方法不可更改，子类继承父类的方法，将父类的方法重写（覆盖），final修饰的方法，要求不可以被子类重写（覆盖）<br>1.4 修饰类本身：   类是最终的不可以更改，此类不可以被其他子类继承，通常都是定义好的工具类，</p>
+</blockquote>
+<blockquote>
+<p>2、 static           静态的<br>2.1 可以修饰：属性、方法、程序块、修饰类（内部类）<br>2.2 特点：（1）静态元素在类加载时就初始化了，创建的非常早，此时没有创建对象；<br>（2）静态元素存储在静态元素区中，每个类都有一个自己的区域，与别的类不冲突；<br>（3）静态元素只加载一次（只有一份），全部的类对象及类本身共享；<br>（4）由于在静态元素区加载时可能没有创建对象，可以通过类名字直接访问；<br>（5）可以理解为静态元素不属于任何一个对象，而属于类的；<br>（6）静态元素区GC（Garbage Collection）无法管理，可以粗暴的认为常驻内存（内存管理中栈内存创建开始用完及回收，堆内存通过GC回收）；<br>（7）非静态成员（堆内存对象里）可以访问静态成员（静态区）；<br>（8）静态成员可以访问静态成员（都存在静态区）；<br>（9）静态成员不可以访问非静态成员，从个数上来说一个出发访问一堆相同名字的东西存在歧义，说不清楚，而且静态元素属于类，非静态成员属于对象自己；<br>（10）静态元素中不可以出现this或super关键字（静态元素属于类不属于对象，可以直接被类名调用,而当类调用静态元素时this没有代替的对象，会报错）   </p>
+</blockquote>
+<blockquote>
+<p>3、 abstract       抽象的 —&gt;（很不具体，没有具体的执行，只是个概念）<br>3.1 修饰方法:      用abstract修饰符修饰的方法，只有方法的结构，没有方法的执行体叫做抽象方法，<br>3.2 修饰类：       用abstract修饰符修饰的类叫做抽象类，<br>3.3 特点：         抽象类中不是必须含有抽象方法，但一般通常会有；抽象方法必须放在抽象类（或接口）中，普通类是不允许含有抽象方法的；   </p>
+<ul>
+<li>什么叫抽象类（通常用来描述事物的），抽象类有什么特点？<br>类里面的成员：可以含有一般的属性，也可以含有private、final、static等等;可以含有一般的方法，也可以含有private、final、static等等，注意：抽象类中允许含抽象方法；可以含有一般的程序块，也可以含有statici程序块；可以含有构造方法<br>类如何使用：抽象类含有构造方法，但是我们不能通过调用构造方法直接创建对象，抽象类的构造方法只能通过子类继承来做事情，<br>类和类的关系：抽象里可以直接单继承抽象类；抽象类可以直接单继承具体类（但这种用法通常是不会这样使用的）；具体类不可以直接单继承抽象类，要想继承的话必须将父类的抽象方法具体化，或者让子类也变成抽象类；  </li>
+<li>抽象类中可以全部都是具体成员，也可以全部都是抽象方法，当全部都是抽象方法时可以变成接口（接口可以理解为是抽象类抽象到极致），接口还是一个类结构，不再用class修饰，改用interface来修饰  </li>
+</ul>
+</blockquote>
+<blockquote>
+<p>4、 native         本地的<br>Java源代码中看到native关键字时就已经再也看不见后续的代码，后续会调用其他的编程语言（C/C++）执行内存的操作    </p>
+</blockquote>
+<blockquote>
+<p>5、 transient      瞬时的，短暂的——–&gt;序列化 </p>
+</blockquote>
+<blockquote>
+<p>6、 synchronized   同步的                 线程问题   </p>
+</blockquote>
+<blockquote>
+<p>7、 volatile       不稳定的  保护属性或方法的线程安全  </p>
+</blockquote>
+<hr>
+<blockquote>
+<p>Java面向对象的四个特征：继承、封装、多态、（抽象）<br>封装：将一些数据或执行过程进行一个包装，目的是保护这些数据或执行过程的安全，方法本身就算是封装，封装了执行的过程，保护过程的安全，隐藏了执行的细节，增强了代码的复用性，类也算是一个封装   </p>
+</blockquote>
+<blockquote>
+<p>对内存有默认值，栈内存没有默认值；变量是栈空间临时存在的，属性是全局变量，是存储再对在堆内存的对象空间内的一个空间，属性如果没有赋值是有默认值存在的，  </p>
+</blockquote>
+<blockquote>
+<ul>
+<li>类加载的机制<br>存在继承关系的类加载机制及执行过程：<br>（1）加载父类；<br>（2）父类会产生自己的静态空间（包含静态属性、静态方法、静态块），执行静态块；<br>（3）加载子类；<br>（4）子类会产生自己的静态空间（包括静态属性、静态方法、静态块），执行静态块；<br>（5）开辟对象空间；<br>（6）加载父类的非静态成员（属性、方法、块、构造方法）；<br>（7）执行块，执行父类构造方法；<br>（8）加载子类的非静态成员（包括属性、s方法、块、构造方法）；<br>（9）执行块，执行子类构造方法；<br>（10）将对象空间的地址引用交给变量来存储；</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>什么是接口（通常是为了定义规则的）<br>接口也是一个类的结构，只不过用interface来修饰，替换原来的class<br>成员：（1）不能含有一般的属性，只能含有公有的静态的常量（public static final可以省略）；（2）不能含有一般的方法，只能含有公有的抽象的方法（1.8default修饰具体方法）；（3）不能含有一般程序块，也不能含有static块（块本身就是具体的，接口中不让含有具体的）；（4）不能含有构造方法；<br>接口没有构造方法，不能创建对象，只能通过子类多实现（implements）来做事<br>与别的类的关系：（1）抽象类可以直接多实现接口； （2）具体类不可以直接多实现接口，要想实现必须将接口中的抽象方法具体化，或者自己变成抽象类； （3）接口不能继承别的类（抽象类或具体类）； （4）接口可以多继承接口（比较特殊），直接多实现</li>
+</ul>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/25/Java%E5%9F%BA%E7%A1%80-%E4%BF%AE%E9%A5%B0%E7%AC%A61/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Java基础-类与类的关系" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/18/Java%E5%9F%BA%E7%A1%80-%E7%B1%BB%E4%B8%8E%E7%B1%BB%E7%9A%84%E5%85%B3%E7%B3%BB/">Java基础--类与类的关系</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/18/Java%E5%9F%BA%E7%A1%80-%E7%B1%BB%E4%B8%8E%E7%B1%BB%E7%9A%84%E5%85%B3%E7%B3%BB/" class="archive-article-date">
+  	<time datetime="2020-05-18T10:06:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="Java中类与类的关系"><a href="#Java中类与类的关系" class="headerlink" title="Java中类与类的关系"></a>Java中类与类的关系</h4><blockquote>
+<p>java中类的关系大体来说可以分为三种—-泛化、包含和依赖<br>（1）泛化关系。泛化关系是<code>is-a</code>的关系，即A是B。<br>    有继承和实现两种形式。在继承中，子类通过extends关键字来继承父类；子类对象可以调用父类中到的（public、protected）属性和方法,当做自己的来使用(构造方法严格意义来说不算作子类继承过来的，只是单纯的在子类调用构造方法时默认调用父类的构造方法；程序块严格意义来说不算做子类继承来的，程序块不能直接调用，默认调用父类的构造方法之前自动执行父类的程序块)；子类也可以添加自己独有的属性或方法；子类从父类中继承过来的方法不能满足子类的需要时可以在子类中重写（覆盖） 父类的方法；每一个类都有继承类，如果不写extends关键字默认继承object，如果写了则继承后面的父类（间接的继承object类），可以理解为object是任何一个引用类型的父类；继承是单个存在的（单继承），每个类只能有一个继承类，在extends后面只能写一个类，单继承目的是为了让类变得更加安全，但可以通过传递的方式实现多继承的效果。<br>（2）包含关系。包含关系是<code>has-a</code>的关系，即A有B<br>    有组合（整体和部分的关系，不可分割的，要出现都出现，要消亡都消亡）、聚合（整体和部分的关系，创建时有可能分开的）和关联（整体和部分的关系，可以分割，后来形成的）三种形式。从java程序来描述这样的关系，通过一个类的对象当作另一个类的属性来存储。<br>（3）依赖关系。依赖关系是<code>use-a</code>的关系，即A用B。<br>    不是整体和部分的关系，某一件事情产生了关系，临时组合在一起，这件事情一旦做完关系即解散。Java程序体现的形式：一个类的方法使用到了另一个类的对象，有两种形式，一种是可以在方法中传递参数，还可以在方法中自己创建（new关键字）</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>方法重载（override）和 方法重写(overload)的区别</li>
+</ul>
+<p>1.类的角度，方法重写是两个继承关系的类，子类重写父类的方法；方法重载是一个类中的一组方法。<br>2.权限修饰符，方法重写中子类的权限修饰符可以大于父类的修饰符，而方法重载没有要求。<br>3.特征符，方法重写中如果父类方法是用final修饰，子类不能重写，如果父类方法用static来修饰，子类不存在重写的说法，如果父类方法用abstract来修饰，子类是具体类必须重写，否则可以不重写；方法重载没有要求。<br>4.返回值，方法重写中要求子类的返回值可以小于等于父类；方法重载没有要求。<br>5.参数，方法重写中要求子类与父类一致；方法重载中每一个方法的参数必须不一致。<br>6.异常，方法重写中如果父类方法抛出运行时异常时子类可以不予理会，如果父类抛出的是编译时异常，子类抛出的异常个数和类型小于等于父类；方法重载没有要求。  </p>
+</blockquote>
+<blockquote>
+<ul>
+<li>object类中的方法</li>
+</ul>
+<ol>
+<li><code>hashcode()</code>   将对象在内存中的地址经过计算得到一个int整数。public native int hashCode();</li>
+<li><code>equals()</code>     用来比较两个对象的内容,object默认效果是<code>==</code>,<code>==</code>号可以比较基本类型（比较值），也可以比较引用类型（比较地址），equals方法时Object类中继承过来的方法，默认效果比较地址，如想要改变其规则可以进行方法重写。<br>public boolean equals(Object obj){return (this == obj);}</li>
+<li><code>toString()</code>   打印输出时将对象变成String字符串。<br>public String toString(){return this.getClass().getName()+”@”+Integer.toHexString(this.hashCode());}</li>
+<li><code>getClass()</code>   获取对象对应类的类映射（反射）</li>
+<li><code>wait()</code>       线程进入挂起等待状态，存在方法重载</li>
+<li><code>notify()</code>     线程唤醒   </li>
+<li><code>notifyAll()</code>  唤醒所有</li>
+<li><code>finalize()</code>   权限修饰符是protected 在对象被垃圾回收器（GC）回收的时候默认调用执行的方法。类似析构函数，</li>
+<li><code>clone()</code>      权限修饰符是protected,为了克隆对象  </li>
+</ol>
+</blockquote>
+<blockquote>
+<ul>
+<li>继承在内存中的存储形式   </li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>关于this和super的使用，this和super都是指代词，代替的是对象，this代替是当前调用方法属性时的那个对象，不一定时当前类的对象，super代替的是当前执行方法时对象的父类对象，空间内部的那个，都能调用一般属性和一般方法，可以放置在类成员的任意位置（属性、方法、构造、块），可以调用构造方法（放在构造方法的第一行），this和super在构造方法中调用另一个方法不能同时出现在第一行，构造方法之间不能来回互相调用（编译就不好使）</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>设计类的关系遵顼的原则：高内聚低耦合。耦合度：泛化（继承、实现）&gt; 包含（组合、聚合、关联） &gt; 依赖</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>静态常量 (private static final int BOOKSTROE_ADMIN = 0;)</li>
+</ul>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/18/Java%E5%9F%BA%E7%A1%80-%E7%B1%BB%E4%B8%8E%E7%B1%BB%E7%9A%84%E5%85%B3%E7%B3%BB/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Java集合简单介绍" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -713,453 +1258,6 @@ public:
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/05/02/%E5%89%91%E6%8C%87offer-%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%AD%E5%92%8C%E4%B8%BA%E6%9F%90%E4%B8%80%E5%80%BC%E7%9A%84%E8%B7%AF%E5%BE%84/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-剑指offer-二叉搜索树的后序遍历序列" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/02/%E5%89%91%E6%8C%87offer-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86%E5%BA%8F%E5%88%97/">剑指offer--二叉搜索树的后序遍历序列</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/02/%E5%89%91%E6%8C%87offer-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86%E5%BA%8F%E5%88%97/" class="archive-article-date">
-  	<time datetime="2020-05-02T02:34:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h1><blockquote>
-<p>输入一个非空整数数组，判断该数组是不是某二叉搜索树的后序遍历的结果。如果是则输出Yes,否则输出No。假设输入的数组的任意两个数字都互不相同。</p>
-</blockquote>
-<blockquote>
-<p>本题采用递归思路求解：根据二叉搜索树的性质，一个节点大于该节点的左孩子，小于该节点的右孩子。二叉搜索树的后序遍历的最后一个元素是树的根节点，根节点的左子树所有节点值一定都小于根节点的值，右子树所有节点的值大于根节点的值。我们只需从序列的末尾出发找到小于根节点的第一个值并记下下标，下边前部分的元素（包括下标元素）是左子树的后序遍历序列，后部分的元素是右子树的后序遍历，然后重复刚才的判断，如果违背了二叉搜索树的性质（根节点的左子树所有节点值一定都小于根节点的值，右子树所有节点的值大于根节点的值），则返回flase,否则返回true。代码如下，仅供参考。<br>递归思路：</p>
-</blockquote>
-<pre><code>class Solution {
-public:
-    bool VerifySquenceOfBST(vector&lt;int&gt; sequence) {
-        if(!sequence.size()) return false;
-        return judge(sequence,0,sequence.size()-1);
-    }
-    //
-    bool judge(vector&lt;int&gt;&amp; sequence,int left,int right){
-        if(left&gt;=right) return true;              //等号“=”对应叶子节点（或该树只有根节点），大于号“&gt;”对应空树
-        int i = right;                            //后序遍历序列的最后一个元素，即某棵子树的根节点
-        while(i&gt;left&amp;&amp;sequence[i-1]&gt;sequence[right]) --i; //
-        for(int j=i-1;j&gt;=left;--j){
-            if(sequence[j]&gt;sequence[right]) return false;
-        }
-        return judge(sequence,left,i-1) &amp;&amp; judge(sequence,i,right-1);
-    }
-};</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/02/%E5%89%91%E6%8C%87offer-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86%E5%BA%8F%E5%88%97/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-剑指offer-重建二叉树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/02/%E5%89%91%E6%8C%87offer-%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/">剑指offer--重建二叉树</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/02/%E5%89%91%E6%8C%87offer-%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/" class="archive-article-date">
-  	<time datetime="2020-05-02T01:59:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><blockquote>
-<p>输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。</p>
-</blockquote>
-<blockquote>
-<p>本题采用递归思路求解<br>递归思路：如果遍历序列为空，返回空；在中序遍历中找到前序遍历的第一个元素（即根节点），找到根节点后记录根节点左子树的前序遍历和中序遍历，记录根节点右子树的中序遍历，把得到的相对应的前序遍历和中序遍历重复上面的过程即可。代码如下，仅供参考。</p>
-</blockquote>
-<pre><code>/**
- * Definition for binary tree
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
-class Solution {
-public:
-    TreeNode* reConstructBinaryTree(vector&lt;int&gt; pre,vector&lt;int&gt; vin) {
-        if(pre.size()==0||vin.size()==0){          //递归跳出条件
-            return NULL;
-        }
-        TreeNode *root = new TreeNode(pre[0]);
-        int i;
-        for(i=0;i&lt;vin.size()&amp;&amp;vin[i]!=pre[0];i++); //找到根节点对应的元素值索引
-        vector&lt;int&gt; pre_left,pre_right,vin_left,vin_right;
-        int pre_i = 1;                             //标记pre容器的下表，根节点索引为0，所以从1开始，把pre容器分成两个容器
-        for(int j=0;j&lt;vin.size();j++){
-            if(j&lt;i){
-                vin_left.push_back(vin[j]);
-                pre_left.push_back(pre[pre_i]);
-                pre_i++;
-            }else if(j&gt;i){
-                vin_right.push_back(vin[j]);
-                pre_right.push_back(pre[pre_i]);
-                pre_i++;
-            }
-        }
-        root-&gt;left = reConstructBinaryTree(pre_left,vin_left);
-        root-&gt;right = reConstructBinaryTree(pre_right,vin_right);
-        return root;
-    }
-};</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/02/%E5%89%91%E6%8C%87offer-%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-剑指offer-包含min函数的栈" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/01/%E5%89%91%E6%8C%87offer-%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88/">剑指offer--包含min函数的栈</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/01/%E5%89%91%E6%8C%87offer-%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88/" class="archive-article-date">
-  	<time datetime="2020-05-01T07:36:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h1><blockquote>
-<p>定义栈的数据结构，请在该类型中实现一个能够得到栈中所含最小元素的min函数（时间复杂度应为O（1））。注意：保证测试中不会当栈为空的时候，对栈调用pop()或者min()或者top()方法。</p>
-</blockquote>
-<blockquote>
-<ul>
-<li>求解思路1：设置两个栈结构，一个数据栈（dataStack）用来存放数据元素，另一个最小栈（minStack）来记录数据栈中最小的元素。每当有元素要进栈时先把进栈元素与栈中最小元素（即minStack得栈顶元素）比较，如果进栈元素更小，则把元素压入dataStack和minStack中，否则把要进栈的元素压入dataStack中，minStack压入minStack的栈顶元素。</li>
-</ul>
-</blockquote>
-<pre><code>class Solution {
-public:
-    void push(int value) {       //进栈
-        if(dataStack.empty()){
-            dataStack.push(value);
-            minStack.push(value);
-        }else{
-            if(value&lt;minStack.top()){
-                minStack.push(value);
-            }else{
-                minStack.push(minStack.top());
-            }
-            dataStack.push(value);
-        }
-    }
-    void pop() {                 //出栈
-        dataStack.pop();
-        minStack.pop();
-    }
-    int top() {                  //取栈顶元素
-        return dataStack.top();
-    }
-    int min() {                  //得到栈中最小的元素
-        return minStack.top();
-    }
-private:
-    stack&lt;int&gt; dataStack;        //数据栈
-    stack&lt;int&gt; minStack;         //最小值栈，当数据栈改变（数据进栈或出栈）时记录最小的元素
-};</code></pre><hr>
-<blockquote>
-<ul>
-<li>求解思路2：用一个变量min来记录当前栈中最小的元素。当有元素进栈时，先把要进栈的元素与min比较，如果要进栈的元素更小或相等，则先把min压栈，再把进栈元素压栈，同时更新min变量为进栈元素的值；当有元素要出栈时，如果出栈的元素与min值相等，则先推出栈顶元素，在把栈顶元素赋值给min，在退出栈顶元素（这个时候推出的栈顶元素时保存在栈中的最小的元素值）。</li>
-</ul>
-</blockquote>
-<pre><code>class Solution {
-public:
-    void push(int value) {
-        if(min&gt;=value){
-            if(!dataAndMinStack.empty()) dataAndMinStack.push(min);
-            min = value;
-        }
-        dataAndMinStack.push(value);
-    }
-    void pop() {
-        if(dataAndMinStack.empty) return ;
-        if(dataAndMinStack.size()==1){
-            min = INT_MAX;
-        }else if(min == dataAndMinStack.top()){
-            dataAndMinStack.pop();
-            min = stack.top();
-        }
-        dataAndMinStack.pop();
-    }
-    int top() {
-        return dataAndMinStack.top();
-    }
-    int min() {
-        return min;
-    }
-private:
-    stack&lt;int&gt; dataAndMinStack;
-    int static min = INT_MAX;
-};</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/01/%E5%89%91%E6%8C%87offer-%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-剑指offer-二叉树的深度" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/30/%E5%89%91%E6%8C%87offer-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6/">剑指offer--二叉树的深度</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/30/%E5%89%91%E6%8C%87offer-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6/" class="archive-article-date">
-  	<time datetime="2020-04-30T15:03:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h1><blockquote>
-<p>输入一棵二叉树，求该树的深度。从根结点到叶结点依次经过的结点（含根、叶结点）形成树的一条路径，最长路径的长度为树的深度。</p>
-</blockquote>
-<blockquote>
-<p>本题采用队列和递归两种思路求解</p>
-<ul>
-<li>先介绍用“队列”这种数据结构来求解，利用二叉树深度的过程来统计深度</li>
-</ul>
-<p>1.如果是一颗空树，则返回深度为0<br>2.把树的根节点进队列<br>3.当队列中的数据元素不为空时，一直循环一下操作：队列的队头元素出队列，判断出队列的元素的左孩子是否为空，不为空则进队列，同样再判断有孩子；如果出队列的元素时某一层的最后一个节点，这深度加1。代码如下，仅供参考。</p>
-</blockquote>
-<pre><code>/*
-struct TreeNode {
-    int val;
-    struct TreeNode *left;
-    struct TreeNode *right;
-    TreeNode(int x) :
-            val(x), left(NULL), right(NULL) {
-    }
-};
-*/
-class Solution {
-public:
-    int TreeDepth(TreeNode* pRoot)
-    {
-        //利用队列
-        if(pRoot==NULL) return 0;
-        queue&lt;TreeNode*&gt; nodeQueue;
-        TreeNode *p;
-        TreeNode *q = pRoot;//q变量是用来记录某一层的最右边（最后一个）的结点
-        int deep = 0;
-        nodeQueue.push(pRoot);
-        while(!nodeQueue.empty()){
-            p = nodeQueue.front();
-            nodeQueue.pop();
-            if(p-&gt;left!=NULL) nodeQueue.push(p-&gt;left);
-            if(p-&gt;right!=NULL) nodeQueue.push(p-&gt;right);
-            if(p==q){//判断是否是某一层最右边的结点
-                deep++;
-                q = nodeQueue.back();//记录下一层最右边的结点
-            }
-        }
-        return deep;
-    }
-};</code></pre><hr>
-<blockquote>
-<ul>
-<li>利用递归来求二叉树的深度，递归代码简单，但可能出现内存泄漏的问题</li>
-</ul>
-</blockquote>
-<pre><code>/*
-struct TreeNode {
-    int val;
-    struct TreeNode *left;
-    struct TreeNode *right;
-    TreeNode(int x) :
-            val(x), left(NULL), right(NULL) {
-    }
-};*/
-class Solution {
-public:
-    int TreeDepth(TreeNode* pRoot)
-    { 
-        //递归算法
-        if(pRoot==NULL) return 0;
-        return 1+max(TreeDepth(pRoot-&gt;left),TreeDepth(pRoot-&gt;right));
-    }
-};</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/30/%E5%89%91%E6%8C%87offer-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6/">展开全文 >></a>
         </p>
       
 
