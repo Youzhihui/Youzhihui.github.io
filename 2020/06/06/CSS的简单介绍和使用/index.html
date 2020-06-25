@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Java基础---反射机制下（方法&amp;构造方法） | Hexo</title>
+  <title>CSS的简单介绍和使用 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="反射机制  下 1、操作类中的方法：要想获得类中的方法必须先要得到Class类型，获取方法Method的几种方法（1）Class类型对象.getMethod(&quot;方法名&quot;,Class...参数类型)方法来获取Method类型，返回值是Method类型。可以获取公有的方法（自己类的+父类的）&#x2F;&#x2F;注意：这个方法存在局限性，必须得直到类中方法的名字（2）Class类型对象.getMet">
+  <meta name="description" content="CSS的概念和使用 1、CSS:层叠样式表，给网页进行样式的开发和布局，2、使用CSS样式CSS的声明CSS的选择器CSS的常用模式CSS的盒子模型CSS的定位CSS的布局">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java基础---反射机制下（方法&amp;构造方法）">
-<meta property="og:url" content="http://yoursite.com/2020/05/31/Java%E5%9F%BA%E7%A1%80-%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%E4%B8%8B%EF%BC%88%E6%96%B9%E6%B3%95-%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95%EF%BC%89/index.html">
+<meta property="og:title" content="CSS的简单介绍和使用">
+<meta property="og:url" content="http://yoursite.com/2020/06/06/CSS%E7%9A%84%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D%E5%92%8C%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="反射机制  下 1、操作类中的方法：要想获得类中的方法必须先要得到Class类型，获取方法Method的几种方法（1）Class类型对象.getMethod(&quot;方法名&quot;,Class...参数类型)方法来获取Method类型，返回值是Method类型。可以获取公有的方法（自己类的+父类的）&#x2F;&#x2F;注意：这个方法存在局限性，必须得直到类中方法的名字（2）Class类型对象.getMet">
+<meta property="og:description" content="CSS的概念和使用 1、CSS:层叠样式表，给网页进行样式的开发和布局，2、使用CSS样式CSS的声明CSS的选择器CSS的常用模式CSS的盒子模型CSS的定位CSS的布局">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-05-31T08:48:15.000Z">
-<meta property="article:modified_time" content="2020-05-31T17:07:45.639Z">
+<meta property="article:published_time" content="2020-06-06T03:13:49.000Z">
+<meta property="article:modified_time" content="2020-06-06T03:18:40.369Z">
 <meta property="article:author" content="阿辉">
 <meta name="twitter:card" content="summary">
   
@@ -154,266 +154,30 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Java基础-反射机制下（方法-构造方法）" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-CSS的简单介绍和使用" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Java基础---反射机制下（方法&amp;构造方法）
+      CSS的简单介绍和使用
     </h1>
   
 
         
-        <a href="/2020/05/31/Java%E5%9F%BA%E7%A1%80-%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%E4%B8%8B%EF%BC%88%E6%96%B9%E6%B3%95-%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-05-31T08:48:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-31</time>
+        <a href="/2020/06/06/CSS%E7%9A%84%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D%E5%92%8C%E4%BD%BF%E7%94%A8/" class="archive-article-date">
+  	<time datetime="2020-06-06T03:13:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h5 id="反射机制-下"><a href="#反射机制-下" class="headerlink" title="反射机制  下"></a>反射机制  下</h5><blockquote>
-<p>1、操作类中的方法：要想获得类中的方法必须先要得到Class类型，获取方法Method的几种方法<br>（1）<code>Class类型对象.getMethod(&quot;方法名&quot;,Class...参数类型)</code>方法来获取<code>Method</code>类型，返回值是Method类型。可以获取公有的方法（自己类的+父类的）//注意：这个方法存在局限性，必须得直到类中方法的名字<br>（2）<code>Class类型对象.getMethods()</code>方法获取所有公有的方法（自己类的+父类继承来的），返回值是一个Method数组类型，即<code>Method[]</code>,<br>（3）<code>Class类型对象.getDeclaredMethod(&quot;属性名&quot;，Class...参数类型)</code>，返回值是Method类型，能获得<code>私有</code>的方法,虽然获得了私有的方法但不能直接调用执行<code>method.invoke(person);</code>操作会报<code>IllegalAccessException</code>异常。如果想对私有方法调用执行必须在之前添加代码<code>setAccessible(true)</code>方法告知才可以直接执行方法，即<code>{method.setAccessible(true);method.set(person);}</code>;同样的也可以取得私有方法。<br>（4）<code>Class类型对象.getDeclaredMethods()</code>，返回值是Method类型的数组（Method[]）。//注意<code>getDeclaredMethod(&quot;属性名&quot;，Class...参数类型&quot;)</code>方法和<code>getDeclaredMethods()</code>方法能获取公有的和私有的方法，但是只能获取本类中的方法，不能获取父类中的方法。（如果要想获取父类中的私有的方法，只能先获取父类的Class,再通过父类当中的方法来获取）<br>Method类中的常用方法<br>（1）<code>getModifiers()</code>方法，用来获取方法修饰符（权限+特征）；<br>（2）<code>getReturnType()</code>方法，用来获取返回值数据的Class类型的；<br>（3）<code>getName()</code>方法，用来获取方法的名字<br>（4）<code>getParameterTypes()</code>方法，用来获取方法的参数列表的Class类型；<br>（5）<code>getexceptionTypes()</code>方法，用来获取方法抛出异常的Class类型；</p>
+        <h5 id="CSS的概念和使用"><a href="#CSS的概念和使用" class="headerlink" title="CSS的概念和使用"></a>CSS的概念和使用</h5><blockquote>
+<p>1、CSS:层叠样式表，给网页进行样式的开发和布局，<br>2、使用CSS样式<br>CSS的声明<br>CSS的选择器<br>CSS的常用模式<br>CSS的盒子模型<br>CSS的定位<br>CSS的布局</p>
 </blockquote>
-<pre><code>package testMethod;
-import java.lang.reflect.Method;
-public class Test {
-    public static void main(String[] args) {
-        //获取Person对应的Class
-        Class class1 = Person.class;
-        //通过class1获取其中的方法
-        //通过方法名字定位方法   通过方法参数类型对应的Class来找
-        try {
-            Method method = class1.getMethod(&quot;eat&quot;,String.class);
-            int methodModifiers = method.getModifiers();//获取方法的修饰符（权限+修饰）
-            Class methodNameReturnTyp = method.getReturnType();//获取返回值的数据类型
-            String methodName = method.getName();//获取方法的名字
-            Class[] methodParameterTypes= method.getParameterTypes();//获取方法参数列表的数据类型
-            Class[] methodExceptionTypes = method.getExceptionTypes();//获取方法抛出异常的类型
 
-        } catch (NoSuchMethodException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (SecurityException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-    }
-}</code></pre><blockquote>
-<p>（6）操作方法：调用<code>Object reesult = Method对象.invake(对象,执行方法需要传递的所有参数...)</code>方法让它执行一次，返回值是Object类型</p>
-</blockquote>
-<pre><code>package testMethod;
-import java.lang.reflect.Method;
-public class Test {
-    public static void main(String[] args) {
-        //获取Person对应的Class
-        Class class1 = Person.class;
-        //通过class1获取其中的方法
-        //通过方法名字定位方法   通过方法参数类型对应的Class来找
-        try {
-            Person person = (Person)class1.newInstance();
-            Method method = class1.getMethod(&quot;eat&quot;,String.class);
-            String result = (String)method.invoke(person, &quot;测试&quot;);
-            System.out.println(result);
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-    }
-}</code></pre><blockquote>
-<p>2、操作类中的构造方法（和操作类中的方法基本一致），要想获得类中的构造方法必须先要得到Class类型，获取构造方法的几种方法<br>（1）<code>Class类型对象.getConstructor(Class...参数类型)</code>方法来获取<code>Constructor</code>类型，返回值是Constructor<br>（2）<code>Class类型对象.getConstructors()</code>方法，返回值为<code>Constructor[]</code>类型<br>（3）<code>Class类型对象.getDeclaredConstructor(Class...参数类型)</code>方法，与之前的方法<code>Method</code>类似<br>（4）<code>Class类型对象.getDeclaredConstructors()</code>方法，与之前的方法<code>Method</code>类似<br>操作构造方法：调用<code>Object reesult = Constructor对象.newInstance(执行方法需要传递的所有参数...)</code>方法让它执行一次来创建对象  </p>
-</blockquote>
-<pre><code>package testconstructor;
-public class Person {
-    public Person() {
-        System.out.println(&quot;我是Person无参数构造方法&quot;);
-    }
-    public Person(String s) {
-        System.out.println(&quot;我是Person有String参数的构造方法&quot;);
-
-    }
-}
-package testconstructor;
-import java.lang.reflect.Constructor;
-public class Test {
-
-    public static void main(String[] args) {
-        try {
-            Class class1 = Person.class;
-            Constructor constructor1 = class1.getConstructor();
-            Person person1 = (Person)constructor1.newInstance();//构造方法的名字与类名一致，古不需要写方法名字
-            System.out.println(person1);
-            Constructor constructor2 = class1.getConstructor(String.class);
-            Person person2 = (Person)constructor2.newInstance(&quot;小辉仔&quot;);
-            System.out.println(person2);
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } 
-    }
-}</code></pre><blockquote>
-<p>Constructor类型中的常用方法<br>（1）<code>getModifiers()</code>方法，用来获取构造方法修饰符（权限+特征）；<br>（2）<code>getName()</code>方法，用来获取构造方法的名字<br>（3）<code>getParameterTypes()</code>方法，用来获取构造方法的参数列表的Class类型；<br>（4）<code>getexceptionTypes()</code>方法，用来获取构造方法抛出异常的Class类型；</p>
-</blockquote>
-<h6 id="小任务（利用反射机制：String–-gt-类–-gt-对象）"><a href="#小任务（利用反射机制：String–-gt-类–-gt-对象）" class="headerlink" title="小任务（利用反射机制：String–&gt;类–&gt;对象）"></a>小任务（利用反射机制：String–&gt;类–&gt;对象）</h6><blockquote>
-<p>任务描述：设计一个小工具代替我们自己创建对象的过程，我们只需传递一个字符串，小工具可以帮我们创建一个对象，同时还能将对象内的所有属性赋值</p>
-</blockquote>
-<blockquote>
-<p>代码：</p>
-</blockquote>
-<blockquote>
-<p>两个普通类Question和Person</p>
-</blockquote>
-<pre><code>package ioc;
-
-public class Question {
-    private String title;
-    private String answer;
-
-    public Question() {}
-
-    public Question(String title, String answer) {
-        super();
-        this.title = title;
-        this.answer = answer;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getAnswer() {
-        return answer;
-    }
-
-    public void setAnswer(String answer) {
-        this.answer = answer;
-    }
-
-    public String toString() {
-        return &quot;{&quot;+title+&quot;,&quot;+answer+&quot;}&quot;;
-    }
-}
-package ioc;
-
-public class Person {
-    private String name;
-    private Integer age;//在javaBean中最好写基本类型所对应的包装类
-    private String sex;
-
-    public Person() {}
-    public Person(String name, Integer age, String sex) {
-        super();
-        this.name = name;
-        this.age = age;
-        this.sex = sex;
-    }
-
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
-    public int getAge() {
-        return age;
-    }
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-    public String getSex() {
-        return sex;
-    }
-    public void setSex(String sex) {
-        this.sex = sex;
-    }
-
-    public String toString() {
-        return &quot;{&quot;+name+&quot;,&quot;+age+&quot;,&quot;+sex+&quot;}&quot;;
-    }
-}</code></pre><blockquote>
-<p>工具处理类的核心代码：</p>
-</blockquote>
-<pre><code>package ioc;
-
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.util.Scanner;
-
-public class MySpring {
-
-
-    //设计一个方法  帮我来控制对象的创建
-    //是否有参数？   给一个String类型的字符串（类全名）
-    //是否需要返回值？  返回值是创建的对象  但为了通用性我们返回值为Object
-    public Object getBean(String className) {
-        Object object = null;
-        Scanner input = new Scanner(System.in);
-        System.out.println(&quot;请给&quot;+className+&quot;类的对象赋值&quot;);
-        try {
-            //获取方法传递进来的参数对应的Class
-            Class clazz = Class.forName(className);
-            //通过clazz创建一个对象
-            object = clazz.newInstance();
-            //在这里自动的DI注入   对象中的所有属性值  找寻属性对应的set方法来赋值
-            //找到每一个不同对象的所有set方法    给属性赋值
-            //自己通过拼接字符的方法来处理名字
-            //1.先通过clazz找寻类中的所有私有属性----&gt;获取每一个属性的名字---&gt; set属性
-            Field[] fields = clazz.getDeclaredFields();
-            for(Field field:fields) {
-                //获取属性名
-                String fieldName = field.getName();
-                //1.手动的拼串  拼接属性对应的set方法名  setTitle  setAnswer
-                String firstLetter = fieldName.substring(0,1).toUpperCase();//属性的首字母大写
-                String otherLetter = fieldName.substring(1);//属性除了首字母之外的其他字母
-                StringBuilder setMethodName = new StringBuilder(&quot;set&quot;);
-                setMethodName.append(firstLetter);
-                setMethodName.append(otherLetter);
-                //3.获取field对应的属性类型 ---&gt;找寻set方法时候传递参数用
-                Class fieldClass = field.getType();
-                //4.通过处理好的set方法名  寻找类中的set方法
-                Method setMethod = clazz.getMethod(setMethodName.toString(), fieldClass);
-                //5.找到了setMethod一致性，属性就赋值成功
-                System.out.println(&quot;请给&quot;+fieldName+&quot;属性提供值&quot;);
-                String value = input.nextLine();
-                //需要执行的是属性对应的set方法  给属性赋值
-                //属性的值在这里是用过Scanner接收的，以后可以从文件内（配置文件）读取，基本上全是String类型的
-                //而执行set方法的时候  方法需要的值不一定都是String类型  比如可能是Integer等属性类型的值
-                //如何将所有的String类型的值---&gt;转化为属性类型的值
-                //八个包装类中有七个（除了Char类型）是含有带String的构造方法
-                //可以利用包装类带String的构造方法  属性类型对应的带String参数的构造方法
-                Constructor constructor = fieldClass.getConstructor(String.class);
-                setMethod.invoke(object, constructor.newInstance(value));//值的类型应该是属性的类型
-            }
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        return object;
-    }
-
-}</code></pre><blockquote>
-<p>测试类</p>
-</blockquote>
-<pre><code>package ioc;
-
-public class Test {
-    public static void main(String[] args) {
-        //创建一个Question对象  将对象的创建控制权交由别人处理
-        MySpring spring = new MySpring();
-        Person person = (Person)spring.getBean(&quot;ioc.Person&quot;);
-        System.out.println(person);
-        Question question = (Question)spring.getBean(&quot;ioc.Question&quot;);
-        System.out.println(question);
-
-    }
-}</code></pre>
       
 
       
@@ -492,7 +256,7 @@ public class Test {
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/31/Java%E5%9F%BA%E7%A1%80-%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%E4%B8%8B%EF%BC%88%E6%96%B9%E6%B3%95-%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95%EF%BC%89/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/06/06/CSS%E7%9A%84%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D%E5%92%8C%E4%BD%BF%E7%94%A8/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -506,18 +270,9 @@ public class Test {
   
 <nav id="article-nav">
   
-    <a href="/2020/06/01/Java%E5%9F%BA%E7%A1%80-%E6%B3%A8%E8%A7%A3-%E4%B8%8A%EF%BC%88%E5%88%9D%E5%A7%8B-%E5%85%83%E6%B3%A8%E8%A7%A3-%E8%87%AA%E5%AE%9A%E4%B9%89%EF%BC%89/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Java基础---注解 上（初始+元注解+自定义）
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/05/30/Java%E5%9F%BA%E7%A1%80-%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%E4%B8%8A%EF%BC%88%E7%B1%BB-%E5%8C%85-%E5%B1%9E%E6%80%A7%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Java基础---反射机制 上（类&amp;包&amp;属性）</div>
+    <a href="/2020/06/01/Java%E5%9F%BA%E7%A1%80-%E6%B3%A8%E8%A7%A3-%E4%B8%8B%EF%BC%88%E6%94%BE%E5%B0%84%E8%A7%A3%E6%9E%90%E6%B3%A8%E8%A7%A3%E5%92%8C%E6%B3%A8%E8%A7%A3%E5%BA%94%E7%94%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java基础---注解 下（放射解析注解和注解应用）</div>
       <i class="icon-circle-right"></i>
     </a>
   
