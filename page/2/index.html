@@ -152,6 +152,222 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Java基础-枚举和Runtim" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/28/Java%E5%9F%BA%E7%A1%80-%E6%9E%9A%E4%B8%BE%E5%92%8CRuntim/">Java基础---枚举和Runtime</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/28/Java%E5%9F%BA%E7%A1%80-%E6%9E%9A%E4%B8%BE%E5%92%8CRuntim/" class="archive-article-date">
+  	<time datetime="2020-05-28T06:15:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="枚举类"><a href="#枚举类" class="headerlink" title="枚举类"></a>枚举类</h5><blockquote>
+<p>一个类中的对象认为个数是有限且固定的，可以将每一个对象一一列举出来<br>1、JDK1.5之后才有的枚举类，试试若没有枚举类型的时候，如何手动设计（静态常量  单例模式） Day(类  当作描述星期   7个对象)<br>private 构造方法<br>public static final 属性 = new</p>
+</blockquote>
+<pre><code>package myenum;
+public class Day {//描述星期   7个对象
+    //类似单例模式的思想
+    //构造方法私有
+    private Day() {}
+
+    //所有对象都是属性
+    public static final Day monday = new Day();
+    public static final Day tuesday = new Day();
+    public static final Day wednesday = new Day();
+    public static final Day thursday = new Day();
+    public static final Day firday = new Day();
+    public static final Day saturday = new Day();
+    public static final Day sunday = new Day();
+
+    //一般的属性  一般的方法随便设计
+}</code></pre><blockquote>
+<p>2、JDK1.5版本之后可以直接定义enum类型<br>我们自己定义的每一个enum类型，都会直接默认继承Enum（java.lang包），间接继承Object<br>我们自己定义的enum类型不能再写extends,但是可以实现</p>
+</blockquote>
+<pre><code>package myenum;
+public enum Day {
+    //描述了7个当前类的对象
+    monday,tuesday,wednesday,thuesday,friday,saturday,sunday
+}</code></pre><blockquote>
+</blockquote>
+<pre><code>package myenum;
+public class test {
+    public static void main(String[] args) {
+        MyDay myDay = MyDay.monday;//day类中访问了一个对象   7个
+        Day day = Day.monday;
+        //day ---&gt; 枚举类型的对象   默认继承Object
+        //除了继承自Object类的方法外，还有一些别的方法  证明我们自己创建的enum类型默认继承了Enum
+        //
+        Day[] days = Day.values();
+        for(Day d:days) {
+            System.out.println(d.name()+&quot;--&quot;+d.ordinal());
+        }
+
+        Day d = Day.valueOf(&quot;monday&quot;);
+        System.out.println(d.name()+&quot;--&quot;+d.ordinal());
+    }
+}</code></pre><blockquote>
+<p>Enum类型:<br>1、有两个属性：<code>name</code>–&gt;枚举对象的名字，对应的方法<code>name()</code>获取name属性；ordinal–&gt;枚举对象在类中罗列的顺序  类似index 从0开始，对应<code>ordinal()</code>方法，获取序号<br>2、一些常用的方法：</p>
+<blockquote>
+<p>（1）valueOf()  通过给定的name获取对应的枚举对象<br>（2）values()   获取全部的枚举对象  –&gt; 返回一个数组  Day[]<br>（3）comparTo() 可以比较两个枚举对象 返回值为int类型<br>（4）toString() 由于这个方法没有final修饰  可以覆盖（重写）</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>3、switch内部判断可以用枚举类型</p>
+</blockquote>
+<pre><code>package myenum;
+public enum Day {
+    //描述了7个当前类的对象
+    monday,tuesday,wednesday,thuesday,friday,saturday,sunday
+}</code></pre><blockquote>
+</blockquote>
+<pre><code>package myenum;
+public class test {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.println(&quot;请输入一个星期的英文单词：&quot;);
+        String key = input.nextLine();
+        Day day = Day.valueOf(key);
+        switch(day){//JDK1.5之前  int(byte short) char  JDK1.6 enum  JDK1.7 String
+            case monday:
+                System.out.println(&quot;你输入的是星期一&quot;);
+                break;
+            case tuesday:
+                System.out.println(&quot;你输入的是星期二&quot;);
+                break;
+            case wednesday:
+                System.out.println(&quot;你输入的是星期三&quot;);
+                break;
+            case thuesday:
+                System.out.println(&quot;你输入的是星期四&quot;);
+                break;
+            case firday:
+                System.out.println(&quot;你输入的是星期五&quot;);
+                break;
+            case saturday:
+                System.out.println(&quot;你输入的是星期六&quot;);
+                break;
+            case sunday:
+                System.out.println(&quot;你输入的是星期天&quot;);
+                break;
+            default:
+                System.out.println(&quot;错误&quot;);
+        }
+    }
+}</code></pre><p>4、我们也可以在enum中描述自己的属性和方法</p>
+<blockquote>
+<p>（1）必须在enum类中第一行描述一下枚举的样子，最后需要<code>;</code>结束<br>（2）可以定义自己的属性和方法<br>（3）类创建的过程中  帮我们创建枚举类型的对象，需要给枚举类型提供对应样子的构造方法  构造方法只能<code>private</code>修饰,构造方法可以重载</p>
+</blockquote>
+<pre><code>package myenum;
+    public enum Day {
+        //描述了7个当前类的对象
+        monday(&quot;星期一&quot;,1),tuesday(&quot;星期二&quot;,2),wednesday,thuesday,friday,saturday,sunday;
+        private String name;
+        private int index;
+        private Day(){}
+        private Day(String name, int index){
+            this.name = name;
+            this.index = index;
+        }
+        public String getName(){
+            return this.name;
+        }
+        public void setName(String name){
+            this.name = name;
+        }
+    }</code></pre><h5 id="内存运行机制"><a href="#内存运行机制" class="headerlink" title="内存运行机制"></a>内存运行机制</h5><blockquote>
+<p>内存机制问题:类在哪里创建  对象创建在哪里  继承关系  静态成员  方法执行<br>1、栈内存:创建开始  用完立即回收  <code>StackOverflowErroe</code><br>2、方法区：类 常量 静态 只有一份回收不了<br>3、堆内存：new创建的对象  GarbageCollection垃圾回收器  GC</p>
+</blockquote>
+<h5 id="Runtime类"><a href="#Runtime类" class="headerlink" title="Runtime类"></a>Runtime类</h5><blockquote>
+<p>Runtime类中提供了几个管理内存的方法，Object类中有一个<code>finalize()</code>方法，如果重写这个方法也可以看见对象回收；GC是系统提供的一个线程，有大量的回收算法   </p>
+</blockquote>
+<pre><code>package gc
+public class Person{
+    public Person(){
+        System.out.println(&quot;Person对象被创建啦&quot;);
+    }
+    public void finalize(){
+        System.out.println(&quot;Person对象被回收啦&quot;);
+    }
+}
+package gc
+public class Test{
+    public static void main(){
+        Person p = new Person();
+        try{
+            Thread.sleep(2000);
+        }catch(Exception e){
+
+        }
+        p = null;
+        System.gc();
+    }
+}</code></pre><blockquote>
+<p>使用Runtime中的方法<br><code>maxMemory()</code>;<br><code>totalMemory()</code>;<br><code>freeMemory()</code>;<br>堆内存溢出错误<code>OutOfMemoryError</code>  </p>
+</blockquote>
+<pre><code>package gc
+public class Test{
+    public static void main(){
+        Runtime r = Runtime.getRuntime();
+        long max = r.maxMemory();
+        long total = r.totalMemory();
+        long free = r.freeMemory();
+        System.out.println(max);
+        System.out.println(total);
+        System.out.println(free);
+    }
+}</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/28/Java%E5%9F%BA%E7%A1%80-%E6%9E%9A%E4%B8%BE%E5%92%8CRuntim/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Java基础-策略模式-内部类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1726,116 +1942,6 @@ public:
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/05/04/%E5%89%91%E6%8C%87offer-%E6%9C%80%E5%B0%8F%E7%9A%84K%E4%B8%AA%E6%95%B0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-剑指offer-复杂链表的复制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/03/%E5%89%91%E6%8C%87offer-%E5%A4%8D%E6%9D%82%E9%93%BE%E8%A1%A8%E7%9A%84%E5%A4%8D%E5%88%B6/">剑指offer--复杂链表的复制</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/03/%E5%89%91%E6%8C%87offer-%E5%A4%8D%E6%9D%82%E9%93%BE%E8%A1%A8%E7%9A%84%E5%A4%8D%E5%88%B6/" class="archive-article-date">
-  	<time datetime="2020-05-03T13:38:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h1><blockquote>
-<p>输入一个复杂链表（每个节点中有节点值，以及两个指针，一个指向下一个节点，另一个特殊指针random指向一个随机节点），请对此链表进行深拷贝，并返回拷贝后的头结点。（注意，输出结果中请不要返回参数中的节点引用，否则判题程序会直接返回空）</p>
-</blockquote>
-<blockquote>
-<p>本题求解思路求解：<br>1.复制每个节点，如：复制节点A得到A1，将A1插入节点A后面;<br>2.遍历链表，A1-&gt;random = A-&gt;random-&gt;next，目的是让复制的节点的random指针能正确的指向对应的节点;<br>3.将链表拆分成原链表和复制后的链表。</p>
-</blockquote>
-<pre><code>/*
-struct RandomListNode {
-    int label;
-    struct RandomListNode *next, *random;
-    RandomListNode(int x) :
-            label(x), next(NULL), random(NULL) {
-    }
-};
-*/
-class Solution {
-public:
-    RandomListNode* Clone(RandomListNode* pHead)
-    {
-        if(pHead==NULL) return NULL;
-        RandomListNode *currentNode = pHead;
-        //复制过程
-        while(currentNode){
-            RandomListNode *node = new RandomListNode(currentNode-&gt;label);
-            node-&gt;next = currentNode-&gt;next;
-            currentNode-&gt;next = node;
-            currentNode = node-&gt;next;
-        }
-        currentNode = pHead;
-        //遍历链表过程
-        while(currentNode){
-            RandomListNode *node = currentNode-&gt;next;
-            if(currentNode-&gt;random){
-                node-&gt;random = currentNode-&gt;random-&gt;next;
-            }
-            currentNode = node-&gt;next;
-        }
-        //拆分过程
-        RandomListNode *pCloneHead = pHead-&gt;next;
-        RandomListNode *temp;
-        currentNode = pHead;
-        while(currentNode-&gt;next){
-            temp = currentNode-&gt;next;
-            currentNode-&gt;next = temp-&gt;next;
-            currentNode = temp;
-        }
-        return pCloneHead;
-    }
-};    </code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/03/%E5%89%91%E6%8C%87offer-%E5%A4%8D%E6%9D%82%E9%93%BE%E8%A1%A8%E7%9A%84%E5%A4%8D%E5%88%B6/">展开全文 >></a>
         </p>
       
 
